@@ -1,0 +1,38 @@
+.CreateNewPostCard-div {
+  height: auto;
+  width: 30%;
+  font-family: roboto;
+  background-color: white;
+}
+.CreateNewPostCard-div .CreateNewPostCard-div__topbar {
+  height: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0.625rem;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #000;
+}
+.CreateNewPostCard-div .CreateNewPostCard-div__topbar h1 {
+  font-size: 1.25rem;
+}
+.CreateNewPostCard-div .postBTN {
+  width: 100%;
+  margin-top: 1.25rem;
+  height: 1.875rem;
+  font-family: roboto;
+  font-size: 1rem;
+  background-color: #f0f2f5;
+  border-radius: 5px;
+  color: gray;
+  border: 1px solid gainsboro;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .CreateNewPostCard-div {
+    width: 100%;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=CreateNewPostCard.css.map */

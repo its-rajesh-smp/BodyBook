@@ -1,0 +1,44 @@
+@import "../../../Styles/color";
+.CreateNewPostCard-div {
+  height: auto;
+  width: 30%;
+  font-family: roboto;
+  background-color: white;
+  .CreateNewPostCard-div__topbar {
+    height: torem(30px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: torem(10px);
+    margin-bottom: torem(20px);
+    border-bottom: 1px solid #000;
+    h1 {
+      font-size: torem(20px);
+    }
+  }
+  .postBTN {
+    width: 100%;
+    margin-top: torem(20px);
+    height: torem(30px);
+    font-family: roboto;
+    font-size: torem(16px);
+    background-color: #f0f2f5;
+    border-radius: 5px;
+    color: gray;
+    border: 1px solid gainsboro;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .CreateNewPostCard-div {
+    width: 100%;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

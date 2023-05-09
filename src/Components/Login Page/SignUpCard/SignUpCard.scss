@@ -1,16 +1,5 @@
 @import "../../../Styles/color";
-.blurWrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background-color: #e0e0e040;
-  backdrop-filter: blur(5px);
-}
+
 .SignUpCard-div {
   height: 60%;
   display: flex;
@@ -97,10 +86,7 @@
 }
 /* Tablet */
 @media only screen and (min-device-width: 480px) and (max-device-width: 1200px) {
-  .blurWrapper {
-    align-items: center;
-    .SignUpCard-div {
-      height: 80%;
-    }
+  .SignUpCard-div {
+    height: 80%;
   }
 }

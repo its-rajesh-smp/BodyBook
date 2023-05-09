@@ -1,0 +1,17 @@
+.WhichUser-div {
+  font-family: roboto;
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+.WhichUser-div img {
+  width: 1.875rem;
+}
+.WhichUser-div div .which_userName {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.WhichUser-div div .which_postDate {
+  color: gray;
+  font-size: 0.5625rem;
+}/*# sourceMappingURL=WhichUser.css.map */

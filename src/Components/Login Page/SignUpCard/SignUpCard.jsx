@@ -1,9 +1,10 @@
 import React from 'react';
 import "./SignUpCard.css"
+import BlurWrapper from '../../UI/BlurWrapper/BlurWrapper';
 
 function SignUpCard(props) {
     return (
-        <div className='blurWrapper'>
+        <BlurWrapper>
             <div className=' SignUpCard-div container'>
                 <div>
                     <h1>Sign UP</h1>
@@ -69,7 +70,7 @@ function SignUpCard(props) {
                     </div>
                 </form>
             </div>
-        </div>
+        </BlurWrapper>
     );
 }
 

@@ -1,0 +1,20 @@
+@import "../../../Styles/color";
+.WhichUser-div {
+  font-family: roboto;
+  display: flex;
+  gap: torem(20px);
+  align-items: center;
+  img {
+    width: torem(30px);
+  }
+  div {
+    .which_userName {
+      font-size: torem(12px);
+      font-weight: 500;
+    }
+    .which_postDate {
+      color: gray;
+      font-size: torem(9px);
+    }
+  }
+}

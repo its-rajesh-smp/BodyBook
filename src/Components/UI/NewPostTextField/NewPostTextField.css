@@ -1,0 +1,27 @@
+.NewPostTextField-div {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+.NewPostTextField-div .textArea {
+  border: none;
+  height: 2.5rem;
+  outline: none;
+  word-wrap: break-word;
+  padding: 1.25rem;
+  padding-left: 0px;
+  color: gray;
+}
+.NewPostTextField-div .addPhoto {
+  background-color: rgb(193, 193, 193);
+  height: 100px;
+  border: 2px dashed #f0f2f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.NewPostTextField-div .addPhoto p {
+  font-size: 0.75rem;
+  font-family: roboto;
+  color: gray;
+}/*# sourceMappingURL=NewPostTextField.css.map */

@@ -1,1 +1,8 @@
-/*# sourceMappingURL=HomePage.css.map */
+.HomePage-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Smartphones  */
+/* Tablet *//*# sourceMappingURL=HomePage.css.map */

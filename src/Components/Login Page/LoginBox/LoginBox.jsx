@@ -2,6 +2,7 @@ import React from 'react';
 import "./LoginBox.css"
 
 function LoginBox(props) {
+
     return (
         <div className=' LoginBox-div container '>
             <input type="text" name="" id="" placeholder='Enter Your Phone Number' />

@@ -1,0 +1,16 @@
+@import "../../../../Styles/color";
+.PostBottomBar-div {
+  display: flex;
+  font-family: roboto;
+  font-size: torem(13px);
+  align-items: center;
+  padding: torem(10px) torem(20px);
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  div {
+    display: flex;
+    gap: torem(20px);
+    align-items: center;
+    justify-content: space-between;
+  }
+}

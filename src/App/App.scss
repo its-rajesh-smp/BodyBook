@@ -26,6 +26,9 @@ html {
   html {
     font-size: toper(12);
   }
+  .pageContainer {
+    padding: 5px;
+  }
 }
 /* Tablet */
 @media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {

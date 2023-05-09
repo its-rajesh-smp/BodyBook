@@ -1,7 +1,7 @@
 @import "../../../Styles/color";
 .CreateNewPost-div {
   border-radius: 5px;
-  width: calc(100% - 20px);
+  width: calc(50% - 20px);
   font-family: roboto;
   .CreateNewPost-div__input {
     display: flex;
@@ -32,5 +32,19 @@
       font-size: torem(16px);
       border-radius: 5px;
     }
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .CreateNewPost-div {
+    width: calc(100% - 20px);
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .CreateNewPost-div {
+    width: calc(70% - 20px);
   }
 }

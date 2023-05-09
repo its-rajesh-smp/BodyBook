@@ -1,0 +1,27 @@
+@import "../../../../Styles/color";
+.PostImages-div {
+  padding: torem(10px) torem(20px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: $mygrey;
+  img {
+    width: 40%;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .PostImages-div {
+    img {
+      width: 100%;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

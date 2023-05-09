@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./LoginPage.css"
 import LoginBox from '../../Components/Login Page/LoginBox/LoginBox';
 import SignUpCard from '../../Components/Login Page/SignUpCard/SignUpCard';
@@ -11,7 +11,7 @@ function LoginPage(props) {
                 <h2 className='logo_desc'>Bodybook helps you connect and share with the people in your life.</h2>
             </div>
 
-            {/* <LoginBox /> */}
+            <LoginBox />
 
             <SignUpCard />
         </div>

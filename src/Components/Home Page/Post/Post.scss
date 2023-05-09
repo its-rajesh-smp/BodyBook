@@ -1,0 +1,18 @@
+@import "../../../Styles/color";
+.Post-div {
+  margin-top: torem(15px);
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Post-div {
+    margin-top: torem(10px);
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

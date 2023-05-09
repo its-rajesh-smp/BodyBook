@@ -1,13 +1,16 @@
-.HomePage-div {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.PostContainer-div {
+  width: 50%;
 }
 
-//? Media
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .PostContainer-div {
+    width: 100%;
+  }
 }
 /* Tablet */
 @media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
-}
+  .PostContainer-div {
+    width: 70%;
+  }
+}/*# sourceMappingURL=PostContainer.css.map */

@@ -1,0 +1,12 @@
+.Post-div {
+  margin-top: 0.9375rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Post-div {
+    margin-top: 0.625rem;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=Post.css.map */

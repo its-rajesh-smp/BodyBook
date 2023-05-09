@@ -1,0 +1,41 @@
+@import "../../Styles/color";
+.LoginPage-div {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: gainsboro;
+  height: 100vh;
+  font-family: roboto;
+  .logo {
+    color: blue;
+    font-size: torem(60px);
+  }
+  .logo_desc {
+    font-size: torem(20px);
+  }
+}
+
+//? Media
+/* Smartphones + Tablets  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 1080px) {
+  .LoginPage-div {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    .LoginPage-div__logoContainer {
+      display: flex;
+      padding-top: 20px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo {
+      color: blue;
+      font-size: torem(50px);
+    }
+    .logo_desc {
+      text-align: center;
+      font-size: torem(16px);
+    }
+  }
+}

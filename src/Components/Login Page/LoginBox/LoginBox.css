@@ -1,0 +1,64 @@
+.LoginBox-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 15px;
+  align-items: center;
+  border: 1px solid gainsboro;
+  width: 23%;
+  height: 50%;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px grey;
+  padding: 20px;
+}
+.LoginBox-div input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding: 0px 20px;
+  border-radius: 5px;
+  border: 1px solid #1877f2;
+  outline-color: blue;
+}
+.LoginBox-div button {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+}
+.LoginBox-div .loginBtn {
+  color: white;
+  background-color: #1877f2;
+}
+.LoginBox-div .newAccBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.LoginBox-div .newAccBtn button {
+  width: 50%;
+  color: white;
+  background-color: #42b72a;
+}
+.LoginBox-div p {
+  font-size: 12px;
+  margin-top: 20px;
+  color: blue;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .LoginBox-div {
+    width: 80%;
+    margin-top: 20px;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .LoginBox-div {
+    width: 50%;
+    margin-top: 20px;
+  }
+}
+/* Tablet 2 *//*# sourceMappingURL=LoginBox.css.map */

@@ -1,0 +1,106 @@
+@import "../../../Styles/color";
+.blurWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #e0e0e040;
+  backdrop-filter: blur(5px);
+}
+.SignUpCard-div {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: torem(20px);
+  box-shadow: torem(2px) torem(2px) torem(5px) gray;
+  border-radius: torem(5px);
+  padding: torem(30px);
+  padding-bottom: torem(50px);
+  input {
+    box-sizing: border-box;
+    height: torem(40px);
+    padding-left: torem(5px);
+  }
+  .mobilePassInput {
+    width: 100%;
+    margin-bottom: torem(10px);
+  }
+}
+.formInputDiv {
+  margin-bottom: torem(10px);
+  display: flex;
+  gap: torem(5px);
+  input {
+    width: 50%;
+  }
+}
+.formOptionDiv {
+  margin: torem(20px) 0px;
+  .formOptionDiv__div {
+    display: flex;
+    margin: torem(10px) 0px;
+    gap: torem(5px);
+    select {
+      padding: torem(6px);
+      width: 100%;
+    }
+  }
+}
+
+.formRadioDiv__div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: torem(20px);
+  margin-top: torem(10px);
+  margin-bottom: torem(20px);
+  div {
+    padding: 0px torem(5px);
+    border-radius: torem(2px);
+    border: 1px solid gray;
+    display: flex;
+    align-items: center;
+    gap: torem(20px);
+  }
+}
+.newAccBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    width: 50%;
+    color: white;
+    background-color: $mygreen;
+    border: none;
+    border-radius: torem(5px);
+    width: 50%;
+    height: torem(50px);
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .blurWrapper {
+    align-items: flex-start;
+    height: 100vh;
+    .SignUpCard-div {
+      height: 100%;
+      width: 100%;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1200px) {
+  .blurWrapper {
+    align-items: center;
+    .SignUpCard-div {
+      height: 80%;
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "../../../Styles/color";
+.CreateNewPost-div {
+  border-radius: 5px;
+  width: calc(100% - 20px);
+  font-family: roboto;
+  .CreateNewPost-div__input {
+    display: flex;
+    gap: torem(20px);
+    margin-bottom: torem(20px);
+    img {
+      width: torem(40px);
+    }
+    input {
+      border: none;
+      background-color: gainsboro;
+      border-radius: torem(5px);
+      width: 100%;
+    }
+  }
+  .CreateNewPost-div__btnGrp {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+
+    button {
+      font-family: roboto;
+      width: 100%;
+      font-weight: 500;
+      color: gray;
+      height: torem(40px);
+      border: none;
+      font-size: torem(16px);
+      border-radius: 5px;
+    }
+  }
+}

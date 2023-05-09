@@ -1,0 +1,34 @@
+.CreateNewPost-div {
+  border-radius: 5px;
+  width: calc(100% - 20px);
+  font-family: roboto;
+}
+.CreateNewPost-div .CreateNewPost-div__input {
+  display: flex;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+.CreateNewPost-div .CreateNewPost-div__input img {
+  width: 2.5rem;
+}
+.CreateNewPost-div .CreateNewPost-div__input input {
+  border: none;
+  background-color: gainsboro;
+  border-radius: 0.3125rem;
+  width: 100%;
+}
+.CreateNewPost-div .CreateNewPost-div__btnGrp {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+}
+.CreateNewPost-div .CreateNewPost-div__btnGrp button {
+  font-family: roboto;
+  width: 100%;
+  font-weight: 500;
+  color: gray;
+  height: 2.5rem;
+  border: none;
+  font-size: 1rem;
+  border-radius: 5px;
+}/*# sourceMappingURL=CreateNewPost.css.map */

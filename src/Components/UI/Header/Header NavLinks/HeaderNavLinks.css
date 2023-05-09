@@ -1,0 +1,13 @@
+.HeaderNavLinks-div {
+  font-family: roboto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.HeaderNavLinks-div_navLink {
+  height: 100%;
+  padding: 0.625rem 0.625rem;
+  font-size: 1.875rem;
+  color: gray;
+}/*# sourceMappingURL=HeaderNavLinks.css.map */

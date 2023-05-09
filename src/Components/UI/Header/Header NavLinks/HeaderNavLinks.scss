@@ -1,0 +1,13 @@
+@import "../../../../Styles/color";
+.HeaderNavLinks-div {
+  font-family: roboto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.HeaderNavLinks-div_navLink {
+  height: 100%;
+  padding: torem(10px) torem(10px);
+  font-size: torem(30px);
+  color: gray;
+}

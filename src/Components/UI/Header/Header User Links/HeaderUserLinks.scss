@@ -1,0 +1,20 @@
+@import "../../../../Styles/color";
+.HeaderUserLinks-div {
+  display: flex;
+  align-items: center;
+  gap: torem(10px);
+  justify-self: flex-end;
+  img {
+    width: torem(50px);
+  }
+  .navLink {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: torem(40px);
+    background-color: rgb(192, 191, 191);
+    height: torem(40px);
+    border-radius: 50%;
+    font-size: torem(20px);
+  }
+}

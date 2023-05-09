@@ -1,0 +1,23 @@
+.Header-div {
+  background-color: white;
+  height: 60px;
+  box-shadow: 1px 0px 7px gray;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  padding: 0px 0.625rem;
+}
+.Header-div .logo {
+  font-size: 3.75rem;
+  color: red;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Header-div {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=Header.css.map */

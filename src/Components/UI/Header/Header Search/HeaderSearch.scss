@@ -1,0 +1,36 @@
+@import "../../../../Styles/color";
+.HeaderSearch-div {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+  input {
+    margin-left: torem(5px);
+    font-family: roboto;
+    border: none;
+    height: torem(30px);
+    padding: torem(5px);
+    padding-left: torem(20px);
+    width: torem(300px);
+    outline-color: $myblue;
+    border-radius: torem(50px);
+    box-shadow: 1px 1px 5px gray;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HeaderSearch-div {
+    width: 100%;
+    padding-right: 20px;
+    input {
+      width: 100%;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}
+/* Tablet 2 */
+@media only screen and (min-device-width: 480px) and (max-device-width: 900px) {
+}

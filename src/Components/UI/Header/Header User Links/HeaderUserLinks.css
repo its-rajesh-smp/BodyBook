@@ -1,0 +1,19 @@
+.HeaderUserLinks-div {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  justify-self: flex-end;
+}
+.HeaderUserLinks-div img {
+  width: 3.125rem;
+}
+.HeaderUserLinks-div .navLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  background-color: rgb(192, 191, 191);
+  height: 2.5rem;
+  border-radius: 50%;
+  font-size: 1.25rem;
+}/*# sourceMappingURL=HeaderUserLinks.css.map */

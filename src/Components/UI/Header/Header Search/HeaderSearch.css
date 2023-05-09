@@ -1,0 +1,30 @@
+.HeaderSearch-div {
+  display: flex;
+  align-items: center;
+  justify-self: flex-start;
+}
+.HeaderSearch-div input {
+  margin-left: 0.3125rem;
+  font-family: roboto;
+  border: none;
+  height: 1.875rem;
+  padding: 0.3125rem;
+  padding-left: 1.25rem;
+  width: 18.75rem;
+  outline-color: #1877f2;
+  border-radius: 3.125rem;
+  box-shadow: 1px 1px 5px gray;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HeaderSearch-div {
+    width: 100%;
+    padding-right: 20px;
+  }
+  .HeaderSearch-div input {
+    width: 100%;
+  }
+}
+/* Tablet */
+/* Tablet 2 *//*# sourceMappingURL=HeaderSearch.css.map */

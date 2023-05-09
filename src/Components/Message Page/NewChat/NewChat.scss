@@ -1,0 +1,21 @@
+@import "../../../Styles/color";
+.NewChat-div {
+  display: flex;
+  margin-top: torem(20px);
+  justify-content: space-between;
+  input {
+    font-family: roboto;
+    width: 100%;
+    padding-left: torem(10px);
+    outline: none;
+    border: none;
+  }
+  button {
+    font-size: torem(16px);
+    font-family: roboto;
+    padding: torem(15px);
+    background-color: gainsboro;
+    border: none;
+    border-radius: torem(5px);
+  }
+}

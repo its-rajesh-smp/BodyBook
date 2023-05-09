@@ -1,0 +1,11 @@
+.friendContainer {
+  height: 80vh;
+  display: flex;
+  gap: 0.625rem;
+  overflow: scroll;
+  flex-direction: column;
+}
+
+.friendContainer::-webkit-scrollbar {
+  display: none;
+}/*# sourceMappingURL=FriendContainer.css.map */

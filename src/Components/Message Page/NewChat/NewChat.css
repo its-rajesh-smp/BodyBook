@@ -1,0 +1,20 @@
+.NewChat-div {
+  display: flex;
+  margin-top: 1.25rem;
+  justify-content: space-between;
+}
+.NewChat-div input {
+  font-family: roboto;
+  width: 100%;
+  padding-left: 0.625rem;
+  outline: none;
+  border: none;
+}
+.NewChat-div button {
+  font-size: 1rem;
+  font-family: roboto;
+  padding: 0.9375rem;
+  background-color: gainsboro;
+  border: none;
+  border-radius: 0.3125rem;
+}/*# sourceMappingURL=NewChat.css.map */

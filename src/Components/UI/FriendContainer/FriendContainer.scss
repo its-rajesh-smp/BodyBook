@@ -1,0 +1,11 @@
+@import "../../../Styles/color";
+.friendContainer {
+  height: 80vh;
+  display: flex;
+  gap: torem(10px);
+  overflow: scroll;
+  flex-direction: column;
+}
+.friendContainer::-webkit-scrollbar {
+  display: none;
+}

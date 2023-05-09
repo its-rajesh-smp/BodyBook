@@ -1,6 +1,6 @@
 import React from 'react';
 import "./FriendCircle.css"
-import Friend from '../../UI/Friend/Friend';
+import FriendContainer from '../../UI/FriendContainer/FriendContainer';
 
 function FriendCircle(props) {
     return (
@@ -15,41 +15,5 @@ function FriendCircle(props) {
 
 
 
-function FriendContainer() {
-    return (
-        <div className='friendContainer'>
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-            <Friend />
-        </div>)
-}
 
 export default FriendCircle;

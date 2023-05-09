@@ -17,15 +17,4 @@
     border: none;
     background-color: gainsboro;
   }
-
-  .friendContainer {
-    height: 80vh;
-    display: flex;
-    gap: torem(10px);
-    flex-wrap: wrap;
-    overflow: scroll;
-  }
-}
-.friendContainer::-webkit-scrollbar {
-  display: none;
 }

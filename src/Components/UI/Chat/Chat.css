@@ -1,0 +1,26 @@
+.Chat-div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.Chat-div img {
+  width: 1.875rem;
+}
+.Chat-div p {
+  border-radius: 0.9375rem;
+  background-color: #1877f2;
+  color: white;
+  font-family: roboto;
+  padding: 0.4375rem 1.875rem;
+}
+
+.leftChat {
+  left: 0.625rem;
+  justify-content: flex-start;
+}
+
+.rightChat {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}/*# sourceMappingURL=Chat.css.map */

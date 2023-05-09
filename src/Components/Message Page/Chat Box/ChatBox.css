@@ -1,0 +1,16 @@
+.ChatBox-div {
+  margin-top: 1.25rem;
+  min-height: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3125rem;
+  overflow: scroll;
+  max-height: calc(100% - 10rem);
+}
+
+.ChatBox-div::-webkit-scrollbar {
+  display: none;
+}
+
+/* Smartphones  */
+/* Tablet *//*# sourceMappingURL=ChatBox.css.map */

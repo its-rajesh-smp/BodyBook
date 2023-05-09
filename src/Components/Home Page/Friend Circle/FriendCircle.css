@@ -14,15 +14,4 @@
   border-radius: 5px;
   border: none;
   background-color: gainsboro;
-}
-.FriendCircle-div .friendContainer {
-  height: 80vh;
-  display: flex;
-  gap: 0.625rem;
-  flex-wrap: wrap;
-  overflow: scroll;
-}
-
-.friendContainer::-webkit-scrollbar {
-  display: none;
 }/*# sourceMappingURL=FriendCircle.css.map */

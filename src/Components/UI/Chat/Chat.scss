@@ -1,0 +1,26 @@
+@import "../../../Styles/color";
+.Chat-div {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: torem(5px);
+  img {
+    width: torem(30px);
+  }
+  p {
+    border-radius: torem(15px);
+    background-color: $myblue;
+    color: white;
+    font-family: roboto;
+    padding: torem(7px) torem(30px);
+  }
+}
+
+.leftChat {
+  left: torem(10px);
+  justify-content: flex-start;
+}
+.rightChat {
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+}

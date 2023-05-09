@@ -1,15 +1,17 @@
 import React from 'react';
 import "./HomePage.css"
-import CreateNewPost from '../../Components/Home Page/Create New Post/CreateNewPost';
-import CreateNewPostCard from '../../Components/Home Page/Create New Post Card/CreateNewPostCard';
+
 import PostContainer from '../../Components/Home Page/Post Container/PostContainer';
+import FriendCircle from '../../Components/Home Page/Friend Circle/FriendCircle';
+import { ShowOnDesktop } from '../../Styles/media';
 
 function HomePage(props) {
     return (
         <div className=' HomePage-div pageContainer'>
-            <CreateNewPost />
-            <CreateNewPostCard />
             <PostContainer />
+            <ShowOnDesktop>
+                <FriendCircle />
+            </ShowOnDesktop>
         </div>
     );
 }

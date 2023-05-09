@@ -1,8 +1,25 @@
 .HomePage-div {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 0.4fr;
   flex-direction: column;
-  align-items: center;
+  padding-left: 200px;
+  padding-right: 200px;
+  gap: 15px;
+  position: relative;
 }
 
 /* Smartphones  */
-/* Tablet *//*# sourceMappingURL=HomePage.css.map */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .HomePage-div {
+    display: flex;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .HomePage-div {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}/*# sourceMappingURL=HomePage.css.map */

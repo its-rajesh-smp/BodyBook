@@ -8,9 +8,9 @@ import HomePage from '../Pages/HomePage/HomePage';
 function App(props) {
   return (
     <div className=' App-div '>
-      {/* <Header /> */}
-      <LoginPage />
-      {/* <HomePage /> */}
+      <Header />
+      {/* <LoginPage /> */}
+      <HomePage />
     </div>
   );
 }

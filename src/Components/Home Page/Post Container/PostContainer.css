@@ -1,7 +1,3 @@
-.PostContainer-div {
-  width: 50%;
-}
-
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .PostContainer-div {

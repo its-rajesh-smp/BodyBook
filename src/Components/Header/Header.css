@@ -6,6 +6,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   padding: 0px 0.625rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 .Header-div .logo {
   font-size: 3.75rem;

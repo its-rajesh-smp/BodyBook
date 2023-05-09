@@ -1,0 +1,21 @@
+@import "../../../Styles/color";
+.Friend-div {
+  display: flex;
+  gap: torem(20px);
+  font-family: roboto;
+  font-size: torem(14px);
+  align-items: center;
+  position: relative;
+  img {
+    width: torem(50px);
+  }
+}
+.activeFriend {
+  position: absolute;
+  width: torem(15px);
+  top: torem(32px);
+  left: torem(32px);
+  height: torem(15px);
+  border-radius: 50%;
+  background-color: greenyellow;
+}

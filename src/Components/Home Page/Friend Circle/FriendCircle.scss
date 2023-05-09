@@ -1,0 +1,31 @@
+@import "../../../Styles/color";
+.FriendCircle-div__wrapper {
+  position: sticky;
+  top: torem(70px);
+  height: 80vh;
+}
+
+.FriendCircle-div {
+  input {
+    width: 100%;
+    height: torem(30px);
+    box-sizing: border-box;
+    padding-left: torem(5px);
+    margin-bottom: torem(20px);
+    outline: none;
+    border-radius: 5px;
+    border: none;
+    background-color: gainsboro;
+  }
+
+  .friendContainer {
+    height: 80vh;
+    display: flex;
+    gap: torem(10px);
+    flex-wrap: wrap;
+    overflow: scroll;
+  }
+}
+.friendContainer::-webkit-scrollbar {
+  display: none;
+}

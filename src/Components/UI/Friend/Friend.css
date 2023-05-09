@@ -1,0 +1,21 @@
+.Friend-div {
+  display: flex;
+  gap: 1.25rem;
+  font-family: roboto;
+  font-size: 0.875rem;
+  align-items: center;
+  position: relative;
+}
+.Friend-div img {
+  width: 3.125rem;
+}
+
+.activeFriend {
+  position: absolute;
+  width: 0.9375rem;
+  top: 2rem;
+  left: 2rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+  background-color: greenyellow;
+}/*# sourceMappingURL=Friend.css.map */

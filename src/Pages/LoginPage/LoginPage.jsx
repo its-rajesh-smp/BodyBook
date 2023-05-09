@@ -13,7 +13,7 @@ function LoginPage(props) {
 
             <LoginBox />
 
-            <SignUpCard />
+            {/* <SignUpCard /> */}
         </div>
     );
 }

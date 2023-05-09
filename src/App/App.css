@@ -7,7 +7,9 @@
 html {
   font-size: 100%;
 }
-
+body {
+  background-color: #e0e0e0;
+}
 .pageContainer {
   background-color: #e0e0e0;
   padding: 10px;
@@ -40,4 +42,4 @@ html {
   html {
     font-size: 62.5%;
   }
-}/*# sourceMappingURL=App.css.map */
+} /*# sourceMappingURL=App.css.map */

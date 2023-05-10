@@ -1,0 +1,16 @@
+@import "../../../Styles/color";
+.Notification-div {
+  font-family: roboto;
+  margin-bottom: torem(5px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: torem(12px);
+  button {
+    font-size: torem(12px);
+    font-family: roboto;
+    padding: torem(2px) torem(5px);
+    border: none;
+    border-radius: 2px;
+  }
+}

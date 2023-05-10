@@ -1,0 +1,12 @@
+@import "../../Styles/color";
+.NotificationPage-div {
+  display: flex;
+  flex-direction: column;
+  h1 {
+    text-align: center;
+    padding: torem(15px);
+    font-family: roboto;
+    font-size: torem(16px);
+    color: gray;
+  }
+}

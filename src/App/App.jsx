@@ -6,6 +6,7 @@ import Header from '../Components/Header/Header';
 import HomePage from '../Pages/HomePage/HomePage';
 import MessagePage from '../Pages/MessagePage/MessagePage';
 import ProfilePage from '../Pages/ProfilePage/ProfilePage';
+import NotificationPage from '../Pages/NotificationPage/NotificationPage';
 
 function App(props) {
   return (
@@ -14,7 +15,8 @@ function App(props) {
       {/* <LoginPage /> */}
       {/* <HomePage /> */}
       {/* <MessagePage /> */}
-      <ProfilePage />
+      {/* <ProfilePage /> */}
+      <NotificationPage />
     </div>
   );
 }

@@ -1,0 +1,34 @@
+@import "../../../Styles/color";
+.ProfileInfo-div {
+  display: flex;
+  flex-direction: column;
+  gap: torem(10px);
+  font-family: roboto;
+  font-size: torem(12px);
+  position: sticky;
+  top: 75px;
+  height: fit-content;
+  div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: torem(20px);
+    overflow: hidden;
+    p {
+      i {
+        padding-left: torem(5px);
+        color: $myblue;
+      }
+    }
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfileInfo-div {
+    position: unset;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+}

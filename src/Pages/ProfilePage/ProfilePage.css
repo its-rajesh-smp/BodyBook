@@ -1,1 +1,15 @@
-/*# sourceMappingURL=ProfilePage.css.map */
+.ProfilePage-div .ProfilePage-div__container {
+  margin-top: 0.9375rem;
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 0.9375rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfilePage-div .ProfilePage-div__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+/* Tablet *//*# sourceMappingURL=ProfilePage.css.map */

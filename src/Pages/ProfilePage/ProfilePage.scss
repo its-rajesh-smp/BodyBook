@@ -1,2 +1,23 @@
+@import "../../Styles/color";
 .ProfilePage-div {
+  .ProfilePage-div__container {
+    margin-top: torem(15px);
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    gap: torem(15px);
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfilePage-div {
+    .ProfilePage-div__container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
 }

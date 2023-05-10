@@ -7,46 +7,61 @@
   position: relative;
   .leftSide {
     display: flex;
-    gap: 20px;
+    gap: torem(20px);
     align-items: center;
     img {
-      width: 200px;
+      width: torem(200px);
     }
     div {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      gap: 5px;
+      gap: torem(5px);
       .profileName {
         font-weight: 500;
-        font-size: 50px;
+        font-size: torem(50px);
         i {
-          margin-left: 10px;
+          margin-left: torem(10px);
           color: $myblue;
         }
       }
       .friendCount {
-        font-size: 16px;
+        font-size: torem(16px);
       }
     }
   }
   .rightSide {
     display: flex;
-    gap: 20px;
+    gap: torem(20px);
     position: absolute;
-    right: 10px;
-    bottom: 10px;
+    right: torem(10px);
+    bottom: torem(10px);
     button {
       font-family: roboto;
-      padding: 0px 10px;
-      height: 40px;
+      padding: 0px torem(10px);
+      height: torem(40px);
       border: none;
       font-weight: 500;
-      border-radius: 5px;
+      border-radius: torem(5px);
       &:last-child {
         color: white;
         background-color: $myblue;
       }
     }
+  }
+}
+
+.leftSide_img {
+  display: flex;
+  align-items: center;
+  position: relative;
+  i {
+    font-size: torem(30px);
+    color: $myblue;
+    background-color: gainsboro;
+    border-radius: 50%;
+    position: absolute;
+    padding: torem(5px);
+    bottom: torem(5px);
   }
 }

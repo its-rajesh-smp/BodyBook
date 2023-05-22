@@ -6,6 +6,7 @@
   padding: 0.625rem 1.25rem;
   justify-content: space-between;
   border-bottom: 1px solid gray;
+  margin-top: 20px;
 }
 .PostBottomBar-div div {
   display: flex;

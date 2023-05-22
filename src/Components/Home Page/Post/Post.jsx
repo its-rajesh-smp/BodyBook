@@ -7,6 +7,7 @@ import PostBottomBar from "../../UI/Post/Post Bottom Bar/PostBottomBar";
 import LikeCommentShareBTNGroup from "../../UI/Post/LikeCommentShareBTNGroup/LikeCommentShareBTNGrp";
 
 function Post(props) {
+  console.log(props.postDetails);
   return (
     <div className=" Post-div container ">
       <WhichUser
@@ -14,7 +15,7 @@ function Post(props) {
         userDetails={props.postDetails}
       />
       <PostMassage postMessage={props.postDetails.post} />
-      <PostImages />
+      {props.postDetails.images && <PostImages />}
       <PostBottomBar />
       <LikeCommentShareBTNGroup />
     </div>

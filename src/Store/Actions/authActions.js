@@ -51,7 +51,6 @@ export const fetchUserAct = () => {
             const localIdToken = localStorage.getItem("bodybook")
             if (!localIdToken) { return }
             const { data: authData } = await axios.post(GET_USER, { idToken: localIdToken })
-            console.log(authData);
             const userEmail = authData.users[0].email.replace(".", "").replace("@", "")
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
             dispatch(authUser({ ...authData.users[0], userData }))

@@ -6,9 +6,12 @@ const feedPostsReducer = createSlice({
     reducers: {
         setFeedPosts: (state, action) => {
             state.feedPosts = action.payload
+        },
+        addFeedPosts: (state, action) => {
+            state.feedPosts = [action.payload, ...state.feedPosts]
         }
     }
 })
 
-export const { setFeedPosts } = feedPostsReducer.actions
+export const { setFeedPosts, addFeedPosts } = feedPostsReducer.actions
 export default feedPostsReducer

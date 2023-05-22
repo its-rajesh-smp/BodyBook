@@ -11,15 +11,13 @@ function HomePage(props) {
 
   // FETCH REALTIME POSTS
   useEffect(() => {
-    const unregister = onChildAdded(allPostsRef, (snapshot) => {
+    const removeEventFunction = onChildAdded(allPostsRef, (snapshot) => {
       const newPost = snapshot.val();
       const newPostObj = { ...newPost, id: snapshot.key };
       setAllPosts((p) => [newPostObj, ...p]);
     });
     return () => {
-      // Unregister the listener when the component unmounts
-      // inside unregister we can get access a remove event listener function
-      unregister();
+      removeEventFunction();
     };
   }, []);
 

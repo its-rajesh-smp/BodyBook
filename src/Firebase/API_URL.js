@@ -8,3 +8,7 @@ export const FORGOT_PASSWORD = `https://identitytoolkit.googleapis.com/v1/accoun
 
 
 export const USER = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/users"
+
+
+
+export const ALL_POSTS = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/AllPosts"

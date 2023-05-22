@@ -4,12 +4,14 @@ import MyLayout from "../Layout/MyLayout";
 import MyRoutes from "../Routes/MyRoutes";
 import { useDispatch } from "react-redux";
 import { fetchUserAct } from "../Store/Actions/authActions";
+import { fetchFeedPostsAct } from "../Store/Actions/feedPostsActions";
 
 function App(props) {
   // Fetch User
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchUserAct());
+    dispatch(fetchFeedPostsAct());
   }, []);
 
   return (

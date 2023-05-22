@@ -12,9 +12,14 @@
   padding-bottom: 0.625rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid #000;
+  position: relative;
 }
 .CreateNewPostCard-div .CreateNewPostCard-div__topbar h1 {
   font-size: 1.25rem;
+}
+.CreateNewPostCard-div .CreateNewPostCard-div__topbar h1:last-child {
+  position: absolute;
+  right: 0;
 }
 .CreateNewPostCard-div .postBTN {
   width: 100%;

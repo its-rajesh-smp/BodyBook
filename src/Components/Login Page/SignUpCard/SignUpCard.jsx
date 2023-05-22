@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUpCard.css";
 import BlurWrapper from "../../UI/BlurWrapper/BlurWrapper";
+import { useDispatch } from "react-redux";
+import { createUserAct } from "../../../Store/Actions/authActions";
 
 function SignUpCard(props) {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setSetLastName] = useState("");
+
+  // On Create Account Btn Click
+  const onClickBtnHandeler = (e) => {
+    e.preventDefault();
+    const enteredInput = {
+      name: firstName + " " + lastName,
+      email: email,
+      password: password,
+    };
+    dispatch(createUserAct(enteredInput));
+  };
+
   return (
     <BlurWrapper>
       <div className=" SignUpCard-div container">
@@ -12,18 +31,32 @@ function SignUpCard(props) {
         </div>
         <form>
           <div className="formInputDiv">
-            <input type="text" name="" id="" placeholder="First name" />
-            <input type="text" name="" id="" placeholder="Last name" />
+            <input
+              onChange={(e) => setFirstName(e.target.value)}
+              type="text"
+              name=""
+              id=""
+              placeholder="First name"
+            />
+            <input
+              onChange={(e) => setSetLastName(e.target.value)}
+              type="text"
+              name=""
+              id=""
+              placeholder="Last name"
+            />
           </div>
           <input
-            className="mobileEmailInput"
+            onChange={(e) => setEmail(e.target.value)}
+            className="passwordEmailInput"
             type="text"
             placeholder="Email"
             name=""
             id=""
           />
           <input
-            className="mobileEmailInput"
+            onChange={(e) => setPassword(e.target.value)}
+            className="passwordEmailInput"
             type="text"
             placeholder="New password"
             name=""
@@ -78,8 +111,11 @@ function SignUpCard(props) {
           </div>
 
           <div className="newAccBtn">
-            <button>Create new account</button>
+            <button onClick={onClickBtnHandeler}>Create new account</button>
           </div>
+          <p onClick={props.switchlogin} className="backtoLogin">
+            Back To Login Page?
+          </p>
         </form>
       </div>
     </BlurWrapper>

@@ -13,7 +13,7 @@
   height: 2.5rem;
   padding-left: 0.3125rem;
 }
-.SignUpCard-div .mobileEmailInput {
+.SignUpCard-div .passwordEmailInput {
   width: 100%;
   margin-bottom: 0.625rem;
 }
@@ -71,6 +71,13 @@
   border-radius: 0.3125rem;
   width: 50%;
   height: 3.125rem;
+}
+
+.backtoLogin {
+  margin-top: 0.625rem;
+  font-size: 0.75rem;
+  text-align: center;
+  color: #1877f2;
 }
 
 /* Smartphones  */

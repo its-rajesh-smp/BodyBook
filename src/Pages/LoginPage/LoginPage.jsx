@@ -4,6 +4,12 @@ import LoginBox from "../../Components/Login Page/LoginBox/LoginBox";
 import SignUpCard from "../../Components/Login Page/SignUpCard/SignUpCard";
 
 function LoginPage(props) {
+  // Switch In Between Login & Create Acc
+  const [isLogin, setIslogin] = useState(true);
+  const switchlogin = () => {
+    setIslogin((p) => !p);
+  };
+
   return (
     <div className=" LoginPage-div ">
       <div className="LoginPage-div__logoContainer">
@@ -13,9 +19,9 @@ function LoginPage(props) {
         </h2>
       </div>
 
-      <LoginBox />
+      {isLogin && <LoginBox switchlogin={switchlogin} />}
 
-      {/* <SignUpCard /> */}
+      {!isLogin && <SignUpCard switchlogin={switchlogin} />}
     </div>
   );
 }

@@ -14,7 +14,7 @@
     height: torem(40px);
     padding-left: torem(5px);
   }
-  .mobileEmailInput {
+  .passwordEmailInput {
     width: 100%;
     margin-bottom: torem(10px);
   }
@@ -70,6 +70,12 @@
     width: 50%;
     height: torem(50px);
   }
+}
+.backtoLogin {
+  margin-top: torem(10px);
+  font-size: torem(12px);
+  text-align: center;
+  color: $myblue;
 }
 
 //? Media

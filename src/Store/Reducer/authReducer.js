@@ -8,14 +8,13 @@ const authReducer = createSlice({
         userData: {}
     },
     reducers: {
-        loginUser: () => {
-
-        },
-        fetchUser: () => {
-
+        authUser: (state, action) => {
+            state.isAuth = true
+            state.idToken = action.payload.idToken
+            state.userData = action.payload.userData
         }
     }
 })
 
-export const { loginUser, fetchUser } = authReducer.actions
+export const { authUser } = authReducer.actions
 export default authReducer

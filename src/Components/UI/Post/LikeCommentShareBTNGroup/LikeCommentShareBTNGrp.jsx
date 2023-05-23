@@ -17,7 +17,7 @@ function LikeCommentShareBTNGroup(props) {
     <div className=" LikeCommentShareBTNGroup-div ">
       <button onClick={onLikeBtnClickHandeler}>
         {props.isUserLiked ? (
-          <span style={{ color: "blue" }}>Dislike</span>
+          <span style={{ color: "blue" }}>❤️</span>
         ) : (
           <span>Like</span>
         )}

@@ -19,7 +19,9 @@ function Post(props) {
       />
       <PostMassage postMessage={props.postDetails.post} />
       {props.postDetails.images && <PostImages />}
+
       <PostBottomBar data={props.postDetails} />
+
       <LikeCommentShareBTNGroup
         isUserLiked={isUserLiked}
         data={props.postDetails}

@@ -16,5 +16,18 @@
     height: torem(40px);
     border-radius: 50%;
     font-size: torem(20px);
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      i {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .active {
+      color: $myblue;
+    }
   }
 }

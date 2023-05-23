@@ -7,23 +7,23 @@ function HeaderUserLinks(props) {
   return (
     <div className=" HeaderUserLinks-div ">
       <ShowOnDesktop>
-        <NavLink to={"/messages"}>
-          <div className="navLink">
+        <div className="navLink">
+          <NavLink to={"/messages"}>
             <i className="bx bxs-message-square-dots"></i>
-          </div>
-        </NavLink>
+          </NavLink>
+        </div>
 
-        <NavLink to={"/notification"}>
-          <div className="navLink">
+        <div className="navLink">
+          <NavLink to={"/notification"}>
             <i className="bx bxs-bell "></i>
-          </div>
-        </NavLink>
+          </NavLink>
+        </div>
 
-        <NavLink to={"/"}>
-          <div className="navLink">
+        <div className="navLink">
+          <NavLink to={"/"}>
             <i className="bx bxs-group"></i>
-          </div>
-        </NavLink>
+          </NavLink>
+        </div>
       </ShowOnDesktop>
 
       <NavLink to={"/profile"}>

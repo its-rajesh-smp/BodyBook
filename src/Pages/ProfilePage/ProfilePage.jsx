@@ -28,9 +28,9 @@ function ProfilePage(props) {
 
   return (
     <div className=" ProfilePage-div pageContainer ">
-      <ProfilePageHeader />
+      <ProfilePageHeader userData={userData} />
       <div className="ProfilePage-div__container">
-        <ProfileInfo />
+        <ProfileInfo userData={userData} />
         <PostContainer postsArr={allPosts} />
       </div>
     </div>

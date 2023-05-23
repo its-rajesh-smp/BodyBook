@@ -16,4 +16,17 @@
   height: 2.5rem;
   border-radius: 50%;
   font-size: 1.25rem;
+}
+.HeaderUserLinks-div .navLink a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.HeaderUserLinks-div .navLink a i {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.HeaderUserLinks-div .navLink .active {
+  color: #1877f2;
 }/*# sourceMappingURL=HeaderUserLinks.css.map */

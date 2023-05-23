@@ -1,11 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import authReducer from "../Reducer/authReducer";
-import feedPostsReducer from "../Reducer/feedPostReducer";
+import feedLikeReducer from "../Reducer/feedLikeReducer";
 
 const store = configureStore({
     reducer: {
         authSlice: authReducer.reducer,
-        feedPostsSlice: feedPostsReducer.reducer
+        feedLikeSlice: feedLikeReducer.reducer
     }
 })
 export default store

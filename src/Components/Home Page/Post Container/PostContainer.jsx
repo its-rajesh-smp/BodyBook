@@ -10,7 +10,6 @@ function PostContainer(props) {
       <CreateNewPost />
 
       {props.postsArr.map((post) => {
-        console.log(post);
         return <Post key={Math.random()} postDetails={post} />;
       })}
     </div>

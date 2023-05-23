@@ -1,7 +1,19 @@
 import React from "react";
 import "./ProfilePageHeader.css";
+import { useDispatch } from "react-redux";
+import { logOutUser } from "../../../Store/Reducer/authReducer";
+import { useNavigate } from "react-router-dom";
 
 function ProfilePageHeader(props) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  // ON CLICK LOGOUT
+  const onClickLogoutHandeler = () => {
+    localStorage.clear("bodybook");
+    navigate("/");
+    dispatch(logOutUser());
+  };
+
   return (
     <div className=" ProfilePageHeader-div container">
       <div className="leftSide">
@@ -23,7 +35,7 @@ function ProfilePageHeader(props) {
       <div className="rightSide">
         <button>Add Friend</button>
         <button>Send Message</button>
-        <button>LogOut</button>
+        <button onClick={onClickLogoutHandeler}>LogOut</button>
       </div>
     </div>
   );

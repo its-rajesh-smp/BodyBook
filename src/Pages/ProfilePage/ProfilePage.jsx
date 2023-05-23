@@ -11,6 +11,7 @@ function ProfilePage(props) {
   const [allPosts, setAllPosts] = useState([]);
   const userData = useSelector((state) => state.authSlice.userData);
   const userEmail = userData.email.replace(".", "").replace("@", "");
+
   // FETCH REALTIME POSTS
   useEffect(() => {
     const userRef = ref(database, `UserPosts/${userEmail}`);

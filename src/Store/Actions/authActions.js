@@ -1,7 +1,7 @@
 import axios from "axios"
 import { GET_USER, SIGN_IN, SIGN_UP, USER } from "../../Firebase/API_URL"
 import { authUser } from "../Reducer/authReducer"
-import { setFeedLike } from "../Reducer/feedLikeReducer"
+
 
 
 /* -------------------------------------------------------------------------- */
@@ -34,7 +34,7 @@ export const loginUserAct = (enteredInput) => {
             const userEmail = enteredInput.email.replace(".", "").replace("@", "")
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
             localStorage.setItem("bodybook", authData.idToken)
-            dispatch(setFeedLike(userData.postLikes))
+
             delete userData.postLikes
             dispatch(authUser({ ...authData, userData }))
         } catch (error) {
@@ -56,7 +56,7 @@ export const fetchUserAct = () => {
             const { data: authData } = await axios.post(GET_USER, { idToken: localIdToken })
             const userEmail = authData.users[0].email.replace(".", "").replace("@", "")
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
-            dispatch(setFeedLike(userData.postLikes))
+
             delete userData.postLikes
             dispatch(authUser({ ...authData.users[0], userData }))
         } catch (error) {

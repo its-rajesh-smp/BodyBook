@@ -4,19 +4,17 @@ import { useDispatch } from "react-redux";
 import { onClickLikeAct } from "../../../../Store/Actions/feedLikeActions";
 
 function LikeCommentShareBTNGroup(props) {
-  const dispatch = useDispatch();
-
   /* -------------------------------------------------------------------------- */
   /*                               LIKE BTN CLICK                               */
   /* -------------------------------------------------------------------------- */
   const onLikeBtnClickHandeler = () => {
-    dispatch(
-      onClickLikeAct(
-        props.data.id,
-        props.isUserLiked,
-        props.setIsUserLiked,
-        props.setTotalLikes
-      )
+    onClickLikeAct(
+      props.data.id,
+      props.userEmail,
+      props.data.email,
+      props.isUserLiked,
+      props.setIsUserLiked,
+      props.setTotalLikes
     );
   };
 

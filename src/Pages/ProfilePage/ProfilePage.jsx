@@ -4,15 +4,13 @@ import ProfilePageHeader from "../../Components/Profile Page/Profile Page Header
 import ProfileInfo from "../../Components/Profile Page/Profile Info/ProfileInfo";
 import PostContainer from "../../Components/Home Page/Post Container/PostContainer";
 import { onChildAdded, ref } from "firebase/database";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { database } from "../../Firebase/firestore";
-import { setFeedLike } from "../../Store/Reducer/feedLikeReducer";
 
 function ProfilePage(props) {
   const [allPosts, setAllPosts] = useState([]);
   const userData = useSelector((state) => state.authSlice.userData);
   const userEmail = userData.email.replace(".", "").replace("@", "");
-  const dispatch = useDispatch();
   // FETCH REALTIME POSTS
   useEffect(() => {
     const userRef = ref(database, `UserPosts/${userEmail}`);

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LikeCommentShareBTNGroup.css";
 import { useDispatch } from "react-redux";
 import { onClickLikeAct } from "../../../../Store/Actions/feedLikeActions";
@@ -10,7 +10,14 @@ function LikeCommentShareBTNGroup(props) {
   /*                               LIKE BTN CLICK                               */
   /* -------------------------------------------------------------------------- */
   const onLikeBtnClickHandeler = () => {
-    dispatch(onClickLikeAct(props.data.id));
+    dispatch(
+      onClickLikeAct(
+        props.data.id,
+        props.isUserLiked,
+        props.setIsUserLiked,
+        props.setTotalLikes
+      )
+    );
   };
 
   return (

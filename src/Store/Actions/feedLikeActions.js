@@ -1,26 +1,23 @@
 import axios from "axios"
-import { ALL_POSTS, USER } from "../../Firebase/API_URL"
-import { removeFeedLike, setFeedLike } from "../Reducer/feedLikeReducer"
+import { ALL_POSTS } from "../../Firebase/API_URL"
 
 
 /* -------------------------------------------------------------------------- */
 /*                                ON CLICK LIKE                               */
 /* -------------------------------------------------------------------------- */
-export const onClickLikeAct = (id) => {
+export const onClickLikeAct = (id, isUserLiked, setIsUserLiked, setTotalLikes) => {
     return async (dsispatch, getState) => {
-        const userEmail = getState().authSlice.userData.email.replace(".", "").replace("@", "")
-        const userAllLiked = { ...getState().feedLikeSlice.feedLike }
+        const email = getState().authSlice.userData.email.replace(".", "").replace("@", "")
         try {
-            if (userAllLiked[id]) {
-                await axios.delete(`${USER}/${userEmail}/postLikes/${id}.json`)
-                await axios.delete(`${ALL_POSTS}/${id}/postLikes/${userEmail}.json`)
-                delete userAllLiked[id]
-                dsispatch(removeFeedLike(userAllLiked))
+            if (isUserLiked) {
+                await axios.delete(`${ALL_POSTS}/${id}/likes/${email}.json`)
+                setIsUserLiked(false)
+                setTotalLikes(p => p - 1)
             }
             else {
-                await axios.patch(`${USER}/${userEmail}/postLikes.json`, { [id]: id })
-                await axios.patch(`${ALL_POSTS}/${id}/postLikes.json`, { [userEmail]: userEmail })
-                dsispatch(setFeedLike({ [id]: id }))
+                const { data } = await axios.put(`${ALL_POSTS}/${id}/likes.json`, { [email]: email })
+                setIsUserLiked(true)
+                setTotalLikes(p => p + 1)
             }
         } catch (error) {
             console.log(error);

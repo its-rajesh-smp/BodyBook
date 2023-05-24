@@ -38,6 +38,7 @@ function ProfilePage(props) {
       removeEventFunction();
     };
   }, []);
+
   if (loader) {
     return <h1>LOADING</h1>;
   }

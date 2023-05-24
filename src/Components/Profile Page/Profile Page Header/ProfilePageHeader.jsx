@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./ProfilePageHeader.css";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../../Store/Reducer/authReducer";
 import { useNavigate } from "react-router-dom";
-import { sendFriendReq } from "../../../Store/Actions/friendReqActions";
+import {
+  acceptFriendReq,
+  removeFriend,
+  sendFriendReq,
+} from "../../../Store/Actions/friendReqActions";
+import { database } from "../../../Firebase/firestore";
+import { onChildAdded, onChildChanged, onValue, ref } from "firebase/database";
 
 function ProfilePageHeader(props) {
   const dispatch = useDispatch();
@@ -18,11 +24,33 @@ function ProfilePageHeader(props) {
     : "";
 
   //Is I Send The Friend Request
-  const [isSendedFriendRequest, setIsSendedFriendRequest] = useState(
-    props.userData.getFriendRequest
-      ? props.userData.getFriendRequest[myEmail]
-      : false
-  );
+  const [isSendedFriendRequest, setIsSendedFriendRequest] = useState(false);
+
+  // Need To Accept The Friend Request
+  const [isNeedToAcceptRequest, setIsNeedToAcceptRequest] = useState(false);
+
+  // Is Both Are Friend
+  const [isBothAreFriend, setIsBothAreFriend] = useState(false);
+
+  // FEETCH REALTIME UPDATES
+  useEffect(() => {
+    const userRef = ref(database, `users/${friendEmail}/friends/${myEmail}`);
+    const removeEventFunction = onValue(userRef, (snapshot) => {
+      const friendStatus = snapshot.exportVal();
+      if (friendStatus) {
+        setIsSendedFriendRequest(friendStatus.getRequest);
+        setIsNeedToAcceptRequest(friendStatus.requestSended);
+        setIsBothAreFriend(friendStatus.accept);
+      } else {
+        setIsSendedFriendRequest(false);
+        setIsNeedToAcceptRequest(false);
+        setIsBothAreFriend(false);
+      }
+    });
+    return () => {
+      removeEventFunction();
+    };
+  }, []);
 
   // ON CLICK LOGOUT
   const onClickLogoutHandeler = () => {
@@ -33,12 +61,17 @@ function ProfilePageHeader(props) {
 
   // ON CLICK SEND FRIEND REQ
   const onClickSendFrienReq = () => {
-    sendFriendReq(
-      friendEmail,
-      myEmail,
-      isSendedFriendRequest,
-      setIsSendedFriendRequest
-    );
+    sendFriendReq(friendEmail, myEmail, isSendedFriendRequest);
+  };
+
+  // ON CLICK ACCEPT FRIEND REQ
+  const onAcceptFriendReq = () => {
+    acceptFriendReq(friendEmail, myEmail);
+  };
+
+  // ON CLICK UNFRIEND BTN
+  const onClickUnfriend = () => {
+    removeFriend(friendEmail, myEmail);
   };
 
   return (
@@ -63,10 +96,22 @@ function ProfilePageHeader(props) {
       <div className="rightSide">
         {myEmail !== friendEmail && (
           <>
-            <button onClick={onClickSendFrienReq}>
-              {isSendedFriendRequest ? "Request Sended" : "Add Friend"}
-            </button>
-            <button>Send Message</button>
+            {!isNeedToAcceptRequest && !isBothAreFriend && (
+              <button onClick={onClickSendFrienReq}>
+                {isSendedFriendRequest ? "Request Sended" : "Add Friend"}
+              </button>
+            )}
+
+            {isNeedToAcceptRequest && !isBothAreFriend && (
+              <button onClick={onAcceptFriendReq}>ACCEPT</button>
+            )}
+
+            {isBothAreFriend && (
+              <>
+                <button onClick={onClickUnfriend}>Unfriend</button>
+                <button>Send Message</button>
+              </>
+            )}
           </>
         )}
 

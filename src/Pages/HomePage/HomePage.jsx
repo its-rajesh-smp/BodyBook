@@ -23,7 +23,7 @@ function HomePage(props) {
 
   return (
     <div className=" HomePage-div pageContainer">
-      <PostContainer postsArr={allPosts} />
+      <PostContainer isVisible={true} postsArr={allPosts} />
       <ShowOnDesktop>
         <FriendCircle />
       </ShowOnDesktop>

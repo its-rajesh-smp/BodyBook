@@ -8,11 +8,15 @@ import { database } from "../../Firebase/firestore";
 import axios from "axios";
 import { USER } from "../../Firebase/API_URL";
 import { useParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function ProfilePage(props) {
   const [allPosts, setAllPosts] = useState([]);
   const [personData, setPersonData] = useState({});
   const [loader, setLoader] = useState(true);
+  const myEmail = useSelector((state) =>
+    state.authSlice.userData.email.replace(".", "").replace("@", "")
+  );
 
   // FETCH PERSON
   const param = useParams();
@@ -48,7 +52,7 @@ function ProfilePage(props) {
       <ProfilePageHeader userData={personData} />
       <div className="ProfilePage-div__container">
         <ProfileInfo userData={personData} />
-        <PostContainer postsArr={allPosts} />
+        <PostContainer isVisible={myEmail === userEmail} postsArr={allPosts} />
       </div>
     </div>
   );

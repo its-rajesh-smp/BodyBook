@@ -7,7 +7,7 @@ import CreateNewPost from "../Create New Post/CreateNewPost";
 function PostContainer(props) {
   return (
     <div className=" PostContainer-div ">
-      <CreateNewPost />
+      {props.isVisible && <CreateNewPost />}
 
       {props.postsArr.map((post) => {
         return <Post key={Math.random()} postDetails={post} />;

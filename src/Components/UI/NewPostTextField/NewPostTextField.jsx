@@ -9,9 +9,16 @@ function NewPostTextField(props) {
         className="textArea"
         placeholder="What is going on your mind!"
       ></textarea>
-      <div className="addPhoto">
-        <p>Drag & Drop</p>
-      </div>
+
+      <input
+        onChange={(e) => {
+          props.setImage(e.target.value);
+        }}
+        type="file"
+        className="addPhoto"
+      >
+        {/* <p>Drag & Drop</p> */}
+      </input>
     </div>
   );
 }

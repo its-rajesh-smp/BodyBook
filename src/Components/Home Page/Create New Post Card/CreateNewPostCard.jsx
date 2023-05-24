@@ -10,8 +10,10 @@ function CreateNewPostCard(props) {
   const [postText, setPostText] = useState("");
   const dispatch = useDispatch();
   const currentDate = new Date().toLocaleDateString();
+  const [image, setImage] = useState("");
+
   // ON POST BTN CLICK
-  const onPostBtnHandeler = () => {
+  const onPostBtnHandeler = (e) => {
     dispatch(addNewPostAct(postText));
   };
 
@@ -23,7 +25,9 @@ function CreateNewPostCard(props) {
           <h1 onClick={props.setIsVissible}>X</h1>
         </div>
         <WhichUser date={currentDate} userDetails={props.userDetails} />
-        <NewPostTextField setPostText={setPostText} />
+
+        <NewPostTextField setImage={setImage} setPostText={setPostText} />
+
         <button onClick={onPostBtnHandeler} className="postBTN">
           POST
         </button>

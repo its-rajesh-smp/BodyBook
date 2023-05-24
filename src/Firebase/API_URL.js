@@ -18,3 +18,4 @@ export const USER_POSTS = "https://bodybook-4ef51-default-rtdb.asia-southeast1.f
 
 
 export const SEND_FRIEND_REQ = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/users"
+export const MESSAGE_COLLECTION = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/Messages"

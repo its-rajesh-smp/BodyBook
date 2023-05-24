@@ -12,6 +12,7 @@ function MessagePage(props) {
     state.authSlice.userData.email.replace(".", "").replace("@", "")
   );
   const [myFriends, setMyFriends] = useState([]);
+  const [onClickedFriend, setOnClickedFriend] = useState("");
 
   // FETCH REALTIME FRIENDS
   useEffect(() => {
@@ -21,7 +22,6 @@ function MessagePage(props) {
       if (!person) {
         return;
       }
-      // Filter Myself
       setMyFriends(Object.keys(person));
     });
     return () => {
@@ -35,13 +35,20 @@ function MessagePage(props) {
         <div>
           <div className="container MessagePage-div__friendContainer">
             {myFriends.map((friendName) => {
-              return <MessagePerson key={Math.random()} data={friendName} />;
+              return (
+                <MessagePerson
+                  setOnClickedFriend={setOnClickedFriend}
+                  key={Math.random()}
+                  myEmail={myEmail}
+                  data={friendName}
+                />
+              );
             })}
           </div>
         </div>
       </ShowOnDesktop>
 
-      <MessageBox />
+      <MessageBox myEmail={myEmail} onClickedFriend={onClickedFriend} />
     </div>
   );
 }

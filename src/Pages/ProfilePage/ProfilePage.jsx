@@ -4,7 +4,6 @@ import ProfilePageHeader from "../../Components/Profile Page/Profile Page Header
 import ProfileInfo from "../../Components/Profile Page/Profile Info/ProfileInfo";
 import PostContainer from "../../Components/Home Page/Post Container/PostContainer";
 import { onChildAdded, ref } from "firebase/database";
-import { useSelector } from "react-redux";
 import { database } from "../../Firebase/firestore";
 import axios from "axios";
 import { USER } from "../../Firebase/API_URL";
@@ -13,6 +12,7 @@ import { useParams } from "react-router-dom";
 function ProfilePage(props) {
   const [allPosts, setAllPosts] = useState([]);
   const [personData, setPersonData] = useState({});
+  const [loader, setLoader] = useState(true);
 
   // FETCH PERSON
   const param = useParams();
@@ -21,6 +21,7 @@ function ProfilePage(props) {
     const fetchUser = async () => {
       const { data } = await axios.get(`${USER}/${userEmail}.json`);
       setPersonData(data);
+      setLoader(false);
     };
     fetchUser();
   }, []);
@@ -37,6 +38,9 @@ function ProfilePage(props) {
       removeEventFunction();
     };
   }, []);
+  if (loader) {
+    return <h1>LOADING</h1>;
+  }
 
   return (
     <div className=" ProfilePage-div pageContainer ">

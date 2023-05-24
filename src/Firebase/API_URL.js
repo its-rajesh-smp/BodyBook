@@ -13,3 +13,8 @@ export const USER = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebas
 
 export const ALL_POSTS = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/AllPosts"
 export const USER_POSTS = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/UserPosts"
+
+
+
+
+export const SEND_FRIEND_REQ = "https://bodybook-4ef51-default-rtdb.asia-southeast1.firebasedatabase.app/users"

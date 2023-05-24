@@ -1,17 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProfilePageHeader.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logOutUser } from "../../../Store/Reducer/authReducer";
 import { useNavigate } from "react-router-dom";
+import { sendFriendReq } from "../../../Store/Actions/friendReqActions";
 
 function ProfilePageHeader(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const myEmail = useSelector((state) =>
+    state.authSlice.userData.email.replace(".", "").replace("@", "")
+  );
+
+  const friendEmail = props.userData.email
+    ? props.userData.email.replace(".", "").replace("@", "")
+    : "";
+
+  //Is I Send The Friend Request
+  const [isSendedFriendRequest, setIsSendedFriendRequest] = useState(
+    props.userData.getFriendRequest
+      ? props.userData.getFriendRequest[myEmail]
+      : false
+  );
+
   // ON CLICK LOGOUT
   const onClickLogoutHandeler = () => {
     localStorage.clear("bodybook");
     navigate("/");
     dispatch(logOutUser());
+  };
+
+  // ON CLICK SEND FRIEND REQ
+  const onClickSendFrienReq = () => {
+    sendFriendReq(
+      friendEmail,
+      myEmail,
+      isSendedFriendRequest,
+      setIsSendedFriendRequest
+    );
   };
 
   return (
@@ -32,9 +59,17 @@ function ProfilePageHeader(props) {
           <p className="friendCount">129</p>
         </div>
       </div>
+
       <div className="rightSide">
-        <button>Add Friend</button>
-        <button>Send Message</button>
+        {myEmail !== friendEmail && (
+          <>
+            <button onClick={onClickSendFrienReq}>
+              {isSendedFriendRequest ? "Request Sended" : "Add Friend"}
+            </button>
+            <button>Send Message</button>
+          </>
+        )}
+
         <button onClick={onClickLogoutHandeler}>LogOut</button>
       </div>
     </div>

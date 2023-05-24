@@ -2,8 +2,14 @@ import React from "react";
 import "./HeaderUserLinks.css";
 import { ShowOnDesktop } from "../../../../Styles/media";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function HeaderUserLinks(props) {
+  // Navigate To My Profile
+  const myemail = useSelector((state) =>
+    state.authSlice.userData.email.replace(".", "").replace("@", "")
+  );
+
   return (
     <div className=" HeaderUserLinks-div ">
       <ShowOnDesktop>
@@ -26,7 +32,7 @@ function HeaderUserLinks(props) {
         </div>
       </ShowOnDesktop>
 
-      <NavLink to={"/profile"}>
+      <NavLink to={`/profile/${myemail}`}>
         <img
           src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
           alt=""

@@ -6,16 +6,28 @@ import PostContainer from "../../Components/Home Page/Post Container/PostContain
 import { onChildAdded, ref } from "firebase/database";
 import { useSelector } from "react-redux";
 import { database } from "../../Firebase/firestore";
+import axios from "axios";
+import { USER } from "../../Firebase/API_URL";
+import { useParams } from "react-router-dom";
 
 function ProfilePage(props) {
   const [allPosts, setAllPosts] = useState([]);
-  const userData = useSelector((state) => state.authSlice.userData);
-  const userEmail = userData.email.replace(".", "").replace("@", "");
+  const [personData, setPersonData] = useState({});
+
+  // FETCH PERSON
+  const param = useParams();
+  const userEmail = param.userEmail;
+  useEffect(() => {
+    const fetchUser = async () => {
+      const { data } = await axios.get(`${USER}/${userEmail}.json`);
+      setPersonData(data);
+    };
+    fetchUser();
+  }, []);
 
   // FETCH REALTIME POSTS
   useEffect(() => {
     const userRef = ref(database, `UserPosts/${userEmail}`);
-
     const removeEventFunction = onChildAdded(userRef, (snapshot) => {
       const newPost = snapshot.val();
       const newPostObj = { ...newPost, id: snapshot.key };
@@ -28,9 +40,9 @@ function ProfilePage(props) {
 
   return (
     <div className=" ProfilePage-div pageContainer ">
-      <ProfilePageHeader userData={userData} />
+      <ProfilePageHeader userData={personData} />
       <div className="ProfilePage-div__container">
-        <ProfileInfo userData={userData} />
+        <ProfileInfo userData={personData} />
         <PostContainer postsArr={allPosts} />
       </div>
     </div>

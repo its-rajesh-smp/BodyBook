@@ -9,17 +9,13 @@ export const onClickLikeAct = async (id, email, postUserEmail, isUserLiked, setI
         let postEmail = postUserEmail.replace(".", "").replace("@", "")
         if (isUserLiked) {
             await axios.delete(`${ALL_POSTS}/${id}/likes/${email}.json`)
-            if (postEmail === email) {
-                await axios.delete(`${USER_POSTS}/${email}/${id}/likes/${email}.json`)
-            }
+            await axios.delete(`${USER_POSTS}/${postEmail}/${id}/likes/${email}.json`)
             setIsUserLiked(false)
             setTotalLikes(p => p - 1)
         }
         else {
-            await axios.put(`${ALL_POSTS}/${id}/likes.json`, { [email]: email })
-            if (postEmail === email) {
-                await axios.put(`${USER_POSTS}/${email}/${id}/likes.json`, { [email]: email })
-            }
+            await axios.patch(`${ALL_POSTS}/${id}/likes.json`, { [email]: email })
+            await axios.patch(`${USER_POSTS}/${postEmail}/${id}/likes.json`, { [email]: email })
             setIsUserLiked(true)
             setTotalLikes(p => p + 1)
         }

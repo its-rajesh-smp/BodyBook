@@ -10,11 +10,12 @@
 .CreateNewPost-div .CreateNewPost-div__input img {
   width: 2.5rem;
 }
-.CreateNewPost-div .CreateNewPost-div__input input {
+.CreateNewPost-div .CreateNewPost-div__input div {
   border: none;
   background-color: gainsboro;
   border-radius: 0.3125rem;
   width: 100%;
+  cursor: text;
 }
 .CreateNewPost-div .CreateNewPost-div__btnGrp {
   display: flex;

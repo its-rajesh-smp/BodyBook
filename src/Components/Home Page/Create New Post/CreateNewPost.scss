@@ -6,14 +6,16 @@
     display: flex;
     gap: torem(20px);
     margin-bottom: torem(20px);
+
     img {
       width: torem(40px);
     }
-    input {
+    div {
       border: none;
       background-color: gainsboro;
       border-radius: torem(5px);
       width: 100%;
+      cursor: text;
     }
   }
   .CreateNewPost-div__btnGrp {

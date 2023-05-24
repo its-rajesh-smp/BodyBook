@@ -24,7 +24,8 @@ function CreateNewPost(props) {
           src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
           alt=""
         />
-        <input onClick={onClickInput} type="text" name="" id="" />
+
+        <div onClick={onClickInput}></div>
       </div>
       <div className="CreateNewPost-div__btnGrp">
         <button>Go Live</button>

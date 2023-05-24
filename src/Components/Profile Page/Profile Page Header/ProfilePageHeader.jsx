@@ -115,7 +115,9 @@ function ProfilePageHeader(props) {
           </>
         )}
 
-        <button onClick={onClickLogoutHandeler}>LogOut</button>
+        {myEmail === friendEmail && (
+          <button onClick={onClickLogoutHandeler}>LogOut</button>
+        )}
       </div>
     </div>
   );

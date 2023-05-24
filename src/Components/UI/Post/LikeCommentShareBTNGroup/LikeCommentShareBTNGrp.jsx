@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import "./LikeCommentShareBTNGroup.css";
-import { useDispatch } from "react-redux";
 import { onClickLikeAct } from "../../../../Store/Actions/feedLikeActions";
 
 function LikeCommentShareBTNGroup(props) {
@@ -12,9 +11,7 @@ function LikeCommentShareBTNGroup(props) {
       props.data.id,
       props.userEmail,
       props.data.email,
-      props.isUserLiked,
-      props.setIsUserLiked,
-      props.setTotalLikes
+      props.isUserLiked
     );
   };
 

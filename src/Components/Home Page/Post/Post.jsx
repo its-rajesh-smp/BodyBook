@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Post.css";
 import WhichUser from "../../UI/WhichUser/WhichUser";
 import PostMassage from "../../UI/Post/Post Massage/PostMassage";
@@ -6,6 +6,8 @@ import PostImages from "../../UI/Post/Post Images/PostImages";
 import PostBottomBar from "../../UI/Post/Post Bottom Bar/PostBottomBar";
 import LikeCommentShareBTNGroup from "../../UI/Post/LikeCommentShareBTNGroup/LikeCommentShareBTNGrp";
 import { useSelector } from "react-redux";
+import { onValue, ref } from "firebase/database";
+import { database } from "../../../Firebase/firestore";
 
 function Post(props) {
   // User Email
@@ -14,18 +16,36 @@ function Post(props) {
   );
 
   //is User Liked
-  const [isUserLiked, setIsUserLiked] = useState(
-    props.postDetails.likes
-      ? props.postDetails.likes[userEmail]
-        ? true
-        : false
-      : false
-  );
+  const [isUserLiked, setIsUserLiked] = useState(false);
 
   //TotalLikeCounter
-  const [totalLikes, setTotalLikes] = useState(
-    props.postDetails.likes ? Object.keys(props.postDetails.likes).length : 0
-  );
+  const [totalLikes, setTotalLikes] = useState(0);
+
+  // FEETCH REALTIME UPDATES
+  useEffect(() => {
+    const userRef = ref(database, `AllPosts/${props.postDetails.id}/likes`);
+    const removeEventFunction = onValue(userRef, (snapshot) => {
+      const postData = snapshot.exportVal();
+      // If Now Likes then set 0
+      if (postData === null) {
+        setIsUserLiked(false);
+        setTotalLikes(0);
+      } else {
+        if (postData[userEmail]) {
+          // if me liked that then showing the love
+          setIsUserLiked(true);
+        } else {
+          // else showing not liked
+          setIsUserLiked(false);
+        }
+        // Updating the total likes
+        setTotalLikes(Object.keys(postData).length);
+      }
+    });
+    return () => {
+      removeEventFunction();
+    };
+  }, []);
 
   return (
     <div className=" Post-div container ">
@@ -41,10 +61,8 @@ function Post(props) {
       <PostBottomBar totalLikes={totalLikes} />
 
       <LikeCommentShareBTNGroup
-        setTotalLikes={setTotalLikes}
         userEmail={userEmail}
         isUserLiked={isUserLiked}
-        setIsUserLiked={setIsUserLiked}
         data={props.postDetails}
       />
     </div>

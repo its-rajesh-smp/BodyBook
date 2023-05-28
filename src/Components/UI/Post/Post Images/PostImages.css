@@ -6,7 +6,7 @@
   background-color: #f0f2f5;
 }
 .PostImages-div img {
-  width: 40%;
+  max-width: 50%;
 }
 
 /* Smartphones  */

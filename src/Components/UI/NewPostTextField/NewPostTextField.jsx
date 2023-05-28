@@ -12,7 +12,7 @@ function NewPostTextField(props) {
 
       <input
         onChange={(e) => {
-          props.setImage(e.target.value);
+          props.setImage(e.target.files[0]);
         }}
         type="file"
         className="addPhoto"

@@ -54,9 +54,11 @@ function Post(props) {
         userDetails={props.postDetails}
       />
 
-      <PostMassage postMessage={props.postDetails.post} />
+      {props.postDetails.post !== "" && (
+        <PostMassage postMessage={props.postDetails.post} />
+      )}
 
-      {props.postDetails.images && <PostImages />}
+      {props.postDetails.image && <PostImages data={props.postDetails.image} />}
 
       <PostBottomBar totalLikes={totalLikes} />
 

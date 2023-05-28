@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref } from "firebase/database";
+import { getStorage } from "firebase/storage"
 const firebaseConfig = {
     apiKey: "AIzaSyCtkbi70pKL5bkJhxm8LOTbvUS8Ib36kf0",
     authDomain: "bodybook-4ef51.firebaseapp.com",
@@ -13,8 +14,14 @@ const firebaseConfig = {
 
 
 export const app = initializeApp(firebaseConfig);
+
+// Realtime Posts
 export const database = getDatabase(app);
 export const allPostsRef = ref(database, "AllPosts");
+
+
+// Sotrage
+export const storage = getStorage(app)
 
 
 

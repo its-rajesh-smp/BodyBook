@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CreateNewPostCard.css";
 import BlurWrapper from "../../UI/BlurWrapper/BlurWrapper";
 import WhichUser from "../../UI/WhichUser/WhichUser";
@@ -10,11 +10,11 @@ function CreateNewPostCard(props) {
   const [postText, setPostText] = useState("");
   const dispatch = useDispatch();
   const currentDate = new Date().toLocaleDateString();
-  const [image, setImage] = useState("");
+  const [image, setImage] = useState(null);
 
   // ON POST BTN CLICK
   const onPostBtnHandeler = (e) => {
-    dispatch(addNewPostAct(postText));
+    dispatch(addNewPostAct(postText, image));
   };
 
   return (

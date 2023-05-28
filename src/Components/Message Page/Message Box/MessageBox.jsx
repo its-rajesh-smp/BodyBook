@@ -11,7 +11,6 @@ function MessageBox(props) {
   const friendEmail = props.onClickedFriend;
   const myEmail = props.myEmail;
   const combinedId = generateChatId(myEmail, friendEmail);
-  const [chats, setChats] = useState([]);
 
   // FETCH REALTIME FRIENDS
   useEffect(() => {
@@ -19,7 +18,7 @@ function MessageBox(props) {
     const removeEventFunction = onChildAdded(userRef, (snapshot) => {
       const person = snapshot.val();
       if (person) {
-        setChats((p) => [...p, person]);
+        props.setChats((p) => [...p, person]);
       }
     });
     return () => {
@@ -32,7 +31,7 @@ function MessageBox(props) {
       {friendEmail ? (
         <>
           <Friend data={{ email: friendEmail }} />
-          <ChatBox myEmail={myEmail} chats={chats} />
+          <ChatBox myEmail={myEmail} chats={props.chats} />
           <NewChat myEmail={myEmail} friendEmail={friendEmail} />
         </>
       ) : (

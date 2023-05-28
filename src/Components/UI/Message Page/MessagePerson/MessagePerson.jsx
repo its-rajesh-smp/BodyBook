@@ -4,6 +4,7 @@ function MessagePerson(props) {
   // On Click Person Send Email to Massage Box To Fetch Particular Messages
   const onClickSendEmailhandeler = () => {
     props.setOnClickedFriend(props.data);
+    props.setChats([]);
   };
 
   return (

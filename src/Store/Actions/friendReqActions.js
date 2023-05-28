@@ -1,5 +1,6 @@
 import axios from "axios";
-import { SEND_FRIEND_REQ } from "../../Firebase/API_URL";
+import { MESSAGE_COLLECTION, SEND_FRIEND_REQ } from "../../Firebase/API_URL";
+import generateChatId from "../../Functions/generateChatId";
 
 export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest, setIsSendedFriendRequest) => {
     try {
@@ -24,8 +25,8 @@ export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest,
 
 export const acceptFriendReq = async (friendEmail, myEmail, setIsBothAreFriend) => {
     try {
-        await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: false, getRequest: false, accept: true } })
-        await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { requestSended: false, getRequest: false, accept: true } })
+        await axios.patch(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: false, getRequest: false, accept: true } })
+        await axios.patch(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { requestSended: false, getRequest: false, accept: true } })
 
     } catch (error) {
         console.log(error);
@@ -37,9 +38,10 @@ export const acceptFriendReq = async (friendEmail, myEmail, setIsBothAreFriend) 
 
 export const removeFriend = async (friendEmail, myEmail, setIsBothAreFriend, setIsSendedFriendRequest) => {
     try {
+        const combinedId = generateChatId(myEmail, friendEmail)
         await axios.delete(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`)
         await axios.delete(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`)
-
+        await axios.delete(`${MESSAGE_COLLECTION}/${combinedId}.json`)
     } catch (error) {
         console.log(error);
     }

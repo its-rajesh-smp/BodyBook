@@ -3,7 +3,7 @@ import "./MessagePage.css";
 import MessageBox from "../../Components/Message Page/Message Box/MessageBox";
 import { ShowOnDesktop } from "../../Styles/media";
 import MessagePerson from "../../Components/UI/Message Page/MessagePerson/MessagePerson";
-import { onValue, ref } from "firebase/database";
+import { onChildAdded, onChildChanged, onValue, ref } from "firebase/database";
 import { database } from "../../Firebase/firestore";
 import { useSelector } from "react-redux";
 
@@ -13,16 +13,23 @@ function MessagePage(props) {
   );
   const [myFriends, setMyFriends] = useState([]);
   const [onClickedFriend, setOnClickedFriend] = useState("");
+  // We have to clear the chats wehen we changed our friend thats why i have taken this chat state here
+  const [chats, setChats] = useState([]);
 
   // FETCH REALTIME FRIENDS
   useEffect(() => {
     const userRef = ref(database, `users/${myEmail}/friends`);
     const removeEventFunction = onValue(userRef, (snapshot) => {
       const person = snapshot.val();
-      if (!person) {
+      if (!person || person.accept === false) {
         return;
       }
-      setMyFriends(Object.keys(person));
+
+      // Filtering If Person is Really a friend or not
+      const filtered = Object.keys(person).filter((personObj) => {
+        return person[personObj].accept;
+      });
+      setMyFriends(filtered);
     });
     return () => {
       removeEventFunction();
@@ -37,6 +44,7 @@ function MessagePage(props) {
             {myFriends.map((friendName) => {
               return (
                 <MessagePerson
+                  setChats={setChats}
                   setOnClickedFriend={setOnClickedFriend}
                   key={Math.random()}
                   myEmail={myEmail}
@@ -48,7 +56,12 @@ function MessagePage(props) {
         </div>
       </ShowOnDesktop>
 
-      <MessageBox myEmail={myEmail} onClickedFriend={onClickedFriend} />
+      <MessageBox
+        myEmail={myEmail}
+        setChats={setChats}
+        chats={chats}
+        onClickedFriend={onClickedFriend}
+      />
     </div>
   );
 }

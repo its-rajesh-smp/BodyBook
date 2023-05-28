@@ -10,8 +10,8 @@ export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest,
 
         }
         else {
-            await axios.patch(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: true, getRequest: false, accept: false } })
-            await axios.patch(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { requestSended: false, getRequest: true, accept: false } })
+            await axios.patch(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: true } })
+            await axios.patch(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { getRequest: true } })
 
         }
     } catch (error) {
@@ -25,8 +25,8 @@ export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest,
 
 export const acceptFriendReq = async (friendEmail, myEmail, setIsBothAreFriend) => {
     try {
-        await axios.patch(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: false, getRequest: false, accept: true } })
-        await axios.patch(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { requestSended: false, getRequest: false, accept: true } })
+        await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`, { accept: true })
+        await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`, { accept: true })
 
     } catch (error) {
         console.log(error);

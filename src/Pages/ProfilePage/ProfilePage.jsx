@@ -28,7 +28,8 @@ function ProfilePage(props) {
       setLoader(false);
     };
     fetchUser();
-  }, []);
+    setAllPosts([]);
+  }, [userEmail]);
 
   // FETCH REALTIME POSTS
   useEffect(() => {
@@ -41,7 +42,7 @@ function ProfilePage(props) {
     return () => {
       removeEventFunction();
     };
-  }, []);
+  }, [userEmail]);
 
   if (loader) {
     return <h1>LOADING</h1>;

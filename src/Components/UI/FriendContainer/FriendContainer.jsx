@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from "react";
 import "./FriendContainer.css";
 import Friend from "../Friend/Friend";
-import { onChildAdded, ref } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { database } from "../../../Firebase/firestore";
 import { useSelector } from "react-redux";
 
 export default function FriendContainer(props) {
   const myEmail = useSelector((state) => state.authSlice.userData.email);
+  const heartBeat = useSelector((state) => state.heartBeatSlice.switch);
   const [allUsers, setAllUsers] = useState([]);
 
   // FETCH REALTIME USERS
   useEffect(() => {
     const userRef = ref(database, `users`);
-    const removeEventFunction = onChildAdded(userRef, (snapshot) => {
-      const person = snapshot.val();
-      // Filter Myself
-      setAllUsers((p) => {
-        if (person.email === myEmail) {
-          return p;
+    const removeEventFunction = onValue(userRef, (snapshot) => {
+      const person = Object.values(snapshot.val());
+      const activePerson = person.filter((person) => {
+        const currentTime = new Date().getTime();
+        const personsLastActivityTime = person.lastActive;
+        if (
+          currentTime - personsLastActivityTime <= 10000 &&
+          person.email !== myEmail
+        ) {
+          return true;
         }
-        return [...p, person];
       });
+
+      // Filter Myself
+      setAllUsers(activePerson);
     });
     return () => {
       removeEventFunction();

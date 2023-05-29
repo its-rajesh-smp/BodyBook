@@ -7,4 +7,5 @@
   flex-direction: column;
   overflow-y: scroll;
   max-height: 50%;
+  position: relative;
 }/*# sourceMappingURL=CommentContainer.css.map */

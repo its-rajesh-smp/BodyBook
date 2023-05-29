@@ -1,0 +1,16 @@
+.AddComment-div {
+  display: flex;
+  gap: 5px;
+  position: absolute;
+  width: calc(100% - 70px);
+  top: 0px;
+  padding: 20px;
+  background-color: white;
+}
+.AddComment-div input {
+  padding: 10px 0px;
+  width: 100%;
+}
+.AddComment-div button {
+  padding: 10px 15px;
+}/*# sourceMappingURL=AddComment.css.map */

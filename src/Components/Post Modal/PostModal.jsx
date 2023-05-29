@@ -23,7 +23,10 @@ function PostModal(props) {
 
         {props.data.image && <PostImages data={props.data.image} />}
 
-        <PostBottomBar totalLikes={props.totalLikes} />
+        <PostBottomBar
+          totalComments={props.totalComments}
+          totalLikes={props.totalLikes}
+        />
       </div>
       <CommentContainer data={props.data} />
     </div>

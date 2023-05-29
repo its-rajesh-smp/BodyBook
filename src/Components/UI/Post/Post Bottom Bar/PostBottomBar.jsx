@@ -7,7 +7,7 @@ function PostBottomBar(props) {
       <p>{props.totalLikes}</p>
       <div>
         <p>
-          <span>7</span> comments
+          <span>{props.totalComments}</span> comments
         </p>
         <p>
           <span>7</span> shares

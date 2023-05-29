@@ -25,17 +25,24 @@ function Post(props) {
   //TotalLikeCounter
   const [totalLikes, setTotalLikes] = useState(0);
 
+  //TotalCommentCounter
+  const [totalComments, setTotalComments] = useState(0);
+
   // FEETCH REALTIME UPDATES
   useEffect(() => {
-    const userRef = ref(database, `AllPosts/${props.postDetails.id}/likes`);
+    const userRef = ref(database, `AllPosts/${props.postDetails.id}`);
     const removeEventFunction = onValue(userRef, (snapshot) => {
-      const postData = snapshot.exportVal();
-      // If Now Likes then set 0
-      if (postData === null) {
+      const postData = snapshot.val();
+      const postLikes = postData.likes;
+      const postComment = postData.comments;
+      console.log(postComment);
+      //! Setting Likes
+      if (!postLikes) {
+        // If No Likes then set 0
         setIsUserLiked(false);
         setTotalLikes(0);
       } else {
-        if (postData[userEmail]) {
+        if (postLikes[userEmail]) {
           // if me liked that then showing the love
           setIsUserLiked(true);
         } else {
@@ -43,7 +50,13 @@ function Post(props) {
           setIsUserLiked(false);
         }
         // Updating the total likes
-        setTotalLikes(Object.keys(postData).length);
+        setTotalLikes(Object.keys(postLikes).length);
+      }
+      //! Setting Comments
+      if (!postComment) {
+        setTotalComments(0);
+      } else {
+        setTotalComments(Object.keys(postComment).length);
       }
     });
     return () => {
@@ -64,7 +77,7 @@ function Post(props) {
 
       {props.postDetails.image && <PostImages data={props.postDetails.image} />}
 
-      <PostBottomBar totalLikes={totalLikes} />
+      <PostBottomBar totalLikes={totalLikes} totalComments={totalComments} />
 
       <LikeCommentShareBTNGroup
         userEmail={userEmail}
@@ -75,6 +88,7 @@ function Post(props) {
 
       {showComment && (
         <PostModal
+          totalComments={totalComments}
           setShowComment={setShowComment}
           data={props.postDetails}
           totalLikes={totalLikes}

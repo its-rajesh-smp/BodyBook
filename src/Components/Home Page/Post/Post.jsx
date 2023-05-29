@@ -8,12 +8,16 @@ import LikeCommentShareBTNGroup from "../../UI/Post/LikeCommentShareBTNGroup/Lik
 import { useSelector } from "react-redux";
 import { onValue, ref } from "firebase/database";
 import { database } from "../../../Firebase/firestore";
+import PostModal from "../../Post Modal/PostModal";
 
 function Post(props) {
   // User Email
   const userEmail = useSelector((state) =>
     state.authSlice.userData.email.replace(".", "").replace("@", "")
   );
+
+  // Show Comment
+  const [showComment, setShowComment] = useState(false);
 
   //is User Liked
   const [isUserLiked, setIsUserLiked] = useState(false);
@@ -66,7 +70,16 @@ function Post(props) {
         userEmail={userEmail}
         isUserLiked={isUserLiked}
         data={props.postDetails}
+        setShowComment={setShowComment}
       />
+
+      {showComment && (
+        <PostModal
+          setShowComment={setShowComment}
+          data={props.postDetails}
+          totalLikes={totalLikes}
+        />
+      )}
     </div>
   );
 }

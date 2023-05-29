@@ -15,6 +15,13 @@ function LikeCommentShareBTNGroup(props) {
     );
   };
 
+  /* -------------------------------------------------------------------------- */
+  /*                            ON CLICK COMMENT BTN                            */
+  /* -------------------------------------------------------------------------- */
+  const onClickCommentBtnHandeler = () => {
+    props.setShowComment((p) => !p);
+  };
+
   return (
     <div className=" LikeCommentShareBTNGroup-div ">
       <button onClick={onLikeBtnClickHandeler}>
@@ -24,7 +31,7 @@ function LikeCommentShareBTNGroup(props) {
           <span>Like</span>
         )}
       </button>
-      <button>Comment</button>
+      <button onClick={onClickCommentBtnHandeler}>Comment</button>
       <button>Share</button>
     </div>
   );

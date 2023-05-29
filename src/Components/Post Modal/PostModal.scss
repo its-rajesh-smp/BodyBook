@@ -1,0 +1,29 @@
+.PostModal-div {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  top: 0;
+  left: 0;
+  background-color: rgba(128, 128, 128, 0.419);
+  backdrop-filter: blur(5px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  justify-content: center;
+
+  .PostModal-div__container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+    width: 50%;
+    position: relative;
+    .bx-x {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      font-size: 30px;
+    }
+  }
+}

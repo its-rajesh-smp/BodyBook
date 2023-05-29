@@ -1,0 +1,10 @@
+.CommentContainer-div {
+  padding: 20px;
+  border-radius: 10px;
+  background-color: white;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  max-height: 50%;
+}

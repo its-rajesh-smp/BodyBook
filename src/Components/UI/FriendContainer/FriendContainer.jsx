@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 
 export default function FriendContainer(props) {
   const myEmail = useSelector((state) => state.authSlice.userData.email);
-  const heartBeat = useSelector((state) => state.heartBeatSlice.switch);
   const [allUsers, setAllUsers] = useState([]);
 
   // FETCH REALTIME USERS
@@ -15,6 +14,8 @@ export default function FriendContainer(props) {
     const userRef = ref(database, `users`);
     const removeEventFunction = onValue(userRef, (snapshot) => {
       const person = Object.values(snapshot.val());
+
+      // Filter Myself With Inactive Persons
       const activePerson = person.filter((person) => {
         const currentTime = new Date().getTime();
         const personsLastActivityTime = person.lastActive;
@@ -26,7 +27,6 @@ export default function FriendContainer(props) {
         }
       });
 
-      // Filter Myself
       setAllUsers(activePerson);
     });
     return () => {

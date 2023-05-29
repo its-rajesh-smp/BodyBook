@@ -6,17 +6,7 @@ import AddComment from "../Add Comment/AddComment";
 function CommentContainer(props) {
   return (
     <div className=" CommentContainer-div ">
-      <AddComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
-      <PostComment />
+      <AddComment data={props.data} />
     </div>
   );
 }

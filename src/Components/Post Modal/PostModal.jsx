@@ -25,7 +25,7 @@ function PostModal(props) {
 
         <PostBottomBar totalLikes={props.totalLikes} />
       </div>
-      <CommentContainer />
+      <CommentContainer data={props.data} />
     </div>
   );
 }

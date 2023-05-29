@@ -2,11 +2,13 @@ import React, { useEffect } from "react";
 import "./App.css";
 import MyLayout from "../Layout/MyLayout";
 import MyRoutes from "../Routes/MyRoutes";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { fetchUserAct } from "../Store/Actions/authActions";
 import { heartBeatAction } from "../Store/Actions/heartBeatAction";
+import Alert from "../Components/Alert/Alert";
 
 function App(props) {
+  const isAlert = useSelector((state) => state.alertSlice);
   // Fetch User
   const dispatch = useDispatch();
   useEffect(() => {
@@ -18,6 +20,7 @@ function App(props) {
 
   return (
     <div className=" App-div ">
+      {isAlert.isAlert && <Alert />}
       <MyLayout />
       <MyRoutes />
     </div>

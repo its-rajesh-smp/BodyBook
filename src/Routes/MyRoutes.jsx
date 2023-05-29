@@ -6,6 +6,7 @@ import MessagePage from "../Pages/MessagePage/MessagePage";
 import ProfilePage from "../Pages/ProfilePage/ProfilePage";
 import NotificationPage from "../Pages/NotificationPage/NotificationPage";
 import { useSelector } from "react-redux";
+import { memo } from "react";
 
 function MyRoutes(props) {
   const isAuth = useSelector((state) => state.authSlice.isAuth);
@@ -28,4 +29,4 @@ function MyRoutes(props) {
   );
 }
 
-export default MyRoutes;
+export default memo(MyRoutes);

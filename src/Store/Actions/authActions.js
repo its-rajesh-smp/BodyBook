@@ -2,6 +2,7 @@ import axios from "axios"
 import { GET_USER, SIGN_IN, SIGN_UP, USER } from "../../Firebase/API_URL"
 import { authUser } from "../Reducer/authReducer"
 import { heartBeatAction } from "./heartBeatAction"
+import { setAlert } from "../Reducer/alertReducer"
 
 
 
@@ -40,6 +41,11 @@ export const loginUserAct = (enteredInput) => {
             dispatch(authUser({ ...authData, userData }))
         } catch (error) {
             console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: "No User",
+                color: "red"
+            }))
         }
     }
 }

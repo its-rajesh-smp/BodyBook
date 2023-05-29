@@ -15,6 +15,8 @@ export default function FriendContainer(props) {
     const removeEventFunction = onValue(userRef, (snapshot) => {
       const person = Object.values(snapshot.val());
 
+      console.log(person);
+
       // Filter Myself With Inactive Persons
       const activePerson = person.filter((person) => {
         const currentTime = new Date().getTime();
@@ -37,7 +39,7 @@ export default function FriendContainer(props) {
   return (
     <div className={`friendContainer`}>
       {allUsers.map((person) => {
-        return <Friend key={Math.random()} data={person} />;
+        return <Friend key={person.name} data={person} />;
       })}
     </div>
   );

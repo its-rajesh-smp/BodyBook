@@ -27,6 +27,7 @@ function Post(props) {
 
   //TotalCommentCounter
   const [totalComments, setTotalComments] = useState(0);
+  const [commentArr, setCommentArr] = useState([]);
 
   // FEETCH REALTIME UPDATES
   useEffect(() => {
@@ -35,7 +36,7 @@ function Post(props) {
       const postData = snapshot.val();
       const postLikes = postData.likes;
       const postComment = postData.comments;
-      console.log(postComment);
+
       //! Setting Likes
       if (!postLikes) {
         // If No Likes then set 0
@@ -55,8 +56,16 @@ function Post(props) {
       //! Setting Comments
       if (!postComment) {
         setTotalComments(0);
+        setCommentArr([]);
       } else {
         setTotalComments(Object.keys(postComment).length);
+        setCommentArr((p) => {
+          const newCommentArr = Object.keys(postComment).map((commentId) => {
+            return { ...postComment[commentId], commentId: commentId };
+          });
+          newCommentArr.reverse();
+          return newCommentArr;
+        });
       }
     });
     return () => {
@@ -92,6 +101,7 @@ function Post(props) {
           setShowComment={setShowComment}
           data={props.postDetails}
           totalLikes={totalLikes}
+          commentArr={commentArr}
         />
       )}
     </div>

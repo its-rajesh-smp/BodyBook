@@ -4,12 +4,14 @@ import WhichUser from "../../WhichUser/WhichUser";
 
 function PostComment(props) {
   const userDetails = { name: "rajesh" };
-  const date = new Date().toLocaleString();
 
   return (
     <div className=" PostComment-div ">
-      <WhichUser userDetails={userDetails} date={date} />
-      <p></p>
+      <WhichUser
+        userDetails={{ name: props.data.email }}
+        date={props.data.date}
+      />
+      <p>{props.data.message}</p>
     </div>
   );
 }

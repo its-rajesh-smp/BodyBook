@@ -28,7 +28,7 @@ function PostModal(props) {
           totalLikes={props.totalLikes}
         />
       </div>
-      <CommentContainer data={props.data} />
+      <CommentContainer commentArr={props.commentArr} data={props.data} />
     </div>
   );
 }

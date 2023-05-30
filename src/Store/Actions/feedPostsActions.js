@@ -2,6 +2,7 @@ import axios from "axios"
 import { ALL_POSTS, USER_POSTS } from "../../Firebase/API_URL"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 import { storage } from "../../Firebase/firestore"
+import { setAlert } from "../Reducer/alertReducer"
 
 /* -------------------------------------------------------------------------- */
 /*                                ADD NEW POST                                */
@@ -31,6 +32,11 @@ export const addNewPostAct = (post, image) => {
 
         } catch (error) {
             console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
         }
     }
 }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { USER } from "../../Firebase/API_URL";
 import { setHeartBeat } from "../Reducer/heartBeatReducer";
+import { setAlert } from "../Reducer/alertReducer";
 
 export const heartBeatAction = () => {
     return async (dispatch, getState) => {
@@ -12,6 +13,11 @@ export const heartBeatAction = () => {
             }
         } catch (error) {
             console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
         }
     }
 }

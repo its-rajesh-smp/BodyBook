@@ -20,6 +20,11 @@ export const createUserAct = (enteredInput) => {
             dispatch(authUser({ ...authData, userData }))
         } catch (error) {
             console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
         }
     }
 }
@@ -43,7 +48,7 @@ export const loginUserAct = (enteredInput) => {
             console.log(error);
             dispatch(setAlert({
                 type: "error",
-                message: "No User",
+                message: error.response.data.error.message,
                 color: "red"
             }))
         }
@@ -64,11 +69,15 @@ export const fetchUserAct = () => {
             const userEmail = authData.users[0].email.replace(".", "").replace("@", "")
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
             dispatch(heartBeatAction())
-
             delete userData.postLikes
             dispatch(authUser({ ...authData.users[0], userData }))
         } catch (error) {
             console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
         }
     }
 }

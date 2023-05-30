@@ -1,6 +1,7 @@
 import axios from "axios";
 import { MESSAGE_COLLECTION, SEND_FRIEND_REQ } from "../../Firebase/API_URL";
 import generateChatId from "../../Functions/generateChatId";
+import { setAlert } from "../Reducer/alertReducer";
 
 export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest, setIsSendedFriendRequest) => {
     try {
@@ -16,6 +17,11 @@ export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest,
         }
     } catch (error) {
         console.log(error);
+        dispatch(setAlert({
+            type: "error",
+            message: error.response.data.error.message,
+            color: "red"
+        }))
     }
 }
 
@@ -30,6 +36,11 @@ export const acceptFriendReq = async (friendEmail, myEmail, setIsBothAreFriend) 
 
     } catch (error) {
         console.log(error);
+        dispatch(setAlert({
+            type: "error",
+            message: error.response.data.error.message,
+            color: "red"
+        }))
     }
 
 }
@@ -44,5 +55,10 @@ export const removeFriend = async (friendEmail, myEmail, setIsBothAreFriend, set
         await axios.delete(`${MESSAGE_COLLECTION}/${combinedId}.json`)
     } catch (error) {
         console.log(error);
+        dispatch(setAlert({
+            type: "error",
+            message: error.response.data.error.message,
+            color: "red"
+        }))
     }
 }

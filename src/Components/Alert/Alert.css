@@ -8,7 +8,7 @@
   justify-content: flex-end;
   height: 10vh;
   animation-name: showAnimatedAlert;
-  animation-duration: 2s;
+  animation-duration: 1s;
   animation-fill-mode: both;
 }
 .Alert__div .Alert__div__conainer {
@@ -21,7 +21,6 @@
   gap: 20px;
   font-family: roboto;
   font-size: 20px;
-  background-color: red;
   align-items: center;
   font-weight: 600;
   border-radius: 10px;

@@ -1,5 +1,6 @@
 import axios from "axios"
 import { ALL_POSTS, USER_POSTS } from "../../Firebase/API_URL"
+import { setAlert } from "../Reducer/alertReducer"
 
 /* -------------------------------------------------------------------------- */
 /*                                ON CLICK LIKE                               */
@@ -20,6 +21,11 @@ export const onClickLikeAct = async (id, email, postUserEmail, isUserLiked) => {
         }
     } catch (error) {
         console.log(error);
+        dispatch(setAlert({
+            type: "error",
+            message: error.response.data.error.message,
+            color: "red"
+        }))
     }
 
 } 

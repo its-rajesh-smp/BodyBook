@@ -1,5 +1,6 @@
 import axios from "axios";
-import { ALL_POSTS, USER, USER_POSTS } from "../../Firebase/API_URL";
+import { ALL_POSTS, USER_POSTS } from "../../Firebase/API_URL";
+import { setAlert } from "../Reducer/alertReducer";
 
 export const addCommentAct = (message, postData) => {
     return async (dispatch, getState) => {
@@ -11,6 +12,11 @@ export const addCommentAct = (message, postData) => {
             await axios.put(`${USER_POSTS}/${userEmail}/${postId}/comments/${data.name}.json`, { message: message, date: new Date().toLocaleString(), email: myEmail })
         } catch (error) {
             console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
         }
     }
 }

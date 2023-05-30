@@ -5,7 +5,7 @@ import FriendCircle from "../../Components/Home Page/Friend Circle/FriendCircle"
 import { ShowOnDesktop } from "../../Styles/media";
 import { onChildAdded } from "firebase/database";
 import { allPostsRef } from "../../Firebase/firestore";
-
+import PostContainerSkeleton from "../../Skeleton/Skeleton";
 function HomePage(props) {
   const [allPosts, setAllPosts] = useState([]);
 
@@ -23,7 +23,11 @@ function HomePage(props) {
 
   return (
     <div className=" HomePage-div pageContainer">
-      <PostContainer isVisible={true} postsArr={allPosts} />
+      {allPosts.length === 0 ? (
+        <PostContainerSkeleton />
+      ) : (
+        <PostContainer isVisible={true} postsArr={allPosts} />
+      )}
       <ShowOnDesktop>
         <FriendCircle />
       </ShowOnDesktop>

@@ -1,3 +1,4 @@
+@import "../../Styles/color";
 .PostModal-div {
   position: fixed;
   width: 100vw;
@@ -10,20 +11,38 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: torem(5px);
   justify-content: center;
 
   .PostModal-div__container {
-    padding: 20px;
-    border-radius: 10px;
+    padding: torem(20px);
+    border-radius: torem(10px);
     background-color: white;
     width: 50%;
     position: relative;
     .bx-x {
       position: absolute;
-      right: 10px;
-      top: 10px;
-      font-size: 30px;
+      right: torem(10px);
+      top: torem(10px);
+      font-size: torem(30px);
+    }
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .PostModal-div {
+    .PostModal-div__container {
+      width: 90%;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .PostModal-div {
+    .PostModal-div__container {
+      width: 70%;
     }
   }
 }

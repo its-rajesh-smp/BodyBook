@@ -1,0 +1,12 @@
+@import "../Styles/color";
+.PostContainerSkeleton-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.PostSkeleton-div__skeleton {
+  background-color: white;
+  padding: 20px;
+  margin-top: torem(15px);
+  border-radius: 10px;
+}

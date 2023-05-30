@@ -1,12 +1,33 @@
 .CommentContainer-div {
-  padding: 20px;
-  border-radius: 10px;
+  border-radius: 0.625rem;
+  padding: 1.25rem;
   background-color: white;
   width: 50%;
   display: flex;
+  gap: 1px;
   flex-direction: column;
   overflow-y: scroll;
   min-height: 5%;
   max-height: 50%;
   position: relative;
+}
+
+.CommentContainer-div__container {
+  background-color: gainsboro;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .CommentContainer-div {
+    width: 90%;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .CommentContainer-div {
+    width: 70%;
+  }
 }/*# sourceMappingURL=CommentContainer.css.map */

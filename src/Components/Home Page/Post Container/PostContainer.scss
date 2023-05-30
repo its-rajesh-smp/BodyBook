@@ -1,4 +1,15 @@
+@import "../../../Styles/color";
 .PostContainer-div {
+  .homeInputBar {
+    display: flex;
+    align-items: center;
+    p {
+      font-size: torem(12px);
+      padding-left: torem(10px);
+      font-family: roboto;
+      color: gray;
+    }
+  }
 }
 
 //? Media

@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 function CreateNewPost(props) {
   const [isVissible, setIsVissible] = useState(false);
   const userDetails = useSelector((state) => state.authSlice.userData);
+
   // On Click Input Toggle CreateNewPostCard
   const onClickInput = () => {
     setIsVissible((p) => !p);
@@ -24,13 +25,14 @@ function CreateNewPost(props) {
           src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
           alt=""
         />
-
-        <div onClick={onClickInput}></div>
+        <div className="homeInputBar" onClick={onClickInput}>
+          <p>hey! {userDetails.name} post something...</p>
+        </div>
       </div>
       <div className="CreateNewPost-div__btnGrp">
-        <button>Go Live</button>
-        <button>Photo/video</button>
-        <button>Feeling/activity</button>
+        <button onClick={onClickInput}>Go Live</button>
+        <button onClick={onClickInput}>Photo/video</button>
+        <button onClick={onClickInput}>Feeling/activity</button>
       </div>
     </div>
   );

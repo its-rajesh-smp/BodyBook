@@ -1,7 +1,8 @@
 @import "../../../../Styles/color";
 .PostImages-div {
-  padding: torem(10px) torem(20px);
   display: flex;
+  margin-top: torem(10px);
+  border-radius: torem(10px);
   justify-content: center;
   align-items: center;
   background-color: $mygrey;

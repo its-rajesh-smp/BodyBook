@@ -1,6 +1,7 @@
 .PostImages-div {
-  padding: 0.625rem 1.25rem;
   display: flex;
+  margin-top: 0.625rem;
+  border-radius: 0.625rem;
   justify-content: center;
   align-items: center;
   background-color: #f0f2f5;

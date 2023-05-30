@@ -6,10 +6,14 @@ import { addCommentAct } from "../../../../Store/Actions/feedCommentActions";
 function AddComment(props) {
   const dispatch = useDispatch();
   const [message, setMessage] = useState("");
+  const [isLoader, setIsLoader] = useState(false);
 
   // On Add Btn Click
   const onClickAddBtn = () => {
-    dispatch(addCommentAct(message, props.data));
+    if (!isLoader) {
+      setIsLoader(true);
+      dispatch(addCommentAct(message, props.data, setMessage, setIsLoader));
+    }
   };
 
   return (
@@ -20,11 +24,16 @@ function AddComment(props) {
         }}
         value={message}
         type="text"
-        name=""
-        id=""
+        placeholder="Add your comment"
       />
 
-      <button onClick={onClickAddBtn}>ADD</button>
+      <button onClick={onClickAddBtn}>
+        {isLoader ? (
+          <i className="bx bx-loader-circle bx-spin "></i>
+        ) : (
+          <i className="bx bx-message-square-dots"></i>
+        )}
+      </button>
     </div>
   );
 }

@@ -1,8 +1,12 @@
 .PostComment-div {
-  font-size: 13px;
-  padding: 10px 5px;
-  border-bottom: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.8125rem;
+  background-color: white;
+  padding: 1.25rem 0.3125rem;
 }
-.PostComment-div p {
+.PostComment-div .PostComment-div__commentMessage {
+  padding-left: 3.125rem;
   font-family: roboto;
 }/*# sourceMappingURL=PostComment.css.map */

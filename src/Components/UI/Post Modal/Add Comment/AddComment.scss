@@ -1,14 +1,29 @@
+@import "../../../../Styles/color";
 .AddComment-div {
   display: flex;
-  gap: 5px;
-  top: 0px;
-  padding: 20px;
-  background-color: white;
+  gap: torem(5px);
+  top: 0;
+  width: 100%;
   input {
-    padding: 10px 0px;
+    padding: torem(8px) torem(15px);
     width: 100%;
+    outline: none;
+    &::placeholder {
+      font-size: torem(12px);
+    }
   }
   button {
-    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: torem(16px);
+    padding: torem(8px) torem(15px);
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .AddComment-div {
+    padding: 0px;
   }
 }

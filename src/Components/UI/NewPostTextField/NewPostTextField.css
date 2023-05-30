@@ -11,6 +11,7 @@
   padding: 1.25rem;
   padding-left: 0px;
   color: gray;
+  resize: none;
 }
 .NewPostTextField-div .addPhoto {
   background-color: rgb(193, 193, 193);
@@ -19,9 +20,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-.NewPostTextField-div .addPhoto p {
-  font-size: 0.75rem;
-  font-family: roboto;
-  color: gray;
+.NewPostTextField-div .addPhoto input {
+  width: 100%;
+  height: 100%;
+}
+
+.img_dragdrop {
+  background-image: url("https://cdn-icons-png.flaticon.com/512/126/126477.png");
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
 }/*# sourceMappingURL=NewPostTextField.css.map */

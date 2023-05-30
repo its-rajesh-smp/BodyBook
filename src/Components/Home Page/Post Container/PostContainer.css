@@ -1,3 +1,14 @@
+.PostContainer-div .homeInputBar {
+  display: flex;
+  align-items: center;
+}
+.PostContainer-div .homeInputBar p {
+  font-size: 0.75rem;
+  padding-left: 0.625rem;
+  font-family: roboto;
+  color: gray;
+}
+
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .PostContainer-div {

@@ -9,12 +9,18 @@ import { addNewPostAct } from "../../../Store/Actions/feedPostsActions";
 function CreateNewPostCard(props) {
   const [postText, setPostText] = useState("");
   const dispatch = useDispatch();
+  const [isLoading, setIsLoading] = useState(false);
   const currentDate = new Date().toLocaleDateString();
   const [image, setImage] = useState(null);
 
   // ON POST BTN CLICK
   const onPostBtnHandeler = (e) => {
-    dispatch(addNewPostAct(postText, image));
+    if (!isLoading) {
+      setIsLoading(true);
+      dispatch(
+        addNewPostAct(postText, image, props.setIsVissible, setIsLoading)
+      );
+    }
   };
 
   return (
@@ -29,7 +35,7 @@ function CreateNewPostCard(props) {
         <NewPostTextField setImage={setImage} setPostText={setPostText} />
 
         <button onClick={onPostBtnHandeler} className="postBTN">
-          POST
+          {isLoading ? <i className="bx bx-loader-circle bx-spin" /> : "POST"}
         </button>
       </div>
     </BlurWrapper>

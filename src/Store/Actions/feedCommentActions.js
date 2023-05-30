@@ -2,7 +2,7 @@ import axios from "axios";
 import { ALL_POSTS, USER_POSTS } from "../../Firebase/API_URL";
 import { setAlert } from "../Reducer/alertReducer";
 
-export const addCommentAct = (message, postData) => {
+export const addCommentAct = (message, postData, setMessage, setIsLoader) => {
     return async (dispatch, getState) => {
         try {
             const postId = postData.id
@@ -18,5 +18,7 @@ export const addCommentAct = (message, postData) => {
                 color: "red"
             }))
         }
+        setMessage("")
+        setIsLoader(false)
     }
 }

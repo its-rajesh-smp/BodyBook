@@ -10,7 +10,7 @@ function PostContainer(props) {
       {props.isVisible && <CreateNewPost />}
 
       {props.postsArr.map((post) => {
-        return <Post key={Math.random()} postDetails={post} />;
+        return <Post key={post.id} postDetails={post} />;
       })}
     </div>
   );

@@ -7,7 +7,7 @@ import { setAlert } from "../Reducer/alertReducer"
 /* -------------------------------------------------------------------------- */
 /*                                ADD NEW POST                                */
 /* -------------------------------------------------------------------------- */
-export const addNewPostAct = (post, image) => {
+export const addNewPostAct = (post, image, setIsvisible, setIsLoading) => {
     return async (dispatch, getState) => {
         try {
             const userData = getState().authSlice.userData
@@ -38,6 +38,8 @@ export const addNewPostAct = (post, image) => {
                 color: "red"
             }))
         }
+        setIsvisible(false)
+        setIsLoading(false)
     }
 }
 

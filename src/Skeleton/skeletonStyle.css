@@ -1,0 +1,11 @@
+.PostContainerSkeleton-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.PostSkeleton-div__skeleton {
+  background-color: white;
+  padding: 20px;
+  margin-top: 0.9375rem;
+  border-radius: 10px;
+}/*# sourceMappingURL=skeletonStyle.css.map */

@@ -1,8 +1,13 @@
+@import "../../../../Styles/color";
 .PostComment-div {
-  font-size: 13px;
-  padding: 10px 5px;
-  border-bottom: 1px solid #000;
-  p {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: torem(13px);
+  background-color: white;
+  padding: torem(20px) torem(5px);
+  .PostComment-div__commentMessage {
+    padding-left: torem(50px);
     font-family: roboto;
   }
 }

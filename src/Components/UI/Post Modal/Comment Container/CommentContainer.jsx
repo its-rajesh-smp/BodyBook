@@ -8,9 +8,11 @@ function CommentContainer(props) {
     <div className=" CommentContainer-div ">
       <AddComment data={props.data} />
 
-      {props.commentArr.map((comment) => {
-        return <PostComment key={comment.commentId} data={comment} />;
-      })}
+      <div className="CommentContainer-div__container">
+        {props.commentArr.map((comment) => {
+          return <PostComment key={comment.commentId} data={comment} />;
+        })}
+      </div>
     </div>
   );
 }

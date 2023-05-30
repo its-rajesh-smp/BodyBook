@@ -10,19 +10,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem;
   justify-content: center;
 }
 .PostModal-div .PostModal-div__container {
-  padding: 20px;
-  border-radius: 10px;
+  padding: 1.25rem;
+  border-radius: 0.625rem;
   background-color: white;
   width: 50%;
   position: relative;
 }
 .PostModal-div .PostModal-div__container .bx-x {
   position: absolute;
-  right: 10px;
-  top: 10px;
-  font-size: 30px;
+  right: 0.625rem;
+  top: 0.625rem;
+  font-size: 1.875rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .PostModal-div .PostModal-div__container {
+    width: 90%;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .PostModal-div .PostModal-div__container {
+    width: 70%;
+  }
 }/*# sourceMappingURL=PostModal.css.map */

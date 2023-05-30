@@ -1,14 +1,27 @@
 .AddComment-div {
   display: flex;
-  gap: 5px;
-  top: 0px;
-  padding: 20px;
-  background-color: white;
-}
-.AddComment-div input {
-  padding: 10px 0px;
+  gap: 0.3125rem;
+  top: 0;
   width: 100%;
 }
+.AddComment-div input {
+  padding: 0.5rem 0.9375rem;
+  width: 100%;
+  outline: none;
+}
+.AddComment-div input::placeholder {
+  font-size: 0.75rem;
+}
 .AddComment-div button {
-  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  padding: 0.5rem 0.9375rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .AddComment-div {
+    padding: 0px;
+  }
 }/*# sourceMappingURL=AddComment.css.map */

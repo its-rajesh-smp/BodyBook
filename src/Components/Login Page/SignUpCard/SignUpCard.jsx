@@ -10,16 +10,20 @@ function SignUpCard(props) {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setSetLastName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // On Create Account Btn Click
   const onClickBtnHandeler = (e) => {
     e.preventDefault();
-    const enteredInput = {
-      name: firstName + " " + lastName,
-      email: email,
-      password: password,
-    };
-    dispatch(createUserAct(enteredInput));
+    if (!isLoading) {
+      setIsLoading(true);
+      const enteredInput = {
+        name: firstName + " " + lastName,
+        email: email,
+        password: password,
+      };
+      dispatch(createUserAct(enteredInput, setIsLoading));
+    }
   };
 
   return (
@@ -111,7 +115,13 @@ function SignUpCard(props) {
           </div>
 
           <div className="newAccBtn">
-            <button onClick={onClickBtnHandeler}>Create new account</button>
+            <button onClick={onClickBtnHandeler}>
+              {isLoading ? (
+                <i className="bx bx-loader-circle bx-spin" />
+              ) : (
+                "Create new account"
+              )}
+            </button>
           </div>
           <p onClick={props.switchlogin} className="backtoLogin">
             Back To Login Page?

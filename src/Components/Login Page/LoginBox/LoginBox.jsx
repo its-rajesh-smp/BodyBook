@@ -7,14 +7,18 @@ function LoginBox(props) {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   // On Login Btn Click
   const onClickLoginBtn = () => {
-    const enteredInput = {
-      email: email,
-      password: password,
-    };
-    dispatch(loginUserAct(enteredInput));
+    if (!isLoading) {
+      setIsLoading(true);
+      const enteredInput = {
+        email: email,
+        password: password,
+      };
+      dispatch(loginUserAct(enteredInput, setIsLoading));
+    }
   };
 
   return (
@@ -37,8 +41,9 @@ function LoginBox(props) {
         id=""
         placeholder="Enter Your Password"
       />
+
       <button onClick={onClickLoginBtn} className="loginBtn">
-        Login
+        {isLoading ? <i className="bx bx-loader-circle bx-spin" /> : "Login"}
       </button>
       <p>Forgotten password?</p>
       <div className="newAccBtn">

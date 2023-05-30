@@ -1,0 +1,12 @@
+.LoadingPage-div {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+}
+.LoadingPage-div i {
+  color: #1877f2;
+  font-size: 70px;
+}/*# sourceMappingURL=LoadingPage.css.map */

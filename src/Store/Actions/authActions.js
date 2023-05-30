@@ -9,7 +9,7 @@ import { setAlert } from "../Reducer/alertReducer"
 /* -------------------------------------------------------------------------- */
 /*                                 CREATE USER                                */
 /* -------------------------------------------------------------------------- */
-export const createUserAct = (enteredInput) => {
+export const createUserAct = (enteredInput, setIsLoading) => {
     return async (dispatch, getState) => {
         try {
             const { data: authData } = await axios.post(SIGN_UP, { email: enteredInput.email, password: enteredInput.password, returnSecureToken: true })
@@ -26,6 +26,7 @@ export const createUserAct = (enteredInput) => {
                 color: "red"
             }))
         }
+        setIsLoading(false)
     }
 }
 
@@ -34,7 +35,7 @@ export const createUserAct = (enteredInput) => {
 /* -------------------------------------------------------------------------- */
 /*                                 LOGIN USER                                 */
 /* -------------------------------------------------------------------------- */
-export const loginUserAct = (enteredInput) => {
+export const loginUserAct = (enteredInput, setIsLoading) => {
     return async (dispatch, getState) => {
         try {
             const { data: authData } = await axios.post(SIGN_IN, { email: enteredInput.email, password: enteredInput.password, returnSecureToken: true })
@@ -52,6 +53,7 @@ export const loginUserAct = (enteredInput) => {
                 color: "red"
             }))
         }
+        setIsLoading(false)
     }
 }
 
@@ -60,11 +62,14 @@ export const loginUserAct = (enteredInput) => {
 /* -------------------------------------------------------------------------- */
 /*                                 FETCH USER                                 */
 /* -------------------------------------------------------------------------- */
-export const fetchUserAct = () => {
+export const fetchUserAct = (setIsLoading) => {
     return async (dispatch, getState) => {
         try {
             const localIdToken = localStorage.getItem("bodybook")
-            if (!localIdToken) { return }
+            if (!localIdToken) {
+                setIsLoading(false)
+                return
+            }
             const { data: authData } = await axios.post(GET_USER, { idToken: localIdToken })
             const userEmail = authData.users[0].email.replace(".", "").replace("@", "")
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
@@ -79,5 +84,6 @@ export const fetchUserAct = () => {
                 color: "red"
             }))
         }
+        setIsLoading(false)
     }
 }

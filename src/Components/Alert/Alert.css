@@ -2,6 +2,7 @@
   position: fixed;
   top: -1000px;
   left: 0;
+  z-index: 2000;
   width: 100vw;
   display: flex;
   align-items: center;

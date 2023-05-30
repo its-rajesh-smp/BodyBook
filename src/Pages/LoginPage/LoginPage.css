@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: gainsboro;
+  background-image: url(https://assets7.lottiefiles.com/packages/lf20_350WxDD7Bn.json);
   height: 100vh;
   font-family: roboto;
 }
@@ -12,6 +12,9 @@
 }
 .LoginPage-div .logo_desc {
   font-size: 1.25rem;
+}
+.LoginPage-div .bx-loader-circle {
+  font-size: 20px;
 }
 
 /* Smartphones + Tablets  */

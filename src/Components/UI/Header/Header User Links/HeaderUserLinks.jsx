@@ -21,7 +21,7 @@ function HeaderUserLinks(props) {
         </div>
 
         <div className="navLink">
-          <NavLink to={"/"}>
+          <NavLink to={"/findfriend"}>
             <i className="bx bxs-group"></i>
           </NavLink>
         </div>

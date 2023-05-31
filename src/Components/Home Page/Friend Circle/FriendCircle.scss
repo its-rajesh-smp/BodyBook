@@ -1,11 +1,9 @@
 @import "../../../Styles/color";
-.FriendCircle-div__wrapper {
-  position: sticky;
-  top: torem(70px);
-  height: 80vh;
-}
-
 .FriendCircle-div {
+  font-family: roboto;
+  .FriendCircle__p {
+    font-size: torem(12px);
+  }
   input {
     width: 100%;
     height: torem(30px);

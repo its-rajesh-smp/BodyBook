@@ -1,5 +1,5 @@
 .friendContainer {
-  height: 80vh;
+  padding: 20px;
   display: flex;
   gap: 0.625rem;
   overflow: scroll;

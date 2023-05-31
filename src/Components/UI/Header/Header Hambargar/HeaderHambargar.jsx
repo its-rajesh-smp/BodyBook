@@ -5,6 +5,10 @@ import { NavLink } from "react-router-dom";
 function HeaderHambargar(props) {
   return (
     <div className=" HeaderHambargar-div ">
+      <NavLink onClick={props.onClickShowHambargar} to={"/"}>
+        <i className="bx bxs-home"></i>
+      </NavLink>
+
       <NavLink onClick={props.onClickShowHambargar} to={"/messages"}>
         <i className="bx bxs-message-square-dots"></i>
       </NavLink>
@@ -14,7 +18,7 @@ function HeaderHambargar(props) {
         <i className="bx bxs-bell "></i>
       </NavLink>
 
-      <NavLink onClick={props.onClickShowHambargar} to={"/"}>
+      <NavLink onClick={props.onClickShowHambargar} to={"/findfriend"}>
         <i className="bx bxs-group"></i>
       </NavLink>
     </div>

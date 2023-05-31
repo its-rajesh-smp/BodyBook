@@ -1,9 +1,9 @@
-.FriendCircle-div__wrapper {
-  position: sticky;
-  top: 4.375rem;
-  height: 80vh;
+.FriendCircle-div {
+  font-family: roboto;
 }
-
+.FriendCircle-div .FriendCircle__p {
+  font-size: 0.75rem;
+}
 .FriendCircle-div input {
   width: 100%;
   height: 1.875rem;

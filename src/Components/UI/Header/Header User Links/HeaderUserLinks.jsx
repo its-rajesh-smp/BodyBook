@@ -39,10 +39,10 @@ function HeaderUserLinks(props) {
           </NavLink>
         </div>
 
-        <div className="navLink">
+        <div className="navLink notificationBtn">
           <NavLink to={"/notification"}>
             <i className="bx bxs-bell "></i>
-            {totalNotification}
+            {totalNotification !== 0 && <p>{totalNotification}</p>}
           </NavLink>
         </div>
 

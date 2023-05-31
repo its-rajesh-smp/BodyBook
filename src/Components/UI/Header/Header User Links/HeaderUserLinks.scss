@@ -31,3 +31,24 @@
     }
   }
 }
+
+.notificationBtn {
+  a {
+    position: relative;
+    p {
+      background-color: red;
+      width: torem(15px);
+      height: torem(15px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: torem(12px);
+      color: white;
+      font-weight: 700;
+      position: absolute;
+      left: torem(15px);
+      top: torem(15px);
+    }
+  }
+}

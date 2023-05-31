@@ -14,7 +14,9 @@ function NotificationPage(props) {
 
   return (
     <div className=" NotificationPage-div pageContainer ">
-      <button onClick={deleteAllNotification}>Clear All Notifications</button>
+      {logs.length > 0 && (
+        <button onClick={deleteAllNotification}>Clear All Notifications</button>
+      )}
       {logs.length > 0 ? (
         logs.map((logData) => {
           return <Notification key={Math.random()} data={logData} />;

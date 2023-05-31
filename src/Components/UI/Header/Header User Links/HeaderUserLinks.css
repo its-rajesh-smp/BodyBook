@@ -29,4 +29,23 @@
 }
 .HeaderUserLinks-div .navLink .active {
   color: #1877f2;
+}
+
+.notificationBtn a {
+  position: relative;
+}
+.notificationBtn a p {
+  background-color: red;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  color: white;
+  font-weight: 700;
+  position: absolute;
+  left: 0.9375rem;
+  top: 0.9375rem;
 }/*# sourceMappingURL=HeaderUserLinks.css.map */

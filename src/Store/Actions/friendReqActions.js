@@ -1,27 +1,30 @@
 import axios from "axios";
-import { MESSAGE_COLLECTION, SEND_FRIEND_REQ } from "../../Firebase/API_URL";
+import { MESSAGE_COLLECTION, SEND_FRIEND_REQ, USER } from "../../Firebase/API_URL";
 import generateChatId from "../../Functions/generateChatId";
 import { setAlert } from "../Reducer/alertReducer";
 
-export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest, setIsSendedFriendRequest) => {
-    try {
-        if (isSendedFriendRequest) {
-            await axios.delete(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`)
-            await axios.delete(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`)
+export const sendFriendReq = (friendEmail, myEmail, isSendedFriendRequest) => {
+    return async (dispatch, getState) => {
+        const myName = getState().authSlice.userData.name
+        try {
+            if (isSendedFriendRequest) {
+                await axios.delete(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`)
+                await axios.delete(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`)
 
+            }
+            else {
+                await axios.patch(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: true } })
+                await axios.patch(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { getRequest: true } })
+                await axios.post(`${USER}/${friendEmail}/log.json`, { type: "FRIEND REQUEST", person: myName })
+            }
+        } catch (error) {
+            console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
         }
-        else {
-            await axios.patch(`${SEND_FRIEND_REQ}/${myEmail}/friends.json`, { [friendEmail]: { requestSended: true } })
-            await axios.patch(`${SEND_FRIEND_REQ}/${friendEmail}/friends.json`, { [myEmail]: { getRequest: true } })
-
-        }
-    } catch (error) {
-        console.log(error);
-        dispatch(setAlert({
-            type: "error",
-            message: error.response.data.error.message,
-            color: "red"
-        }))
     }
 }
 
@@ -39,6 +42,7 @@ export const acceptFriendReq = (myFriendEmail, friendName) => {
 
             await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`, { accept: true, email: myFriendEmail, name: friendName })
             await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`, { accept: true, email: myMainEmail, name: myName })
+            await axios.post(`${USER}/${friendEmail}/log.json`, { type: "FRIEND REQUEST ACCEPT", person: myName })
 
         } catch (error) {
             console.log(error);

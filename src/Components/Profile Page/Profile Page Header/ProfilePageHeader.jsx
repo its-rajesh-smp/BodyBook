@@ -61,7 +61,7 @@ function ProfilePageHeader(props) {
 
   // ON CLICK SEND FRIEND REQ
   const onClickSendFrienReq = () => {
-    sendFriendReq(friendEmail, myEmail, isSendedFriendRequest);
+    dispatch(sendFriendReq(friendEmail, myEmail, isSendedFriendRequest));
   };
 
   // ON CLICK ACCEPT FRIEND REQ

@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["NotificationPage.scss"],"names":[],"mappings":"AACA;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;EACA","file":"NotificationPage.css"}
+{"version":3,"sourceRoot":"","sources":["NotificationPage.scss","../../Styles/_color.scss"],"names":[],"mappings":"AACA;EACE;EACA;;AACA;EACE;EACA;EACA;EACA;EACA;;AAEF;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EACA,kBCnBK;EDoBL;EACA","file":"NotificationPage.css"}

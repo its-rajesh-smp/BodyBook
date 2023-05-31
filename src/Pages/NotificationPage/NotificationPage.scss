@@ -9,4 +9,16 @@
     font-size: torem(16px);
     color: gray;
   }
+  button {
+    align-self: flex-end;
+    margin-bottom: 5px;
+    font-family: roboto;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: $myblue;
+    padding: 5px;
+    width: fit-content;
+  }
 }

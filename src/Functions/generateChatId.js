@@ -1,4 +1,5 @@
 const generateChatId = (myEmail, friendEmail) => {
+
     const res = myEmail.localeCompare(friendEmail);
     let ans = ""
     if (res == 1) {

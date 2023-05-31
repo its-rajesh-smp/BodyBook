@@ -3,7 +3,9 @@ import "./NewChat.css";
 import { sendMessage } from "../../../Store/Actions/sendMessageActions";
 
 function NewChat(props) {
-  const friendEmail = props.friendEmail;
+  const friendEmail = props.myFriendData.email
+    .replace(".", "")
+    .replace("@", "");
   const myEmail = props.myEmail;
   const [message, setMessage] = useState("");
 

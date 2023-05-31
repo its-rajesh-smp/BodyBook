@@ -9,9 +9,12 @@ import generateChatId from "../../../Functions/generateChatId";
 import SelectAFriend from "../../UI/Message Page/Select A Friend/SelectAFriend";
 
 function MessageBox(props) {
-  const friendEmail = props.onClickedFriend;
+  const myFriendData = props.onClickedFriend;
   const myEmail = props.myEmail;
-  const combinedId = generateChatId(myEmail, friendEmail);
+  const myFriendEmail = myFriendData
+    ? myFriendData.email.replace(".", "").replace("@", "")
+    : null;
+  const combinedId = generateChatId(myEmail, myFriendEmail);
 
   // FETCH REALTIME FRIENDS
   useEffect(() => {
@@ -25,15 +28,15 @@ function MessageBox(props) {
     return () => {
       removeEventFunction();
     };
-  }, [friendEmail]);
+  }, [myFriendData]);
 
   return (
     <div className=" MessageBox-div container">
-      {friendEmail ? (
+      {myFriendData ? (
         <>
-          <Friend data={{ email: friendEmail }} />
+          <Friend data={myFriendData} />
           <ChatBox myEmail={myEmail} chats={props.chats} />
-          <NewChat myEmail={myEmail} friendEmail={friendEmail} />
+          <NewChat myEmail={myEmail} myFriendData={myFriendData} />
         </>
       ) : (
         <SelectAFriend />

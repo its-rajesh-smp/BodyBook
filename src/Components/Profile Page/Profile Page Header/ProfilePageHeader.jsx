@@ -66,7 +66,7 @@ function ProfilePageHeader(props) {
 
   // ON CLICK ACCEPT FRIEND REQ
   const onAcceptFriendReq = () => {
-    acceptFriendReq(friendEmail, myEmail);
+    dispatch(acceptFriendReq(props.userData.email, props.userData.name));
   };
 
   // ON CLICK UNFRIEND BTN

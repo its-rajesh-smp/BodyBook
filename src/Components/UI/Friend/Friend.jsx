@@ -15,7 +15,6 @@ function Friend(props) {
       <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
       <div className="activeFriend"></div>
       <p>{props.data.name}</p>
-      <p>{props.data.email}</p>
     </div>
   );
 }

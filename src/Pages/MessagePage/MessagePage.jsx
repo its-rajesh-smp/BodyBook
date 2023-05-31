@@ -3,7 +3,7 @@ import "./MessagePage.css";
 import MessageBox from "../../Components/Message Page/Message Box/MessageBox";
 import { ShowOnDesktop } from "../../Styles/media";
 import MessagePerson from "../../Components/UI/Message Page/MessagePerson/MessagePerson";
-import { onChildAdded, onChildChanged, onValue, ref } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { database } from "../../Firebase/firestore";
 import { useSelector } from "react-redux";
 
@@ -24,11 +24,13 @@ function MessagePage(props) {
       if (!person || person.accept === false) {
         return;
       }
+      const personArr = Object.values(person);
 
       // Filtering If Person is Really a friend or not
-      const filtered = Object.keys(person).filter((personObj) => {
-        return person[personObj].accept;
+      const filtered = personArr.filter((personObj) => {
+        return personObj.accept;
       });
+
       setMyFriends(filtered);
     });
     return () => {
@@ -41,14 +43,14 @@ function MessagePage(props) {
       <ShowOnDesktop>
         <div>
           <div className="container MessagePage-div__friendContainer">
-            {myFriends.map((friendName) => {
+            {myFriends.map((friendObj) => {
               return (
                 <MessagePerson
                   setChats={setChats}
                   setOnClickedFriend={setOnClickedFriend}
-                  key={Math.random()}
+                  key={friendObj.email}
                   myEmail={myEmail}
-                  data={friendName}
+                  data={friendObj}
                 />
               );
             })}

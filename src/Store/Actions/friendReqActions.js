@@ -29,18 +29,25 @@ export const sendFriendReq = async (friendEmail, myEmail, isSendedFriendRequest,
 
 
 
-export const acceptFriendReq = async (friendEmail, myEmail, setIsBothAreFriend) => {
-    try {
-        await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`, { accept: true })
-        await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`, { accept: true })
+export const acceptFriendReq = (myFriendEmail, friendName) => {
+    return async (dispatch, getState) => {
+        try {
+            const myMainEmail = getState().authSlice.userData.email
+            const myName = getState().authSlice.userData.name
+            const myEmail = myMainEmail.replace(".", "").replace("@", "")
+            const friendEmail = myFriendEmail.replace(".", "").replace("@", "")
 
-    } catch (error) {
-        console.log(error);
-        dispatch(setAlert({
-            type: "error",
-            message: error.response.data.error.message,
-            color: "red"
-        }))
+            await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`, { accept: true, email: myFriendEmail, name: friendName })
+            await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`, { accept: true, email: myMainEmail, name: myName })
+
+        } catch (error) {
+            console.log(error);
+            dispatch(setAlert({
+                type: "error",
+                message: error.response.data.error.message,
+                color: "red"
+            }))
+        }
     }
 
 }

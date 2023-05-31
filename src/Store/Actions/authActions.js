@@ -43,7 +43,7 @@ export const loginUserAct = (enteredInput, setIsLoading) => {
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
             dispatch(heartBeatAction())
             localStorage.setItem("bodybook", authData.idToken)
-            delete userData.postLikes
+            delete userData.friends
             dispatch(authUser({ ...authData, userData }))
         } catch (error) {
             console.log(error);
@@ -73,8 +73,10 @@ export const fetchUserAct = (setIsLoading) => {
             const { data: authData } = await axios.post(GET_USER, { idToken: localIdToken })
             const userEmail = authData.users[0].email.replace(".", "").replace("@", "")
             const { data: userData } = await axios.get(`${USER}/${userEmail}.json`)
+
+
             dispatch(heartBeatAction())
-            delete userData.postLikes
+            delete userData.friends
             dispatch(authUser({ ...authData.users[0], userData }))
         } catch (error) {
             console.log(error);

@@ -6,7 +6,48 @@
 
 .PostSkeleton-div__skeleton {
   background-color: white;
-  padding: 20px;
+  padding: torem(20px);
   margin-top: torem(15px);
-  border-radius: 10px;
+  border-radius: torem(10px);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   PROFILE                                  */
+/* -------------------------------------------------------------------------- */
+.ProfilePageSkeleton-div {
+  box-sizing: border-box;
+  padding: torem(20px);
+  width: calc(100% - torem(20px));
+  margin-left: torem(10px);
+  margin-right: torem(10px);
+  margin-top: torem(10px);
+  height: torem(200px);
+  background-color: white;
+  border-radius: torem(10px);
+}
+.ProfilePageSkeleton__container {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: torem(15px);
+  padding: torem(20px);
+}
+
+.ProfilePageSideSkeleton__div {
+  background-color: white;
+  border-radius: torem(10px);
+  padding: torem(20px);
+  margin-top: torem(15px);
+  width: 80%;
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfilePageSkeleton__container {
+    display: flex;
+    flex-direction: column;
+  }
+  .ProfilePageSideSkeleton__div {
+    width: calc(100% - torem(40px));
+  }
 }

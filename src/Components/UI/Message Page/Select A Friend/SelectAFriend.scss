@@ -1,0 +1,12 @@
+@import "../../../../Styles/color";
+.SelectAFriend-div {
+  font-size: torem(16px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: roboto;
+  img {
+    width: torem(200px);
+  }
+}

@@ -39,8 +39,7 @@
 }
 .ProfilePageHeader-div .rightSide button {
   font-family: roboto;
-  padding: 0px 0.625rem;
-  height: 2.5rem;
+  padding: 0.625rem;
   border: none;
   font-weight: 500;
   border-radius: 0.3125rem;
@@ -63,4 +62,23 @@
   position: absolute;
   padding: 0.3125rem;
   bottom: 0.3125rem;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfilePageHeader-div {
+    min-height: 80px;
+  }
+  .ProfilePageHeader-div .leftSide img {
+    width: 50px;
+  }
+  .ProfilePageHeader-div .leftSide div .profileName {
+    font-size: 1.25rem;
+  }
+  .ProfilePageHeader-div .leftSide div .friendCount {
+    font-size: 0.75rem;
+  }
+  .ProfilePageHeader-div .rightSide button {
+    padding: 0.3125rem;
+  }
 }/*# sourceMappingURL=ProfilePageHeader.css.map */

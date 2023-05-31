@@ -6,6 +6,7 @@ import NewChat from "../NewChat/NewChat";
 import { onChildAdded, onValue, ref } from "firebase/database";
 import { database } from "../../../Firebase/firestore";
 import generateChatId from "../../../Functions/generateChatId";
+import SelectAFriend from "../../UI/Message Page/Select A Friend/SelectAFriend";
 
 function MessageBox(props) {
   const friendEmail = props.onClickedFriend;
@@ -35,7 +36,7 @@ function MessageBox(props) {
           <NewChat myEmail={myEmail} friendEmail={friendEmail} />
         </>
       ) : (
-        <h1>SELECT ONE FRIEND</h1>
+        <SelectAFriend />
       )}
     </div>
   );

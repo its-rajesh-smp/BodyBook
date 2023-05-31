@@ -5,7 +5,48 @@
 
 .PostSkeleton-div__skeleton {
   background-color: white;
-  padding: 20px;
+  padding: 1.25rem;
   margin-top: 0.9375rem;
-  border-radius: 10px;
+  border-radius: 0.625rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   PROFILE                                  */
+/* -------------------------------------------------------------------------- */
+.ProfilePageSkeleton-div {
+  box-sizing: border-box;
+  padding: 1.25rem;
+  width: calc(100% - 1.25rem);
+  margin-left: 0.625rem;
+  margin-right: 0.625rem;
+  margin-top: 0.625rem;
+  height: 12.5rem;
+  background-color: white;
+  border-radius: 0.625rem;
+}
+
+.ProfilePageSkeleton__container {
+  display: grid;
+  grid-template-columns: 0.6fr 1fr;
+  gap: 0.9375rem;
+  padding: 1.25rem;
+}
+
+.ProfilePageSideSkeleton__div {
+  background-color: white;
+  border-radius: 0.625rem;
+  padding: 1.25rem;
+  margin-top: 0.9375rem;
+  width: 80%;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfilePageSkeleton__container {
+    display: flex;
+    flex-direction: column;
+  }
+  .ProfilePageSideSkeleton__div {
+    width: calc(100% - 2.5rem);
+  }
 }/*# sourceMappingURL=skeletonStyle.css.map */

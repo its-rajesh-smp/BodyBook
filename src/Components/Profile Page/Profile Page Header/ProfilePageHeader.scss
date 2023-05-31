@@ -38,8 +38,7 @@
     bottom: torem(10px);
     button {
       font-family: roboto;
-      padding: 0px torem(10px);
-      height: torem(40px);
+      padding: torem(10px);
       border: none;
       font-weight: 500;
       border-radius: torem(5px);
@@ -63,5 +62,31 @@
     position: absolute;
     padding: torem(5px);
     bottom: torem(5px);
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ProfilePageHeader-div {
+    min-height: 80px;
+    .leftSide {
+      img {
+        width: 50px;
+      }
+      div {
+        .profileName {
+          font-size: torem(20px);
+        }
+        .friendCount {
+          font-size: torem(12px);
+        }
+      }
+    }
+    .rightSide {
+      button {
+        padding: torem(5px);
+      }
+    }
   }
 }

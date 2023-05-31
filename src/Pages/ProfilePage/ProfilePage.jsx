@@ -9,6 +9,7 @@ import axios from "axios";
 import { USER } from "../../Firebase/API_URL";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { ProfilePageSkeleton } from "../../Skeleton/Skeleton";
 
 function ProfilePage(props) {
   const [allPosts, setAllPosts] = useState([]);
@@ -45,7 +46,7 @@ function ProfilePage(props) {
   }, [userEmail]);
 
   if (loader) {
-    return <h1>LOADING</h1>;
+    return <ProfilePageSkeleton />;
   }
 
   return (

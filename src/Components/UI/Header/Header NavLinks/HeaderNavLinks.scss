@@ -4,6 +4,10 @@
   display: flex;
   align-items: center;
   justify-content: space-evenly;
+  .bxs-home {
+    color: skyblue;
+    cursor: pointer;
+  }
 }
 .HeaderNavLinks-div_navLink {
   height: 100%;

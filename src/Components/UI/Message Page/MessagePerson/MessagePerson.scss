@@ -1,4 +1,14 @@
+@import "../../../../Styles/color";
 .MessagePerson-div {
-  padding: 10px 5px;
-  background-color: antiquewhite;
+  padding: torem(10px) torem(5px);
+  display: flex;
+  align-items: center;
+  font-family: roboto;
+  gap: torem(10px);
+  border-radius: torem(5px);
+  background-color: rgb(233, 244, 249);
+  img {
+    width: torem(50px);
+  }
+  font-size: torem(16px);
 }

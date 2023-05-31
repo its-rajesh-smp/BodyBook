@@ -1,4 +1,13 @@
 .MessagePerson-div {
-  padding: 10px 5px;
-  background-color: antiquewhite;
+  padding: 0.625rem 0.3125rem;
+  display: flex;
+  align-items: center;
+  font-family: roboto;
+  gap: 0.625rem;
+  border-radius: 0.3125rem;
+  background-color: rgb(233, 244, 249);
+  font-size: 1rem;
+}
+.MessagePerson-div img {
+  width: 3.125rem;
 }/*# sourceMappingURL=MessagePerson.css.map */

@@ -8,8 +8,12 @@ function MessagePerson(props) {
   };
 
   return (
-    <div className=" MessagePerson-div ">
-      <p onClick={onClickSendEmailhandeler}>{props.data}</p>
+    <div onClick={onClickSendEmailhandeler} className=" MessagePerson-div ">
+      <img
+        src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
+        alt=""
+      />
+      <p>{props.data}</p>
     </div>
   );
 }

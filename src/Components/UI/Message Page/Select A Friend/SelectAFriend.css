@@ -1,0 +1,11 @@
+.SelectAFriend-div {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: roboto;
+}
+.SelectAFriend-div img {
+  width: 12.5rem;
+}/*# sourceMappingURL=SelectAFriend.css.map */

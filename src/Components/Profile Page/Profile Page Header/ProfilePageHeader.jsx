@@ -9,7 +9,7 @@ import {
   sendFriendReq,
 } from "../../../Store/Actions/friendReqActions";
 import { database } from "../../../Firebase/firestore";
-import { onChildAdded, onChildChanged, onValue, ref } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 
 function ProfilePageHeader(props) {
   const dispatch = useDispatch();
@@ -82,7 +82,6 @@ function ProfilePageHeader(props) {
             src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
             alt=""
           />
-          <i className="bx bx-edit-alt"></i>
         </div>
         <div>
           <p className="profileName">

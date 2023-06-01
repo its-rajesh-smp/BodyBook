@@ -9,27 +9,6 @@ import generateChatId from "../../../Functions/generateChatId";
 import SelectAFriend from "../../UI/Message Page/Select A Friend/SelectAFriend";
 
 function MessageBox(props) {
-  const myFriendData = props.onClickedFriend;
-  const myEmail = props.myEmail;
-  const myFriendEmail = myFriendData
-    ? myFriendData.email.replace(".", "").replace("@", "")
-    : null;
-  const combinedId = generateChatId(myEmail, myFriendEmail);
-
-  // FETCH REALTIME FRIENDS
-  useEffect(() => {
-    const userRef = ref(database, `Messages/${combinedId}`);
-    const removeEventFunction = onChildAdded(userRef, (snapshot) => {
-      const person = snapshot.val();
-      if (person) {
-        props.setChats((p) => [...p, person]);
-      }
-    });
-    return () => {
-      removeEventFunction();
-    };
-  }, [myFriendData]);
-
   return (
     <div className=" MessageBox-div container">
       {myFriendData ? (

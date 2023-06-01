@@ -3,35 +3,34 @@ import "./MessagePage.css";
 import MessageBox from "../../Components/Message Page/Message Box/MessageBox";
 import { ShowOnDesktop } from "../../Styles/media";
 import MessagePerson from "../../Components/UI/Message Page/MessagePerson/MessagePerson";
-import { onValue, ref } from "firebase/database";
+import { onChildAdded, onValue, ref } from "firebase/database";
 import { database } from "../../Firebase/firestore";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
+import generateChatId from "../../Functions/generateChatId";
+import Friend from "../../Components/UI/Friend/Friend";
+import ChatBox from "../../Components/Message Page/Chat Box/ChatBox";
+import NewChat from "../../Components/Message Page/NewChat/NewChat";
 
 function MessagePage(props) {
+  const param = useParams();
+  const friendEmail = param.messageId.replace(".", "").replace("@", "");
+
   const myEmail = useSelector((state) =>
     state.authSlice.userData.email.replace(".", "").replace("@", "")
   );
-  const [myFriends, setMyFriends] = useState([]);
-  const [onClickedFriend, setOnClickedFriend] = useState("");
-  // We have to clear the chats wehen we changed our friend thats why i have taken this chat state here
-  const [chats, setChats] = useState([]);
+
+  const combinedId = generateChatId(myEmail, friendEmail);
+  const [userChats, setUserChats] = useState([]);
 
   // FETCH REALTIME FRIENDS
   useEffect(() => {
-    const userRef = ref(database, `users/${myEmail}/friends`);
-    const removeEventFunction = onValue(userRef, (snapshot) => {
-      const person = snapshot.val();
-      if (!person || person.accept === false) {
-        return;
+    const userRef = ref(database, `Messages/${combinedId}`);
+    const removeEventFunction = onChildAdded(userRef, (snapshot) => {
+      const personChats = snapshot.val();
+      if (personChats) {
+        setUserChats((p) => [...p, personChats]);
       }
-      const personArr = Object.values(person);
-
-      // Filtering If Person is Really a friend or not
-      const filtered = personArr.filter((personObj) => {
-        return personObj.accept;
-      });
-
-      setMyFriends(filtered);
     });
     return () => {
       removeEventFunction();
@@ -40,30 +39,9 @@ function MessagePage(props) {
 
   return (
     <div className=" MessagePage-div pageContainer ">
-      <ShowOnDesktop>
-        <div>
-          <div className="container MessagePage-div__friendContainer">
-            {myFriends.map((friendObj) => {
-              return (
-                <MessagePerson
-                  setChats={setChats}
-                  setOnClickedFriend={setOnClickedFriend}
-                  key={friendObj.email}
-                  myEmail={myEmail}
-                  data={friendObj}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </ShowOnDesktop>
-
-      <MessageBox
-        myEmail={myEmail}
-        setChats={setChats}
-        chats={chats}
-        onClickedFriend={onClickedFriend}
-      />
+      <Friend data={{ email: friendEmail }} />
+      <ChatBox myEmail={myEmail} userChats={userChats} />
+      <NewChat myEmail={myEmail} friendEmail={friendEmail} />
     </div>
   );
 }

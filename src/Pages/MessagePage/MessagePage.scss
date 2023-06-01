@@ -1,28 +1,5 @@
 @import "../../Styles/color";
 .MessagePage-div {
-  display: grid;
-  grid-template-columns: 0.3fr 1fr;
-  gap: torem(5px);
-}
-.MessagePage-div__friendContainer {
-  position: fixed;
-  width: 20%;
   display: flex;
   flex-direction: column;
-  overflow: scroll;
-  height: calc(100% - torem(100px));
-}
-.MessagePage-div__friendContainer::-webkit-scrollbar {
-  display: none;
-}
-
-//? Media
-/* Smartphones  */
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
-  .MessagePage-div {
-    display: flex;
-  }
-}
-/* Tablet */
-@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
 }

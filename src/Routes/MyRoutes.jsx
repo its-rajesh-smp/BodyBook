@@ -8,6 +8,7 @@ import NotificationPage from "../Pages/NotificationPage/NotificationPage";
 import { useSelector } from "react-redux";
 import { memo } from "react";
 import FindFriendPage from "../Pages/Find Friend Page/FindFriendPage";
+import MyFriendsPage from "../Pages/My Friends Page/MyFriendsPage";
 
 function MyRoutes(props) {
   const isAuth = useSelector((state) => state.authSlice.isAuth);
@@ -16,9 +17,14 @@ function MyRoutes(props) {
     <Routes>
       {isAuth ? (
         <>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/" element={<MyFriendsPage />} />
+          {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/findfriend" element={<FindFriendPage />} />
-          <Route path="/messages" element={<MessagePage />} />
+          <Route
+            path="/message/:messageId"
+            errorElement={<MyFriendsPage />}
+            element={<MessagePage />}
+          />
           <Route path="/profile/:userEmail" element={<ProfilePage />} />
           <Route path="/notification" element={<NotificationPage />} />
         </>

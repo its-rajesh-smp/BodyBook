@@ -3,16 +3,12 @@ import "./NewChat.css";
 import { sendMessage } from "../../../Store/Actions/sendMessageActions";
 
 function NewChat(props) {
-  const friendEmail = props.myFriendData.email
-    .replace(".", "")
-    .replace("@", "");
-  const myEmail = props.myEmail;
   const [message, setMessage] = useState("");
 
   //   ON CLICK SEND MESSAGE
   const onClickMessageSend = (e) => {
     e.preventDefault();
-    sendMessage(myEmail, friendEmail, message, setMessage);
+    sendMessage(props.myEmail, props.friendEmail, message, setMessage);
   };
 
   return (
@@ -23,8 +19,6 @@ function NewChat(props) {
           setMessage(e.target.value);
         }}
         type="text"
-        name=""
-        id=""
         placeholder="type here!"
       />
 

@@ -1,10 +1,13 @@
 import React from "react";
 import "./MessagePerson.css";
+import { useNavigate } from "react-router-dom";
 function MessagePerson(props) {
+  const navigate = useNavigate();
+  const friendEmail = props.data.email;
+
   // On Click Person Send Email to Massage Box To Fetch Particular Messages
   const onClickSendEmailhandeler = () => {
-    props.setOnClickedFriend(props.data);
-    props.setChats([]);
+    navigate(`/message/${friendEmail}`);
   };
 
   return (

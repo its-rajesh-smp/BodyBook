@@ -9,7 +9,7 @@ function HeaderHambargar(props) {
         <i className="bx bxs-home"></i>
       </NavLink>
 
-      <NavLink onClick={props.onClickShowHambargar} to={"/messages"}>
+      <NavLink onClick={props.onClickShowHambargar} to={"/myFriends"}>
         <i className="bx bxs-message-square-dots"></i>
       </NavLink>
 

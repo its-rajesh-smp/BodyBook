@@ -8,7 +8,7 @@ function HeaderUserLinks(props) {
     <div className=" HeaderUserLinks-div ">
       <ShowOnDesktop>
         <div className="navLink">
-          <NavLink to={"/messages"}>
+          <NavLink to={"/myFriends"}>
             <i className="bx bxs-message-square-dots"></i>
           </NavLink>
         </div>

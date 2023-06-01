@@ -1,9 +1,12 @@
 .NewChat-div {
   display: flex;
-  margin-top: 1.25rem;
+  margin-top: 0.625rem;
   justify-content: space-between;
 }
 .NewChat-div input {
+  box-shadow: 1px 1px 5px #000000;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   font-family: roboto;
   width: 100%;
   padding-left: 0.625rem;
@@ -11,10 +14,14 @@
   border: none;
 }
 .NewChat-div button {
+  box-shadow: 1px 1px 5px #000000;
   font-size: 1rem;
   font-family: roboto;
   padding: 0.9375rem;
-  background-color: gainsboro;
+  background-color: #1877f2;
+  color: white;
+  font-weight: 600;
   border: none;
-  border-radius: 0.3125rem;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }/*# sourceMappingURL=NewChat.css.map */

@@ -4,6 +4,9 @@
   font-family: roboto;
   font-size: 0.875rem;
   align-items: center;
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 10px;
   position: relative;
 }
 .Friend-div img {

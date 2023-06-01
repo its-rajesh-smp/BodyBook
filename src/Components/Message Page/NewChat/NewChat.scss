@@ -1,9 +1,12 @@
 @import "../../../Styles/color";
 .NewChat-div {
   display: flex;
-  margin-top: torem(20px);
+  margin-top: torem(10px);
   justify-content: space-between;
   input {
+    box-shadow: 1px 1px 5px #000000;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
     font-family: roboto;
     width: 100%;
     padding-left: torem(10px);
@@ -11,11 +14,15 @@
     border: none;
   }
   button {
+    box-shadow: 1px 1px 5px #000000;
     font-size: torem(16px);
     font-family: roboto;
     padding: torem(15px);
-    background-color: gainsboro;
+    background-color: $myblue;
+    color: white;
+    font-weight: 600;
     border: none;
-    border-radius: torem(5px);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
   }
 }

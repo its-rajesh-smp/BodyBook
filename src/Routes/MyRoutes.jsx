@@ -20,13 +20,10 @@ function MyRoutes(props) {
           <Route path="/" element={<MyFriendsPage />} />
           {/* <Route path="/" element={<HomePage />} /> */}
           <Route path="/findfriend" element={<FindFriendPage />} />
-          <Route
-            path="/message/:messageId"
-            errorElement={<MyFriendsPage />}
-            element={<MessagePage />}
-          />
+          <Route path="/message/:messageId" element={<MessagePage />} />
           <Route path="/profile/:userEmail" element={<ProfilePage />} />
           <Route path="/notification" element={<NotificationPage />} />
+          <Route path="*" element={<MyFriendsPage />} />
         </>
       ) : (
         <>

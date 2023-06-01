@@ -1,11 +1,10 @@
 .ChatBox-div {
-  margin-top: 1.25rem;
-  min-height: 3.125rem;
+  margin-top: 0.625rem;
   display: flex;
   flex-direction: column;
   gap: 0.3125rem;
   overflow: scroll;
-  max-height: calc(100% - 10rem);
+  height: 67vh;
 }
 
 .ChatBox-div::-webkit-scrollbar {
@@ -13,4 +12,14 @@
 }
 
 /* Smartphones  */
-/* Tablet *//*# sourceMappingURL=ChatBox.css.map */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .ChatBox-div {
+    height: 57vh;
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .ChatBox-div {
+    height: 70vh;
+  }
+}/*# sourceMappingURL=ChatBox.css.map */

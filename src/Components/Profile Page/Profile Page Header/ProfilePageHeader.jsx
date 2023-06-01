@@ -84,6 +84,10 @@ function ProfilePageHeader(props) {
     navigate("/editProfile");
   };
 
+  // Calculating Total friends
+  const totalFriends = props.userData.friends
+    ? Object.keys(props.userData.friends).length
+    : 0;
   return (
     <div className=" ProfilePageHeader-div container">
       <div className="leftSide">
@@ -98,7 +102,8 @@ function ProfilePageHeader(props) {
             <span>{props.userData.name}</span>
             <i onClick={onClickEditProfileBtn} className="bx bx-edit-alt"></i>
           </p>
-          <p className="friendCount">129</p>
+
+          <p className="friendCount">Total Friend:- {totalFriends}</p>
         </div>
       </div>
 

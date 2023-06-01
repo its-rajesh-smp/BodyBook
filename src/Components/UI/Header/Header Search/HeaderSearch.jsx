@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./HeaderSearch.css";
 import HeaderHambargar from "../Header Hambargar/HeaderHambargar";
-import { ShowOnMobile } from "../../../../Styles/media";
+import { ShowOnDesktop, ShowOnMobile } from "../../../../Styles/media";
 
 function HeaderSearch(props) {
   const [visibleHambargar, setVisibleHambargar] = useState(false);
@@ -18,12 +18,15 @@ function HeaderSearch(props) {
             totalNotification={props.totalNotification}
           />
         )}
+        <i onClick={onClickShowHambargar} className="bx bx-menu logo"></i>
       </ShowOnMobile>
-
-      <i
-        onClick={onClickShowHambargar}
-        className="bx bxl-facebook-square logo"
-      ></i>
+      <ShowOnDesktop>
+        <img
+          className="logo_desktop"
+          src="https://cdn-icons-png.flaticon.com/512/8112/8112669.png"
+          alt=""
+        />
+      </ShowOnDesktop>
 
       <input type="text" placeholder="Search post" />
     </div>

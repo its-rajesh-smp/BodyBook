@@ -16,6 +16,10 @@
   box-shadow: 1px 1px 5px gray;
 }
 
+.logo_desktop {
+  width: 2.5rem;
+}
+
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .HeaderSearch-div {

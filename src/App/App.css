@@ -7,22 +7,21 @@
 html {
   font-size: 100%;
 }
-body {
-  background-color: #e0e0e0;
-}
+
 .pageContainer {
   background-color: #e0e0e0;
   padding: 10px;
 }
-a {
-  color: unset;
-  text-decoration: none;
-}
+
 .container {
   background-color: white;
   padding: 10px;
   box-shadow: 1px 1px 5px gray;
   border-radius: 6px;
+}
+
+button {
+  cursor: pointer;
 }
 
 /* Smartphones  */
@@ -45,4 +44,4 @@ a {
   html {
     font-size: 62.5%;
   }
-} /*# sourceMappingURL=App.css.map */
+}/*# sourceMappingURL=App.css.map */

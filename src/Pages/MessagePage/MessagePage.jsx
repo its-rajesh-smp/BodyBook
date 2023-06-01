@@ -15,6 +15,8 @@ function MessagePage(props) {
   );
   const navigate = useNavigate();
 
+  const [loader, setLoader] = useState(true);
+
   const friendEmail = selectedFriend.email.replace(".", "").replace("@", "");
 
   const myEmail = useSelector((state) =>
@@ -36,6 +38,7 @@ function MessagePage(props) {
       if (personChats) {
         setUserChats((p) => [...p, personChats]);
       }
+      setLoader(false);
     });
     return () => {
       removeEventFunction();
@@ -45,7 +48,7 @@ function MessagePage(props) {
   return (
     <div className=" MessagePage-div pageContainer ">
       <Friend data={selectedFriend} />
-      <ChatBox myEmail={myEmail} userChats={userChats} />
+      <ChatBox loader={loader} myEmail={myEmail} userChats={userChats} />
       <NewChat myEmail={myEmail} friendEmail={friendEmail} />
     </div>
   );

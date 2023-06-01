@@ -6,6 +6,7 @@ import { useSelector } from "react-redux";
 import MessagePerson from "../../Components/UI/Message Page/MessagePerson/MessagePerson";
 
 function MyFriendsPage(props) {
+  const [loader, setLoader] = useState(true);
   const myEmail = useSelector((state) =>
     state.authSlice.userData.email.replace(".", "").replace("@", "")
   );
@@ -26,6 +27,7 @@ function MyFriendsPage(props) {
         return personObj.accept;
       });
       setMyFriends(filtered);
+      setLoader(false);
     });
     return () => {
       removeEventFunction();
@@ -34,17 +36,21 @@ function MyFriendsPage(props) {
 
   return (
     <div className=" MyFriendsPage-div container">
-      {myFriends.map((friendObj) => {
-        return (
-          <MessagePerson
-            //   setChats={setChats}
-            //   setOnClickedFriend={setOnClickedFriend}
-            key={friendObj.email}
-            myEmail={myEmail}
-            data={friendObj}
-          />
-        );
-      })}
+      {loader ? (
+        <div className="iContainer">
+          <i className="bx bx-loader-circle bx-spin" />
+        </div>
+      ) : (
+        myFriends.map((friendObj) => {
+          return (
+            <MessagePerson
+              key={friendObj.email}
+              myEmail={myEmail}
+              data={friendObj}
+            />
+          );
+        })
+      )}
     </div>
   );
 }

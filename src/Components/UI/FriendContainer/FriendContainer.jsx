@@ -6,7 +6,7 @@ export default function FriendContainer(props) {
   return (
     <div className={`friendContainer`}>
       {props.friendArr.map((person) => {
-        return <Friend key={person.name} data={person} />;
+        return <Friend key={person.email} data={person} />;
       })}
     </div>
   );

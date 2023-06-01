@@ -6,6 +6,15 @@
   gap: torem(5px);
   overflow: scroll;
   height: 67vh;
+  .iContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    i {
+      font-size: torem(50px);
+    }
+  }
 }
 .ChatBox-div::-webkit-scrollbar {
   display: none;

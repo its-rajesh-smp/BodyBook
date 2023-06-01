@@ -1,2 +1,13 @@
+@import "../../Styles/color";
 .MyFriendsPage-div {
+  min-height: 10vh;
+  .iContainer {
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    i {
+      font-size: torem(30px);
+    }
+  }
 }

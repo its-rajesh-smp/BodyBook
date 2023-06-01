@@ -1,1 +1,12 @@
-/*# sourceMappingURL=MyFriendsPage.css.map */
+.MyFriendsPage-div {
+  min-height: 10vh;
+}
+.MyFriendsPage-div .iContainer {
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.MyFriendsPage-div .iContainer i {
+  font-size: 1.875rem;
+}/*# sourceMappingURL=MyFriendsPage.css.map */

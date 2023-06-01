@@ -97,7 +97,7 @@ export const fetchUserAct = (setIsLoading) => {
 /* -------------------------------------------------------------------------- */
 /*                                EDIT PROFILE                                */
 /* -------------------------------------------------------------------------- */
-export const editProfileAct = (enteredInput, password) => {
+export const editProfileAct = (enteredInput, password, setLoader, navigate) => {
     return async (dispatch, getState) => {
         const currentUserData = getState().authSlice.userData
         const myEmail = currentUserData.email.replace(".", "").replace("@", "")
@@ -119,8 +119,10 @@ export const editProfileAct = (enteredInput, password) => {
 
             }
 
+            navigate()
         } catch (error) {
             console.log(error);
         }
+        setLoader(false)
     }
 }

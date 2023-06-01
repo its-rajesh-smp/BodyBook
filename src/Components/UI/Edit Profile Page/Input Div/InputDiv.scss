@@ -1,0 +1,13 @@
+@import "../../../../Styles/color";
+.InputDiv-div {
+  gap: torem(10px);
+  align-items: center;
+  display: flex;
+  input {
+    width: 100%;
+    padding: torem(10px) torem(5px);
+  }
+  i {
+    font-size: torem(20px);
+  }
+}

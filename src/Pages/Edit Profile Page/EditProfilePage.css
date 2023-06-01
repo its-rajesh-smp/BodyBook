@@ -49,18 +49,6 @@
   gap: 0.625rem;
   flex-direction: column;
 }
-.EditProfilePage-div__inputBox__container .input__div {
-  gap: 0.625rem;
-  align-items: center;
-  display: flex;
-}
-.EditProfilePage-div__inputBox__container .input__div input {
-  width: 100%;
-  padding: 0.625rem 0.3125rem;
-}
-.EditProfilePage-div__inputBox__container .input__div i {
-  font-size: 1.875rem;
-}
 
 .EditProfilePage-div__btnContainer {
   display: flex;

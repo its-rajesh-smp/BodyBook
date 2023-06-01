@@ -47,18 +47,6 @@
   display: flex;
   gap: torem(10px);
   flex-direction: column;
-  .input__div {
-    gap: torem(10px);
-    align-items: center;
-    display: flex;
-    input {
-      width: 100%;
-      padding: torem(10px) torem(5px);
-    }
-    i {
-      font-size: torem(30px);
-    }
-  }
 }
 .EditProfilePage-div__btnContainer {
   display: flex;

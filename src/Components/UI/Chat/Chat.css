@@ -7,7 +7,8 @@
 .Chat-div img {
   width: 1.875rem;
 }
-.Chat-div p {
+.Chat-div p,
+.Chat-div h1 {
   border-radius: 0.9375rem;
   background-color: #1877f2;
   color: white;

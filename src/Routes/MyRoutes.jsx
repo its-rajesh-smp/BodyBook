@@ -18,8 +18,8 @@ function MyRoutes(props) {
     <Routes>
       {isAuth ? (
         <>
-          {/* <Route path="/" element={<HomePage />} /> */}
-          <Route path="/" element={<EditProfilePage />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/editProfile" element={<EditProfilePage />} />
           <Route path="/myFriends" element={<MyFriendsPage />} />
           <Route path="/findfriend" element={<FindFriendPage />} />
           <Route path="/message/:messageId" element={<MessagePage />} />

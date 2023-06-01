@@ -17,9 +17,12 @@ const authReducer = createSlice({
             state.isAuth = false,
                 state.idToken = ""
             state.userData = {}
+        },
+        editUserData: (state, action) => {
+            state.userData = { ...state.userData, ...action.payload }
         }
     }
 })
 
-export const { authUser, logOutUser } = authReducer.actions
+export const { authUser, logOutUser, editUserData } = authReducer.actions
 export default authReducer

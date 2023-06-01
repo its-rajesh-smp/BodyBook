@@ -81,6 +81,11 @@ function ProfilePageHeader(props) {
     navigate(`/message/${friendEmail}`);
   };
 
+  //On Click Edit Profile Btn Take user to edit page
+  const onClickEditProfileBtn = () => {
+    navigate("/editProfile");
+  };
+
   return (
     <div className=" ProfilePageHeader-div container">
       <div className="leftSide">
@@ -93,7 +98,7 @@ function ProfilePageHeader(props) {
         <div>
           <p className="profileName">
             <span>{props.userData.name}</span>
-            <i className="bx bx-edit-alt"></i>
+            <i onClick={onClickEditProfileBtn} className="bx bx-edit-alt"></i>
           </p>
           <p className="friendCount">129</p>
         </div>

@@ -1,7 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
 import "./EditProfilePage.css";
+import { useDispatch, useSelector } from "react-redux";
+import { editProfileAct } from "../../Store/Actions/authActions";
 
 function EditProfilePage(props) {
+  const userData = useSelector((state) => state.authSlice.userData);
+
+  const [name, setName] = useState(userData.name);
+  const [email, setEmail] = useState(userData.email);
+  const [phone, setPhone] = useState(userData.phone);
+  const [dob, setDob] = useState(userData.dob);
+  const [password, setPassword] = useState("******");
+  const [photo, setPhoto] = useState(userData.photo);
+  const [previewPhoto, setPreviewPhoto] = useState(userData.photo);
+
+  const dispatch = useDispatch();
+  //   On Change Photo Showing in Display
+  const handlePhotoChange = (e) => {
+    const selectedPhoto = e.target.files[0];
+    setPhoto(selectedPhoto);
+    setPreviewPhoto(URL.createObjectURL(selectedPhoto));
+  };
+
+  //On Click Apply Change Btn
+  const applyChangebtnHandeler = () => {
+    const inputObj = {
+      name: name,
+      phone: phone,
+      dob: dob,
+      photo: photo,
+    };
+    dispatch(editProfileAct(inputObj, password));
+  };
+
   return (
     <div className=" EditProfilePage-div pageContainer ">
       <div className="container">
@@ -10,39 +41,61 @@ function EditProfilePage(props) {
 
       <div className="EditProfilePage-div__conatienr">
         <div className="EditProfilePage-div__imgContainer  container">
-          <img
-            src="https://firebasestorage.googleapis.com/v0/b/bodybook-4ef51.appspot.com/o/postImages%2F1685608815450?alt=media&token=7c970fd9-c823-4205-b666-85a41f84c509"
-            alt=""
-          />
+          <img src={previewPhoto} alt="" />
           <div className="chooseProfileImg">
-            <input type="file" />
+            <input type="file" onChange={handlePhotoChange} />
             <p>Choose from file</p>
           </div>
         </div>
 
         <div className="EditProfilePage-div__inputBox__container container">
           <div className="input__div">
-            <input type="text" placeholder="Your Name" />
+            <input
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+              type="text"
+              placeholder="Your Name"
+            />
             <i className="bx bxs-edit"></i>
           </div>
 
           <div className="input__div">
-            <input type="text" placeholder="Your Email" />
+            <input
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              type="text"
+              placeholder="Your Email"
+            />
             <i className="bx bxs-edit"></i>
           </div>
 
           <div className="input__div">
-            <input type="text" placeholder="Your Phone Number" />
+            <input
+              onChange={(e) => setPhone(e.target.value)}
+              defaultValue={phone}
+              type="text"
+              placeholder="Your Phone Number"
+            />
             <i className="bx bxs-edit"></i>
           </div>
 
           <div className="input__div">
-            <input type="date" placeholder="Your DOB" />
+            <input
+              onChange={(e) => setDob(e.target.value)}
+              defaultValue={dob}
+              type="date"
+              placeholder="Your DOB"
+            />
             <i className="bx bxs-edit"></i>
           </div>
 
           <div className="input__div">
-            <input type="text" placeholder="Your Password" />
+            <input
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              type="text"
+              placeholder="Your Password"
+            />
             <i className="bx bxs-edit"></i>
           </div>
         </div>
@@ -50,7 +103,7 @@ function EditProfilePage(props) {
       <div className="container EditProfilePage-div__btnContainer">
         <p>* For now email cannot be changed</p>
         <div>
-          <button>Apply Changes</button>
+          <button onClick={applyChangebtnHandeler}>Apply Changes</button>
           <button>Cancle</button>
         </div>
       </div>

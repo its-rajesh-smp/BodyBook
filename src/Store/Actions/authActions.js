@@ -1,8 +1,10 @@
 import axios from "axios"
 import { GET_USER, SIGN_IN, SIGN_UP, USER } from "../../Firebase/API_URL"
-import { authUser } from "../Reducer/authReducer"
+import { authUser, editUserData } from "../Reducer/authReducer"
 import { heartBeatAction } from "./heartBeatAction"
 import { setAlert } from "../Reducer/alertReducer"
+import { storage } from "../../Firebase/firestore"
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
 
 
 
@@ -87,5 +89,38 @@ export const fetchUserAct = (setIsLoading) => {
             }))
         }
         setIsLoading(false)
+    }
+}
+
+
+
+/* -------------------------------------------------------------------------- */
+/*                                EDIT PROFILE                                */
+/* -------------------------------------------------------------------------- */
+export const editProfileAct = (enteredInput, password) => {
+    return async (dispatch, getState) => {
+        const currentUserData = getState().authSlice.userData
+        const myEmail = currentUserData.email.replace(".", "").replace("@", "")
+        try {
+            let photoUrl = currentUserData.photo
+            // Change photo only if really need to changed
+            if (currentUserData.photo !== enteredInput.photo) {
+                const storageRef = ref(storage, `userProfile/${myEmail}`)
+                const imgResponse = await uploadBytes(storageRef, enteredInput.photo)
+                const imgPath = ref(storage, `${imgResponse.ref.fullPath}`)
+                const downloadUrl = await getDownloadURL(imgPath)
+                photoUrl = downloadUrl
+            }
+            const { data } = await axios.patch(`${USER}/${myEmail}.json`, { ...enteredInput, photo: photoUrl })
+            dispatch(editUserData(data))
+
+            // Change password only if really need to changed
+            if (password === "******") {
+
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
     }
 }

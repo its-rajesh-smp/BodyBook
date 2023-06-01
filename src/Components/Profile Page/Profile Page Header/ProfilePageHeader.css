@@ -29,6 +29,7 @@
 .ProfilePageHeader-div .leftSide div .profileName i {
   margin-left: 0.625rem;
   color: #1877f2;
+  cursor: pointer;
 }
 .ProfilePageHeader-div .leftSide div .friendCount {
   font-size: 1rem;

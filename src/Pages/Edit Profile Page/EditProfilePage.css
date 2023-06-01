@@ -45,6 +45,7 @@
   color: white;
 }
 .EditProfilePage-div__imgContainer .chooseProfileImg input {
+  cursor: pointer;
   z-index: 100;
   position: relative;
   width: 12.5rem;

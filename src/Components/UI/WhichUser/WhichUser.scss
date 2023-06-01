@@ -5,7 +5,10 @@
   gap: torem(20px);
   align-items: center;
   img {
-    width: torem(30px);
+    width: torem(40px);
+    height: torem(40px);
+    object-fit: cover;
+    border-radius: 50%;
   }
   div {
     .which_userName {

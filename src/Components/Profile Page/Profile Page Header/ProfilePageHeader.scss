@@ -10,7 +10,10 @@
     gap: torem(20px);
     align-items: center;
     img {
-      width: torem(200px);
+      width: torem(250px);
+      height: torem(250px);
+      border-radius: 50%;
+      object-fit: cover;
     }
     div {
       display: flex;
@@ -73,6 +76,7 @@
     .leftSide {
       img {
         width: 50px;
+        height: 50px;
       }
       div {
         .profileName {

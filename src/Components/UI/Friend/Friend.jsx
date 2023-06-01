@@ -12,7 +12,7 @@ function Friend(props) {
 
   return (
     <div onClick={onFriendClickNavigate} className=" Friend-div ">
-      <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="" />
+      <img src={props.data.photo} alt="" />
       {props.data.active && <div className="activeFriend"></div>}
       <p>{props.data.name}</p>
     </div>

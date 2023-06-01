@@ -11,6 +11,9 @@
 }
 .Friend-div img {
   width: 3.125rem;
+  height: 3.125rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .activeFriend {

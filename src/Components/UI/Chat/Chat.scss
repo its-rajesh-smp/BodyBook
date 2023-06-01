@@ -5,7 +5,10 @@
   align-items: center;
   gap: torem(5px);
   img {
-    width: torem(30px);
+    width: torem(40px);
+    height: torem(40px);
+    border-radius: 50%;
+    object-fit: cover;
   }
   p,
   h1 {

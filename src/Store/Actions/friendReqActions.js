@@ -2,6 +2,7 @@ import axios from "axios";
 import { MESSAGE_COLLECTION, SEND_FRIEND_REQ, USER } from "../../Firebase/API_URL";
 import generateChatId from "../../Functions/generateChatId";
 import { setAlert } from "../Reducer/alertReducer";
+import Friend from "../../Components/UI/Friend/Friend";
 
 export const sendFriendReq = (friendEmail, myEmail, isSendedFriendRequest) => {
     return async (dispatch, getState) => {
@@ -32,17 +33,18 @@ export const sendFriendReq = (friendEmail, myEmail, isSendedFriendRequest) => {
 
 
 
-export const acceptFriendReq = (myFriendEmail, friendName) => {
+export const acceptFriendReq = (friendData) => {
     return async (dispatch, getState) => {
         try {
-            const myMainEmail = getState().authSlice.userData.email
-            const myName = getState().authSlice.userData.name
-            const myEmail = myMainEmail.replace(".", "").replace("@", "")
-            const friendEmail = myFriendEmail.replace(".", "").replace("@", "")
-
-            await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`, { accept: true, email: myFriendEmail, name: friendName })
-            await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`, { accept: true, email: myMainEmail, name: myName })
-            await axios.post(`${USER}/${friendEmail}/log.json`, { type: "FRIEND REQUEST ACCEPT", person: myName })
+            const mydata = getState().authSlice.userData
+            const myEmail = mydata.email.replace(".", "").replace("@", "")
+            const friendEmail = friendData.email.replace(".", "").replace("@", "")
+            delete friendData.friends
+            delete friendData.lastActive
+            delete friendData.log
+            await axios.put(`${SEND_FRIEND_REQ}/${myEmail}/friends/${friendEmail}.json`, { accept: true, ...friendData })
+            await axios.put(`${SEND_FRIEND_REQ}/${friendEmail}/friends/${myEmail}.json`, { accept: true, ...mydata })
+            await axios.post(`${USER}/${friendEmail}/log.json`, { type: "FRIEND REQUEST ACCEPT", person: mydata.name })
 
         } catch (error) {
             console.log(error);

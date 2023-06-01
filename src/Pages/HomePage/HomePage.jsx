@@ -6,6 +6,7 @@ import { allPostsRef } from "../../Firebase/firestore";
 import PostContainerSkeleton from "../../Skeleton/Skeleton";
 function HomePage(props) {
   const [allPosts, setAllPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   // FETCH REALTIME POSTS
   useEffect(() => {
@@ -14,6 +15,7 @@ function HomePage(props) {
       const newPostObj = { ...newPost, id: snapshot.key };
       setAllPosts((p) => [newPostObj, ...p]);
     });
+    setLoading(false);
     return () => {
       removeEventFunction();
     };
@@ -21,7 +23,7 @@ function HomePage(props) {
 
   return (
     <div className=" HomePage-div pageContainer">
-      {allPosts.length === 0 ? (
+      {loading ? (
         <PostContainerSkeleton />
       ) : (
         <PostContainer isVisible={true} postsArr={allPosts} />

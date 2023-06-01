@@ -9,5 +9,8 @@
   font-size: 1rem;
 }
 .MessagePerson-div img {
-  width: 3.125rem;
+  width: 3.75rem;
+  height: 3.75rem;
+  object-fit: cover;
+  border-radius: 50%;
 }/*# sourceMappingURL=MessagePerson.css.map */

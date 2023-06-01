@@ -23,13 +23,26 @@ function ChatBox(props) {
             <i className="bx bx-loader-circle bx-spin" />
           </div>
         </>
+      ) : userChats.length === 0 ? (
+        <div className="noChatPresnet">
+          <h1>No Chat Present</h1>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/8362/8362771.png"
+            alt=""
+          />
+        </div>
       ) : (
         userChats.map((chat) => {
           // Choosing Who Sended SMS
           const chooseSide =
             chat.auther === props.myEmail ? "rightChat" : "leftChat";
           return (
-            <Chat key={Math.random()} party={chooseSide} msg={chat.text} />
+            <Chat
+              key={chat.id}
+              autherImg={chat.autherPhoto}
+              party={chooseSide}
+              msg={chat.text}
+            />
           );
         })
       )}

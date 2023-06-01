@@ -11,6 +11,9 @@
   position: relative;
   img {
     width: torem(50px);
+    height: torem(50px);
+    object-fit: cover;
+    border-radius: 50%;
   }
 }
 .activeFriend {

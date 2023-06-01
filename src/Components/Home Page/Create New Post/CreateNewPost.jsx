@@ -21,14 +21,12 @@ function CreateNewPost(props) {
         />
       )}
       <div className="CreateNewPost-div__input">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          alt=""
-        />
+        <img src={userDetails.photo} alt="" />
         <div className="homeInputBar" onClick={onClickInput}>
           <p>hey! {userDetails.name} post something...</p>
         </div>
       </div>
+
       <div className="CreateNewPost-div__btnGrp">
         <button onClick={onClickInput}>Go Live</button>
         <button onClick={onClickInput}>Photo/video</button>

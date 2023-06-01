@@ -51,7 +51,7 @@ function ProfilePage(props) {
 
   return (
     <div className=" ProfilePage-div pageContainer ">
-      <ProfilePageHeader userData={personData} />
+      <ProfilePageHeader myEmail={myEmail} userData={personData} />
       <div className="ProfilePage-div__container">
         <ProfileInfo userData={personData} />
         <PostContainer isVisible={myEmail === userEmail} postsArr={allPosts} />

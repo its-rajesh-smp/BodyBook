@@ -20,6 +20,21 @@
   display: none;
 }
 
+.noChatPresnet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: torem(10px);
+  font-family: roboto;
+  h1 {
+    font-size: torem(30px);
+  }
+  img {
+    width: torem(100px);
+  }
+}
+
 //? Media
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {

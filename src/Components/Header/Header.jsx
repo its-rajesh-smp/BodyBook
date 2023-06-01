@@ -12,9 +12,8 @@ import { fetchLogs } from "../../Store/Reducer/userLogReducer";
 
 function Header(props) {
   // Navigate To My Profile
-  const myemail = useSelector((state) =>
-    state.authSlice.userData.email.replace(".", "").replace("@", "")
-  );
+  const userData = useSelector((state) => state.authSlice.userData);
+  const myemail = userData.email.replace(".", "").replace("@", "");
 
   const dispatch = useDispatch();
   const [totalNotification, setTotalNotification] = useState(0);
@@ -40,7 +39,7 @@ function Header(props) {
         <HeaderNavLinks />
       </ShowOnDesktop>
       <HeaderUserLinks
-        myemail={myemail}
+        userData={userData}
         totalNotification={totalNotification}
       />
     </div>

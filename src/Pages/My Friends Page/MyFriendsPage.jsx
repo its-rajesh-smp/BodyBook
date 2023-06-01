@@ -18,10 +18,7 @@ function MyFriendsPage(props) {
     const userRef = ref(database, `users/${myEmail}/friends`);
     const removeEventFunction = onValue(userRef, (snapshot) => {
       const person = snapshot.val();
-      if (!person || person.accept === false) {
-        return;
-      }
-      const personArr = Object.values(person);
+      const personArr = person ? Object.values(person) : [];
       // Filtering If Person is Really a friend or not
       const filtered = personArr.filter((personObj) => {
         return personObj.accept;
@@ -33,6 +30,18 @@ function MyFriendsPage(props) {
       removeEventFunction();
     };
   }, []);
+
+  if (myFriends.length === 0 && !loader) {
+    return (
+      <div className="nofriend container">
+        <h1>No Friend</h1>
+        <img
+          src="https://cdn-icons-png.flaticon.com/512/3113/3113489.png"
+          alt=""
+        />
+      </div>
+    );
+  }
 
   return (
     <div className=" MyFriendsPage-div container">

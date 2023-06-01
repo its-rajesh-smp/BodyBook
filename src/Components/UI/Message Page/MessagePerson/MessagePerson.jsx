@@ -10,16 +10,13 @@ function MessagePerson(props) {
 
   // On Click Person Send Email to Massage Box To Fetch Particular Messages
   const onClickSendEmailhandeler = () => {
-    dispatch(selectPerson({ ...props.data, photoUrl: "" }));
+    dispatch(selectPerson(props.data));
     navigate(`/message/${friendEmail}`);
   };
 
   return (
     <div onClick={onClickSendEmailhandeler} className=" MessagePerson-div ">
-      <img
-        src="https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
-        alt=""
-      />
+      <img src={props.data.photo} alt="" />
       <p>{props.data.name}</p>
     </div>
   );

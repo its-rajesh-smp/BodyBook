@@ -5,7 +5,10 @@
   align-items: center;
 }
 .WhichUser-div img {
-  width: 1.875rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .WhichUser-div div .which_userName {
   font-size: 0.75rem;

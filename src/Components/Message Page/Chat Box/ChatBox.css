@@ -20,6 +20,21 @@
   display: none;
 }
 
+.noChatPresnet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  gap: 0.625rem;
+  font-family: roboto;
+}
+.noChatPresnet h1 {
+  font-size: 1.875rem;
+}
+.noChatPresnet img {
+  width: 6.25rem;
+}
+
 /* Smartphones  */
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .ChatBox-div {

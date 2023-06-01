@@ -4,6 +4,9 @@ import { ShowOnDesktop } from "../../../../Styles/media";
 import { NavLink } from "react-router-dom";
 
 function HeaderUserLinks(props) {
+  const myEmail = props.userData.email.replace(".", "").replace("@", "");
+  const myPhoto = props.userData.photo;
+
   return (
     <div className=" HeaderUserLinks-div ">
       <ShowOnDesktop>
@@ -26,11 +29,8 @@ function HeaderUserLinks(props) {
           </NavLink>
         </div>
       </ShowOnDesktop>
-      <NavLink to={`/profile/${props.myemail}`}>
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-          alt=""
-        />
+      <NavLink to={`/profile/${myEmail}`}>
+        <img src={myPhoto} alt="" />
       </NavLink>
     </div>
   );

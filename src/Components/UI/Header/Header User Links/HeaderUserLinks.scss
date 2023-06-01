@@ -6,6 +6,9 @@
   justify-self: flex-end;
   img {
     width: torem(50px);
+    height: torem(50px);
+    border-radius: 50%;
+    object-fit: cover;
   }
   .navLink {
     display: flex;

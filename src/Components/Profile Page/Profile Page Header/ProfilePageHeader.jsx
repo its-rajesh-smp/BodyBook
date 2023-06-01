@@ -16,9 +16,7 @@ function ProfilePageHeader(props) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const myEmail = useSelector((state) =>
-    state.authSlice.userData.email.replace(".", "").replace("@", "")
-  );
+  const myEmail = props.myEmail;
 
   const friendEmail = props.userData.email
     ? props.userData.email.replace(".", "").replace("@", "")
@@ -67,7 +65,7 @@ function ProfilePageHeader(props) {
 
   // ON CLICK ACCEPT FRIEND REQ
   const onAcceptFriendReq = () => {
-    dispatch(acceptFriendReq(props.userData.email, props.userData.name));
+    dispatch(acceptFriendReq(props.userData));
   };
 
   // ON CLICK UNFRIEND BTN
@@ -91,8 +89,8 @@ function ProfilePageHeader(props) {
       <div className="leftSide">
         <div className="leftSide_img">
           <img
-            src="https://cdn-icons-png.flaticon.com/512/149/149071.png"
-            alt=""
+            className="ProfilePageHeader-div_profileImg"
+            src={props.userData.photo}
           />
         </div>
         <div>

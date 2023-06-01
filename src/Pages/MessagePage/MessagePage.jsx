@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MessagePage.css";
-import { onChildAdded, ref } from "firebase/database";
+import { onChildAdded, onValue, ref } from "firebase/database";
 import { database } from "../../Firebase/firestore";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -11,11 +11,9 @@ import NewChat from "../../Components/Message Page/NewChat/NewChat";
 
 function MessagePage(props) {
   const selectedFriend = useSelector(
-    (state) => state.selectedPersonMessageSlice
+    (state) => state.selectedPersonMessageSlice.selectedUser
   );
   const navigate = useNavigate();
-
-  const [loader, setLoader] = useState(true);
 
   const friendEmail = selectedFriend.email.replace(".", "").replace("@", "");
 
@@ -23,8 +21,10 @@ function MessagePage(props) {
     state.authSlice.userData.email.replace(".", "").replace("@", "")
   );
 
+  // Generating Combined Id
   const combinedId = generateChatId(myEmail, friendEmail);
 
+  const [loader, setLoader] = useState(true);
   const [userChats, setUserChats] = useState([]);
 
   // FETCH REALTIME FRIENDS CHATS
@@ -33,11 +33,16 @@ function MessagePage(props) {
       navigate("/");
     }
     const userRef = ref(database, `Messages/${combinedId}`);
-    const removeEventFunction = onChildAdded(userRef, (snapshot) => {
-      const personChats = snapshot.val();
-      if (personChats) {
-        setUserChats((p) => [...p, personChats]);
-      }
+    const removeEventFunction = onValue(userRef, (snapshot) => {
+      const personChatsObj = snapshot.val();
+
+      const newPersonArr = personChatsObj
+        ? Object.keys(personChatsObj).map((chatId) => {
+            return { ...personChatsObj[chatId], id: chatId };
+          })
+        : [];
+
+      setUserChats(newPersonArr);
       setLoader(false);
     });
     return () => {
@@ -49,7 +54,7 @@ function MessagePage(props) {
     <div className=" MessagePage-div pageContainer ">
       <Friend data={selectedFriend} />
       <ChatBox loader={loader} myEmail={myEmail} userChats={userChats} />
-      <NewChat myEmail={myEmail} friendEmail={friendEmail} />
+      <NewChat selectedFriend={selectedFriend} />
     </div>
   );
 }

@@ -5,7 +5,10 @@
   gap: 0.3125rem;
 }
 .Chat-div img {
-  width: 1.875rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .Chat-div p,
 .Chat-div h1 {

@@ -1,6 +1,5 @@
 @import "../../Styles/color";
 .MyFriendsPage-div {
-  min-height: 10vh;
   .iContainer {
     min-height: 10vh;
     display: flex;
@@ -9,5 +8,17 @@
     i {
       font-size: torem(30px);
     }
+  }
+}
+
+.nofriend {
+  font-family: roboto;
+  font-size: torem(20px);
+  display: flex;
+  height: calc(100vh - torem(80px));
+  align-items: center;
+  justify-content: center;
+  img {
+    width: 30vw;
   }
 }

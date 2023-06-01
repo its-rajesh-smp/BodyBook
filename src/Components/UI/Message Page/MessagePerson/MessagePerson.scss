@@ -8,7 +8,10 @@
   border-radius: torem(5px);
   background-color: rgb(233, 244, 249);
   img {
-    width: torem(50px);
+    width: torem(60px);
+    height: torem(60px);
+    object-fit: cover;
+    border-radius: 50%;
   }
   font-size: torem(16px);
 }

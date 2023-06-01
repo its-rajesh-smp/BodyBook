@@ -9,6 +9,9 @@
 
     img {
       width: torem(40px);
+      height: torem(40px);
+      object-fit: cover;
+      border-radius: 50%;
     }
     div {
       border: none;

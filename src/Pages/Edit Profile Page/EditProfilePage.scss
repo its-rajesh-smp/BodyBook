@@ -1,0 +1,91 @@
+@import "../../Styles/color";
+.EditProfilePage-div {
+  font-family: roboto;
+  display: flex;
+  flex-direction: column;
+  gap: torem(10px);
+}
+
+.EditProfilePage-div__conatienr {
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: torem(10px);
+}
+.EditProfilePage-div__imgContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: torem(5px);
+  img {
+    border-radius: torem(10px);
+    object-fit: contain;
+    width: torem(300px);
+  }
+  .chooseProfileImg {
+    display: flex;
+    border-radius: torem(5px);
+    background-color: grey;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    p {
+      font-size: torem(12px);
+      position: absolute;
+      color: white;
+    }
+    input {
+      z-index: 100;
+      position: relative;
+      width: torem(200px);
+      opacity: 0;
+    }
+  }
+}
+.EditProfilePage-div__inputBox__container {
+  display: flex;
+  gap: torem(10px);
+  flex-direction: column;
+  .input__div {
+    gap: torem(10px);
+    align-items: center;
+    display: flex;
+    input {
+      width: 100%;
+      padding: torem(10px) torem(5px);
+    }
+    i {
+      font-size: torem(30px);
+    }
+  }
+}
+.EditProfilePage-div__btnContainer {
+  display: flex;
+  gap: torem(20px);
+  justify-content: space-between;
+  align-items: center;
+  p {
+    font-size: torem(12px);
+    color: gray;
+  }
+  div {
+    display: flex;
+    gap: torem(20px);
+    button {
+      padding: torem(10px) torem(30px);
+      border: none;
+      font-family: roboto;
+      color: white;
+      font-size: torem(16px);
+      font-weight: 600;
+      border-radius: torem(10px);
+      &:first-child {
+        background-color: $myblue;
+      }
+      &:last-child {
+        background-color: gray;
+      }
+    }
+  }
+}

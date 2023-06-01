@@ -1,0 +1,93 @@
+.EditProfilePage-div {
+  font-family: roboto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+
+.EditProfilePage-div__conatienr {
+  height: 70vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.625rem;
+}
+
+.EditProfilePage-div__imgContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.EditProfilePage-div__imgContainer img {
+  border-radius: 0.625rem;
+  object-fit: contain;
+  width: 18.75rem;
+}
+.EditProfilePage-div__imgContainer .chooseProfileImg {
+  display: flex;
+  border-radius: 0.3125rem;
+  background-color: grey;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+}
+.EditProfilePage-div__imgContainer .chooseProfileImg p {
+  font-size: 0.75rem;
+  position: absolute;
+  color: white;
+}
+.EditProfilePage-div__imgContainer .chooseProfileImg input {
+  z-index: 100;
+  position: relative;
+  width: 12.5rem;
+  opacity: 0;
+}
+
+.EditProfilePage-div__inputBox__container {
+  display: flex;
+  gap: 0.625rem;
+  flex-direction: column;
+}
+.EditProfilePage-div__inputBox__container .input__div {
+  gap: 0.625rem;
+  align-items: center;
+  display: flex;
+}
+.EditProfilePage-div__inputBox__container .input__div input {
+  width: 100%;
+  padding: 0.625rem 0.3125rem;
+}
+.EditProfilePage-div__inputBox__container .input__div i {
+  font-size: 1.875rem;
+}
+
+.EditProfilePage-div__btnContainer {
+  display: flex;
+  gap: 1.25rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.EditProfilePage-div__btnContainer p {
+  font-size: 0.75rem;
+  color: gray;
+}
+.EditProfilePage-div__btnContainer div {
+  display: flex;
+  gap: 1.25rem;
+}
+.EditProfilePage-div__btnContainer div button {
+  padding: 0.625rem 1.875rem;
+  border: none;
+  font-family: roboto;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 0.625rem;
+}
+.EditProfilePage-div__btnContainer div button:first-child {
+  background-color: #1877f2;
+}
+.EditProfilePage-div__btnContainer div button:last-child {
+  background-color: gray;
+}/*# sourceMappingURL=EditProfilePage.css.map */

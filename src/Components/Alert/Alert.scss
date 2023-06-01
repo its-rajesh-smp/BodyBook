@@ -1,3 +1,4 @@
+@import "../../Styles/color";
 .Alert__div {
   position: fixed;
   top: -1000px;
@@ -20,7 +21,7 @@
     justify-content: space-around;
     gap: 20px;
     font-family: roboto;
-    font-size: 20px;
+    font-size: torem(20px);
     align-items: center;
     font-weight: 600;
     border-radius: 10px;
@@ -33,5 +34,25 @@
   }
   100% {
     top: 0;
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .Alert__div {
+    .Alert__div__conainer {
+      width: 70%;
+      height: 80%;
+    }
+  }
+}
+/* Tablet */
+@media only screen and (min-device-width: 480px) and (max-device-width: 1080px) {
+  .Alert__div {
+    .Alert__div__conainer {
+      width: 70%;
+      height: 80%;
+    }
   }
 }

@@ -5,8 +5,15 @@
   gap: 0.625rem;
 }
 
-.EditProfilePage-div__conatienr {
-  height: 70vh;
+.EditProfilePage-div__top_container {
+  font-size: 1.875rem;
+  font-family: roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EditProfilePage-div__conatiner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.625rem;
@@ -78,4 +85,12 @@
 }
 .EditProfilePage-div__btnContainer div button:last-child {
   background-color: gray;
+}
+
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .EditProfilePage-div__conatiner {
+    display: flex;
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=EditProfilePage.css.map */

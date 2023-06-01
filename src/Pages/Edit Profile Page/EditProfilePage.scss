@@ -6,8 +6,15 @@
   gap: torem(10px);
 }
 
-.EditProfilePage-div__conatienr {
-  height: 70vh;
+.EditProfilePage-div__top_container {
+  font-size: torem(30px);
+  font-family: roboto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.EditProfilePage-div__conatiner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: torem(10px);
@@ -75,5 +82,14 @@
         background-color: gray;
       }
     }
+  }
+}
+
+//? Media
+/* Smartphones  */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .EditProfilePage-div__conatiner {
+    display: flex;
+    flex-direction: column;
   }
 }

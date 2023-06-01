@@ -13,7 +13,6 @@ function InputDiv(props) {
         type={props.type}
         placeholder={props.placeholder}
       />
-
       <i
         style={{ color: `${props.notAllow ? "grey" : "#1877f2"}` }}
         onClick={() => {

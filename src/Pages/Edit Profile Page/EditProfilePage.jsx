@@ -47,11 +47,11 @@ function EditProfilePage(props) {
 
   return (
     <div className=" EditProfilePage-div pageContainer ">
-      <div className="container">
+      <div className="EditProfilePage-div__top_container container">
         <p>Edit Your Profile</p>
       </div>
 
-      <div className="EditProfilePage-div__conatienr">
+      <div className="EditProfilePage-div__conatiner">
         <div className="EditProfilePage-div__imgContainer  container">
           <img src={previewPhoto} alt="" />
           <div className="chooseProfileImg">
@@ -65,32 +65,27 @@ function EditProfilePage(props) {
             type="text"
             onChange={setName}
             value={name}
-            placeHolder={"Your Name"}
+            placeholder={"Your Name"}
           />
           <InputDiv
             type="text"
             onChange={setEmail}
             value={email}
             notAllow={true}
-            placeHolder={"Your Email"}
+            placeholder={"Your Email"}
           />
           <InputDiv
             type="text"
             onChange={setPhone}
             value={phone}
-            placeHolder={"Your Phone"}
+            placeholder={"Your Phone"}
           />
-          <InputDiv
-            type="date"
-            onChange={setDob}
-            value={dob}
-            placeHolder={"Your DOB"}
-          />
+          <InputDiv type="date" onChange={setDob} value={dob} />
           <InputDiv
             type="text"
             onChange={setPassword}
             value={password}
-            placeHolder={"Your Password"}
+            placeholder={"Your Password"}
           />
         </div>
       </div>

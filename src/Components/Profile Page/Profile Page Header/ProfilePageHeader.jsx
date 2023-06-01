@@ -10,6 +10,7 @@ import {
 } from "../../../Store/Actions/friendReqActions";
 import { database } from "../../../Firebase/firestore";
 import { onValue, ref } from "firebase/database";
+import { selectPerson } from "../../../Store/Reducer/selectedPersonMessageReducer";
 
 function ProfilePageHeader(props) {
   const dispatch = useDispatch();
@@ -74,6 +75,12 @@ function ProfilePageHeader(props) {
     removeFriend(friendEmail, myEmail);
   };
 
+  // On Click Take him to send message
+  const onClickSendMessage = () => {
+    dispatch(selectPerson({ ...props.userData }));
+    navigate(`/message/${friendEmail}`);
+  };
+
   return (
     <div className=" ProfilePageHeader-div container">
       <div className="leftSide">
@@ -108,7 +115,7 @@ function ProfilePageHeader(props) {
             {isBothAreFriend && (
               <>
                 <button onClick={onClickUnfriend}>Unfriend</button>
-                <button>Send Message</button>
+                <button onClick={onClickSendMessage}>Send Message</button>
               </>
             )}
           </>

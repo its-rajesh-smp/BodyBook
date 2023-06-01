@@ -3,6 +3,7 @@ import "./SignUpCard.css";
 import BlurWrapper from "../../UI/BlurWrapper/BlurWrapper";
 import { useDispatch } from "react-redux";
 import { createUserAct } from "../../../Store/Actions/authActions";
+import { useNavigate } from "react-router-dom";
 
 function SignUpCard(props) {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ function SignUpCard(props) {
   const [firstName, setFirstName] = useState("");
   const [lastName, setSetLastName] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   // On Create Account Btn Click
   const onClickBtnHandeler = (e) => {
@@ -22,7 +24,7 @@ function SignUpCard(props) {
         email: email,
         password: password,
       };
-      dispatch(createUserAct(enteredInput, setIsLoading));
+      dispatch(createUserAct(enteredInput, setIsLoading, navigate));
     }
   };
 

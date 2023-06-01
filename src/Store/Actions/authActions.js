@@ -5,21 +5,23 @@ import { heartBeatAction } from "./heartBeatAction"
 import { setAlert } from "../Reducer/alertReducer"
 import { storage } from "../../Firebase/firestore"
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage"
+const DEFAULTPHOTO = "https://cdn-icons-png.flaticon.com/512/149/149071.png"
 
 
 
 /* -------------------------------------------------------------------------- */
 /*                                 CREATE USER                                */
 /* -------------------------------------------------------------------------- */
-export const createUserAct = (enteredInput, setIsLoading) => {
+export const createUserAct = (enteredInput, setIsLoading, navigate) => {
     return async (dispatch, getState) => {
         try {
             const { data: authData } = await axios.post(SIGN_UP, { email: enteredInput.email, password: enteredInput.password, returnSecureToken: true })
             delete enteredInput.password
             const userEmail = enteredInput.email.replace(".", "").replace("@", "")
-            const { data: userData } = await axios.put(`${USER}/${userEmail}.json`, { ...enteredInput, lastActive: new Date().getTime() })
+            const { data: userData } = await axios.put(`${USER}/${userEmail}.json`, { ...enteredInput, photo: DEFAULTPHOTO, lastActive: new Date().getTime() })
             localStorage.setItem("bodybook", authData.idToken)
             dispatch(authUser({ ...authData, userData }))
+            navigate("/editProfile")
         } catch (error) {
             console.log(error);
             dispatch(setAlert({

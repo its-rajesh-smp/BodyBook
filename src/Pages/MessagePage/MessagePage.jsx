@@ -27,7 +27,7 @@ function MessagePage(props) {
 
   const [userChats, setUserChats] = useState([]);
 
-  // FETCH REALTIME FRIENDS
+  // FETCH REALTIME FRIENDS CHATS
   useEffect(() => {
     if (selectedFriend.email === "") {
       navigate("/");

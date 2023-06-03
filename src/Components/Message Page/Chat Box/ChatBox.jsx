@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import "./ChatBox.css";
 import Chat from "../../UI/Chat/Chat";
-import { onChildChanged, onValue, ref, set, update } from "firebase/database";
+import { get, ref, runTransaction, set } from "firebase/database";
 import { database } from "../../../Firebase/firestore";
 
 function ChatBox(props) {
@@ -16,10 +16,30 @@ function ChatBox(props) {
       behavior: "smooth",
     });
 
+    // For Particular user
     const myRef = ref(
       database,
       `users/${props.myEmail}/friends/${props.friendEmail}/newMessage`
     );
+
+    // For Header Storing Total In A Separate Node
+    const myTotalMessageRef = ref(
+      database,
+      `users/${props.myEmail}/messageLog/newMessage`
+    );
+
+    // First Getting Then Subtraction
+    get(myRef).then((res) => {
+      runTransaction(myTotalMessageRef, (currentData) => {
+        if (!currentData) {
+          return 0;
+        } else {
+          return currentData - res.val();
+        }
+      });
+    });
+
+    // Deleting All From user
     set(myRef, 0);
   }, [userChats]);
 

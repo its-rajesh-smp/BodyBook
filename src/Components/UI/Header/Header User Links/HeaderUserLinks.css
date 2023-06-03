@@ -34,10 +34,12 @@
   color: #1877f2;
 }
 
-.notificationBtn a {
+.notificationBtn a,
+.messageBtn a {
   position: relative;
 }
-.notificationBtn a p {
+.notificationBtn a p,
+.messageBtn a p {
   background-color: red;
   width: 0.9375rem;
   height: 0.9375rem;

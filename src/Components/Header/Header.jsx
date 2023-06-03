@@ -17,7 +17,7 @@ function Header(props) {
 
   const dispatch = useDispatch();
   const [totalNotification, setTotalNotification] = useState(0);
-
+  const [totalNewMessage, setTotalNewMessage] = useState(0);
   // Fetching Logs For Showing In Notification icon & inside the notification page
   useEffect(() => {
     const userLogRef = ref(database, `users/${myemail}/log`);
@@ -32,13 +32,33 @@ function Header(props) {
     };
   }, []);
 
+  // Fetching New Message For Showing in Message Icon
+  useEffect(() => {
+    const newTotalMessageRef = ref(
+      database,
+      `users/${myemail}/messageLog/newMessage`
+    );
+    const removeEventFunction = onValue(newTotalMessageRef, (snapShot) => {
+      const value = snapShot.val();
+      setTotalNewMessage(value ? value : 0);
+    });
+
+    return () => {
+      removeEventFunction();
+    };
+  }, []);
+
   return (
     <div className=" Header-div ">
-      <HeaderSearch totalNotification={totalNotification} />
+      <HeaderSearch
+        totalNewMessage={totalNewMessage}
+        totalNotification={totalNotification}
+      />
       <ShowOnDesktop>
         <HeaderNavLinks />
       </ShowOnDesktop>
       <HeaderUserLinks
+        totalNewMessage={totalNewMessage}
         userData={userData}
         totalNotification={totalNotification}
       />

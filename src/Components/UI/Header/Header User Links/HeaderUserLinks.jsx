@@ -10,9 +10,10 @@ function HeaderUserLinks(props) {
   return (
     <div className=" HeaderUserLinks-div ">
       <ShowOnDesktop>
-        <div className="navLink">
+        <div className="navLink messageBtn">
           <NavLink to={"/myFriends"}>
             <i className="bx bxs-message-square-dots"></i>
+            {props.totalNewMessage !== 0 && <p>{props.totalNewMessage}</p>}
           </NavLink>
         </div>
 

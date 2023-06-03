@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MessagePage.css";
-import { onChildAdded, onValue, ref } from "firebase/database";
+import { onValue, ref } from "firebase/database";
 import { database } from "../../Firebase/firestore";
 import { useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
@@ -10,29 +10,27 @@ import ChatBox from "../../Components/Message Page/Chat Box/ChatBox";
 import NewChat from "../../Components/Message Page/NewChat/NewChat";
 
 function MessagePage(props) {
+  const navigate = useNavigate();
+
   const selectedFriend = useSelector(
     (state) => state.selectedPersonMessageSlice.selectedUser
   );
-  const navigate = useNavigate();
-
   const friendEmail = selectedFriend.email.replace(".", "").replace("@", "");
-
-  const myEmail = useSelector((state) =>
-    state.authSlice.userData.email.replace(".", "").replace("@", "")
-  );
-
+  const myDetail = useSelector((state) => state.authSlice.userData);
+  const myEmail = myDetail.email.replace(".", "").replace("@", "");
   // Generating Combined Id
   const combinedId = generateChatId(myEmail, friendEmail);
 
   const [loader, setLoader] = useState(true);
   const [userChats, setUserChats] = useState([]);
+  const [typingStatus, setTypingStatus] = useState(false);
 
   // FETCH REALTIME FRIENDS CHATS
   useEffect(() => {
     if (selectedFriend.email === "") {
       navigate("/");
     }
-    const userRef = ref(database, `Messages/${combinedId}`);
+    const userRef = ref(database, `Messages/${combinedId}/message`);
     const removeEventFunction = onValue(userRef, (snapshot) => {
       const personChatsObj = snapshot.val();
 
@@ -50,11 +48,36 @@ function MessagePage(props) {
     };
   }, []);
 
+  // Render Is Typing Status
+  useEffect(() => {
+    const typingStatusRef = ref(
+      database,
+      `Messages/${combinedId}/typing/${friendEmail}`
+    );
+    const addEventListener = onValue(typingStatusRef, (snapshot) => {
+      const status = snapshot.val();
+      setTypingStatus(status);
+    });
+    return () => {
+      addEventListener();
+    };
+  }, []);
+
   return (
     <div className=" MessagePage-div pageContainer ">
-      <Friend data={selectedFriend} />
-      <ChatBox loader={loader} myEmail={myEmail} userChats={userChats} />
-      <NewChat selectedFriend={selectedFriend} />
+      <Friend typingStatus={typingStatus} data={selectedFriend} />
+      <ChatBox
+        combinedId={combinedId}
+        loader={loader}
+        myEmail={myEmail}
+        friendEmail={friendEmail}
+        userChats={userChats}
+      />
+      <NewChat
+        myEmail={myEmail}
+        combinedId={combinedId}
+        selectedFriend={selectedFriend}
+      />
     </div>
   );
 }

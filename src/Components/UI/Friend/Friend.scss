@@ -25,3 +25,14 @@
   border-radius: 50%;
   background-color: greenyellow;
 }
+.TypingStatus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: torem(5px);
+  position: absolute;
+  right: 0;
+  padding-right: torem(20px);
+  text-align: end;
+  font-size: torem(12px);
+}

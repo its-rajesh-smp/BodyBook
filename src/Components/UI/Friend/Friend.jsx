@@ -15,6 +15,12 @@ function Friend(props) {
       <img src={props.data.photo} alt="" />
       {props.data.active && <div className="activeFriend"></div>}
       <p>{props.data.name}</p>
+      {props.typingStatus && (
+        <div className="TypingStatus">
+          <p>Typing</p>
+          <i className="bx bx-dots-horizontal-rounded bx-tada"></i>
+        </div>
+      )}
     </div>
   );
 }

@@ -13,7 +13,7 @@ export const sendMessage = (selectedFriend, message, setMessage) => {
             const combinedId = generateChatId(myEmail, friendEmail)
 
             if (message.trim() !== "") {
-                await axios.post(`${MESSAGE_COLLECTION}/${combinedId}.json`, { text: message, auther: myEmail, autherPhoto: myData.photo })
+                await axios.post(`${MESSAGE_COLLECTION}/${combinedId}/message.json`, { text: message, auther: myEmail, autherPhoto: myData.photo })
             }
             setMessage("")
         } catch (error) {
@@ -26,3 +26,6 @@ export const sendMessage = (selectedFriend, message, setMessage) => {
         }
     }
 }
+
+
+

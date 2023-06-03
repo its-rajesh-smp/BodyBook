@@ -1,6 +1,8 @@
-import React, { useEffect, useRef } from "react";
+import React, { useCallback, useEffect, useRef } from "react";
 import "./ChatBox.css";
 import Chat from "../../UI/Chat/Chat";
+import { onChildChanged, onValue, ref } from "firebase/database";
+import { database } from "../../../Firebase/firestore";
 
 function ChatBox(props) {
   // If No Chat Present Then Showin Nothing
@@ -14,6 +16,22 @@ function ChatBox(props) {
       behavior: "smooth",
     });
   }, [userChats]);
+
+  const renderChats = useCallback(() => {
+    return userChats.map((chat) => {
+      // Choosing Who Sent SMS
+      const chooseSide =
+        chat.auther === props.myEmail ? "rightChat" : "leftChat";
+      return (
+        <Chat
+          key={chat.id}
+          autherImg={chat.autherPhoto}
+          party={chooseSide}
+          msg={chat.text}
+        />
+      );
+    });
+  }, [userChats, props.myEmail]);
 
   return (
     <div ref={scroll} className=" ChatBox-div container">
@@ -32,19 +50,7 @@ function ChatBox(props) {
           />
         </div>
       ) : (
-        userChats.map((chat) => {
-          // Choosing Who Sended SMS
-          const chooseSide =
-            chat.auther === props.myEmail ? "rightChat" : "leftChat";
-          return (
-            <Chat
-              key={chat.id}
-              autherImg={chat.autherPhoto}
-              party={chooseSide}
-              msg={chat.text}
-            />
-          );
-        })
+        renderChats()
       )}
     </div>
   );

@@ -1,7 +1,9 @@
 import axios from "axios";
-import { MESSAGE_COLLECTION } from "../../Firebase/API_URL";
+import { MESSAGE_COLLECTION, USER } from "../../Firebase/API_URL";
 import generateChatId from "../../Functions/generateChatId";
 import { setAlert } from "../Reducer/alertReducer";
+import { ref, runTransaction, update } from "firebase/database";
+import { database } from "../../Firebase/firestore";
 
 export const sendMessage = (selectedFriend, message, setMessage) => {
     return async (dispatch, getState) => {
@@ -10,12 +12,19 @@ export const sendMessage = (selectedFriend, message, setMessage) => {
             const myEmail = myData.email.replace(".", "").replace("@", "")
             const friendEmail = selectedFriend.email.replace(".", "").replace("@", "")
 
+            const friendRef = ref(database, `users/${friendEmail}/friends/${myEmail}/newMessage`);
+            runTransaction(friendRef, (currentData) => {
+                if (currentData == null) { return 1 }
+                else { return currentData + 1 }
+            })
+
             const combinedId = generateChatId(myEmail, friendEmail)
 
             if (message.trim() !== "") {
                 await axios.post(`${MESSAGE_COLLECTION}/${combinedId}/message.json`, { text: message, auther: myEmail, autherPhoto: myData.photo })
+                setMessage("")
+
             }
-            setMessage("")
         } catch (error) {
             console.log(error);
             dispatch(setAlert({

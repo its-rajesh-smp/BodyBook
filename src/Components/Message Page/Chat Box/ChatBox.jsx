@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef } from "react";
 import "./ChatBox.css";
 import Chat from "../../UI/Chat/Chat";
-import { onChildChanged, onValue, ref } from "firebase/database";
+import { onChildChanged, onValue, ref, set, update } from "firebase/database";
 import { database } from "../../../Firebase/firestore";
 
 function ChatBox(props) {
@@ -15,6 +15,12 @@ function ChatBox(props) {
       top: scroll.current.scrollHeight,
       behavior: "smooth",
     });
+
+    const myRef = ref(
+      database,
+      `users/${props.myEmail}/friends/${props.friendEmail}/newMessage`
+    );
+    set(myRef, 0);
   }, [userChats]);
 
   const renderChats = useCallback(() => {

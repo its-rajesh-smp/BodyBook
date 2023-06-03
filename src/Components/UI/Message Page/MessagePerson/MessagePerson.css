@@ -7,10 +7,23 @@
   border-radius: 0.3125rem;
   background-color: rgb(233, 244, 249);
   font-size: 1rem;
+  position: relative;
 }
 .MessagePerson-div img {
   width: 3.75rem;
   height: 3.75rem;
   object-fit: cover;
   border-radius: 50%;
+}
+
+.newMessage {
+  position: absolute;
+  right: 0;
+  padding: 0.3125rem;
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  margin: 1.25rem;
+  background-color: red;
+  text-align: right;
 }/*# sourceMappingURL=MessagePerson.css.map */

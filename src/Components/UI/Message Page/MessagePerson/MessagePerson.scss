@@ -7,11 +7,24 @@
   gap: torem(10px);
   border-radius: torem(5px);
   background-color: rgb(233, 244, 249);
+  font-size: torem(16px);
+  position: relative;
   img {
     width: torem(60px);
     height: torem(60px);
     object-fit: cover;
     border-radius: 50%;
   }
-  font-size: torem(16px);
+}
+
+.newMessage {
+  position: absolute;
+  right: 0;
+  padding: torem(5px);
+  border-radius: 5px;
+  font-weight: 600;
+  color: white;
+  margin: torem(20px);
+  background-color: red;
+  text-align: right;
 }

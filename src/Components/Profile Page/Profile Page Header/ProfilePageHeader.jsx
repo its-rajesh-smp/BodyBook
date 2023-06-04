@@ -84,10 +84,17 @@ function ProfilePageHeader(props) {
     navigate("/editProfile");
   };
 
+  console.log(props.userData.friends);
   // Calculating Total friends
   const totalFriends = props.userData.friends
-    ? Object.keys(props.userData.friends).length
+    ? Object.values(props.userData.friends).reduce((prev, curr) => {
+        if (curr.accept) {
+          return prev + 1;
+        }
+        return prev;
+      }, 0)
     : 0;
+
   return (
     <div className=" ProfilePageHeader-div container">
       <div className="leftSide">

@@ -14,6 +14,7 @@ function HeaderSearch(props) {
       <ShowOnMobile>
         {visibleHambargar && (
           <HeaderHambargar
+            totalNewMessage={props.totalNewMessage}
             onClickShowHambargar={onClickShowHambargar}
             totalNotification={props.totalNotification}
           />

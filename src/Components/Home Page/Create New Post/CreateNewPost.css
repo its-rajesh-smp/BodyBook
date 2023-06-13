@@ -10,7 +10,8 @@
 .CreateNewPost-div .CreateNewPost-div__input img {
   width: 2.5rem;
   height: 2.5rem;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 .CreateNewPost-div .CreateNewPost-div__input div {

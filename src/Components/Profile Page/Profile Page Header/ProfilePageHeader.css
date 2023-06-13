@@ -14,7 +14,8 @@
   width: 15.625rem;
   height: 15.625rem;
   border-radius: 50%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .ProfilePageHeader-div .leftSide div {
   display: flex;

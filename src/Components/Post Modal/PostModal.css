@@ -6,7 +6,8 @@
   top: 0;
   left: 0;
   background-color: rgba(128, 128, 128, 0.419);
-  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   display: flex;
   flex-direction: column;
   align-items: center;

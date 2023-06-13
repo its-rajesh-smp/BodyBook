@@ -19,5 +19,6 @@
   cursor: pointer;
   background-color: #1877f2;
   padding: 5px;
+  width: -moz-fit-content;
   width: fit-content;
 }/*# sourceMappingURL=NotificationPage.css.map */

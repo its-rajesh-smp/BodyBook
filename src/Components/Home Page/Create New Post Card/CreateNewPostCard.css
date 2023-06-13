@@ -17,9 +17,11 @@
 .CreateNewPostCard-div .CreateNewPostCard-div__topbar h1 {
   font-size: 1.25rem;
 }
-.CreateNewPostCard-div .CreateNewPostCard-div__topbar h1:last-child {
+.CreateNewPostCard-div .CreateNewPostCard-div__topbar .bx-x {
+  font-size: 1.875rem;
   position: absolute;
   right: 0;
+  cursor: pointer;
 }
 .CreateNewPostCard-div .postBTN {
   width: 100%;

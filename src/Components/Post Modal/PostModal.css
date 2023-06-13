@@ -25,6 +25,7 @@
   position: absolute;
   right: 0.625rem;
   top: 0.625rem;
+  cursor: pointer;
   font-size: 1.875rem;
 }
 

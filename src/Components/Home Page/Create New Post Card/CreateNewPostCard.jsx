@@ -28,7 +28,7 @@ function CreateNewPostCard(props) {
       <div className=" CreateNewPostCard-div container">
         <div className="CreateNewPostCard-div__topbar">
           <h1>Create Post</h1>
-          <h1 onClick={props.setIsVissible}>X</h1>
+          <i onClick={props.setIsVissible} className="bx bx-x"></i>
         </div>
         <WhichUser date={currentDate} userDetails={props.userDetails} />
 

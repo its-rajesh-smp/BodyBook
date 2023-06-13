@@ -15,11 +15,13 @@
     position: relative;
     h1 {
       font-size: torem(20px);
-      &:last-child {
-        position: absolute;
-        right: 0;
-      }
     }
+    .bx-x {
+      font-size: torem(30px);
+      position: absolute;
+      right: 0;
+      cursor: pointer;
+    } 
   }
   .postBTN {
     width: 100%;

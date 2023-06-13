@@ -10,6 +10,7 @@ function HeaderHambargar(props) {
       </NavLink>
 
       <NavLink onClick={props.onClickShowHambargar} to={"/myFriends"}>
+        {props.totalNewMessage !== 0 && <p>{props.totalNewMessage}</p>}
         <i className="bx bxs-message-square-dots"></i>
       </NavLink>
 

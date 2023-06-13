@@ -9,6 +9,7 @@ function FriendCircle(props) {
   const myEmail = useSelector((state) => state.authSlice.userData.email);
   const [activeUser, setactiveUser] = useState([]);
   const [inActiveUser, setInActiveUser] = useState([]);
+  const [search, setSearch] = useState("");
 
   // FETCH REALTIME USERS
   useEffect(() => {
@@ -41,11 +42,17 @@ function FriendCircle(props) {
 
   return (
     <div className=" FriendCircle-div container ">
-      <input type="text" placeholder="Find Friend" />
+      <input
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+        type="text"
+        placeholder="Find Friend"
+      />
+
       <p className="FriendCircle__p">Active Peoples</p>
-      <FriendContainer friendArr={activeUser} />
+      <FriendContainer search={search} friendArr={activeUser} />
       <p className="FriendCircle__p">Inactive Peoples</p>
-      <FriendContainer friendArr={inActiveUser} />
+      <FriendContainer search={search} friendArr={inActiveUser} />
     </div>
   );
 }

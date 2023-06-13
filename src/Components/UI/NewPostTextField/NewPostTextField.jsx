@@ -10,6 +10,16 @@ function NewPostTextField(props) {
       setIsSet(false);
       props.setImage(null);
     } else {
+      if (
+        !e.target.value.includes("png") &&
+        !e.target.value.includes("jpg") &&
+        !e.target.value.includes("jpeg")
+      ) {
+        alert("ONLY SUPPORT PNG JPG JPEG");
+        setIsSet(false);
+        props.setImage(null);
+        return;
+      }
       setIsSet(true);
       props.setImage(e.target.files[0]);
     }
@@ -28,6 +38,7 @@ function NewPostTextField(props) {
           style={{ opacity: `${isSet ? "10" : "0"}` }}
           onChange={onChangeHandeler}
           type="file"
+          accept=".png, .jpg, .jpeg"
         ></input>
       </div>
     </div>

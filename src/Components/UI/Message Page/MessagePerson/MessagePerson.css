@@ -12,7 +12,8 @@
 .MessagePerson-div img {
   width: 3.75rem;
   height: 3.75rem;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 50%;
 }
 

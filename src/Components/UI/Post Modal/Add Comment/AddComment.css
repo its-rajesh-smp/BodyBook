@@ -9,6 +9,9 @@
   width: 100%;
   outline: none;
 }
+.AddComment-div input::-moz-placeholder {
+  font-size: 0.75rem;
+}
 .AddComment-div input::placeholder {
   font-size: 0.75rem;
 }

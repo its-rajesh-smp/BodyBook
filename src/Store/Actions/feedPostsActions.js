@@ -12,6 +12,7 @@ export const addNewPostAct = (post, image, setIsvisible, setIsLoading) => {
     try {
       const userData = getState().authSlice.userData;
       const userEmail = userData.email.replace(".", "").replace("@", "");
+
       if (image) {
         // If Post Cotains Image then storing the image first then creating a object with the image link and post in realtimeDatabase
         const storageRef = ref(storage, `postImages/${Date.now()}`);
@@ -24,6 +25,7 @@ export const addNewPostAct = (post, image, setIsvisible, setIsLoading) => {
           date: new Date().toDateString(),
           ...userData,
           image: downloadUrl,
+          messageLog: undefined,
         };
 
         const { data: userPost } = await axios.post(
@@ -33,16 +35,14 @@ export const addNewPostAct = (post, image, setIsvisible, setIsLoading) => {
 
         const newPostObj = { ...enteredInput, id: userPost.name };
 
-        const { data: allPosts } = await axios.put(
-          `${ALL_POSTS}/${userPost.name}.json`,
-          newPostObj
-        );
+        await axios.put(`${ALL_POSTS}/${userPost.name}.json`, newPostObj);
       } else {
         // Not image then only store in RealtimeDatabase
         const enteredInput = {
           post: post,
           date: new Date().toDateString(),
           ...userData,
+          messageLog: undefined,
         };
 
         const { data: userPost } = await axios.post(
@@ -52,10 +52,7 @@ export const addNewPostAct = (post, image, setIsvisible, setIsLoading) => {
 
         const newPostObj = { ...enteredInput, id: userPost.name };
 
-        const { data: allPosts } = await axios.put(
-          `${ALL_POSTS}/${userPost.name}.json`,
-          newPostObj
-        );
+        await axios.put(`${ALL_POSTS}/${userPost.name}.json`, newPostObj);
       }
     } catch (error) {
       console.log(error);

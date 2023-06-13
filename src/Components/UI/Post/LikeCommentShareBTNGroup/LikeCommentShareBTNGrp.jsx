@@ -32,7 +32,6 @@ function LikeCommentShareBTNGroup(props) {
         )}
       </button>
       <button onClick={onClickCommentBtnHandeler}>Comment</button>
-      <button>Share</button>
     </div>
   );
 }

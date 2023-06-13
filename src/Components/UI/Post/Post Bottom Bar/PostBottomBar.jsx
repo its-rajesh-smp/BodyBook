@@ -9,9 +9,6 @@ function PostBottomBar(props) {
         <p>
           <span>{props.totalComments}</span> comments
         </p>
-        <p>
-          <span>7</span> shares
-        </p>
       </div>
     </div>
   );

@@ -3,11 +3,12 @@ import "./MessagePage.css";
 import { onValue, ref } from "firebase/database";
 import { database } from "../../Firebase/firestore";
 import { useSelector } from "react-redux";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import generateChatId from "../../Functions/generateChatId";
 import Friend from "../../Components/UI/Friend/Friend";
 import ChatBox from "../../Components/Message Page/Chat Box/ChatBox";
 import NewChat from "../../Components/Message Page/NewChat/NewChat";
+import ErrorPage from "../Error Page/ErrorPage";
 
 function MessagePage(props) {
   const navigate = useNavigate();
@@ -15,7 +16,13 @@ function MessagePage(props) {
   const selectedFriend = useSelector(
     (state) => state.selectedPersonMessageSlice.selectedUser
   );
+
+  if (!selectedFriend) {
+    return <ErrorPage />;
+  }
+
   const friendEmail = selectedFriend.email.replace(".", "").replace("@", "");
+
   const myDetail = useSelector((state) => state.authSlice.userData);
   const myEmail = myDetail.email.replace(".", "").replace("@", "");
   // Generating Combined Id

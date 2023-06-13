@@ -15,6 +15,9 @@ function CreateNewPostCard(props) {
 
   // ON POST BTN CLICK
   const onPostBtnHandeler = (e) => {
+    if (postText.trim() === "" && image === null) {
+      return;
+    }
     if (!isLoading) {
       setIsLoading(true);
       dispatch(

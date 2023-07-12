@@ -100,7 +100,9 @@ function ProfilePageHeader(props) {
         <div>
           <p className="profileName">
             <span>{props.userData.name}</span>
-            <i onClick={onClickEditProfileBtn} className="bx bx-edit-alt"></i>
+            {myEmail === friendEmail && (
+              <i onClick={onClickEditProfileBtn} className="bx bx-edit-alt"></i>
+            )}
           </p>
 
           <p className="friendCount">Total Friend:- {totalFriends}</p>

@@ -63,7 +63,7 @@ function SignUpCard(props) {
           <input
             onChange={(e) => setPassword(e.target.value)}
             className="passwordEmailInput"
-            type="text"
+            type="password"
             placeholder="New password"
             name=""
             id=""
@@ -72,30 +72,7 @@ function SignUpCard(props) {
           <div className="formOptionDiv">
             <p>Date of birth</p>
             <div className="formOptionDiv__div">
-              <select name="" id="">
-                <option value="">1</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-                <option value="">6</option>
-              </select>
-              <select name="" id="">
-                <option value="">Jan</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-                <option value="">6</option>
-              </select>
-              <select name="" id="">
-                <option value="">2023</option>
-                <option value="">2</option>
-                <option value="">3</option>
-                <option value="">4</option>
-                <option value="">5</option>
-                <option value="">6</option>
-              </select>
+              <input type="date" />
             </div>
           </div>
           <div className="formRadioDiv">
@@ -103,15 +80,15 @@ function SignUpCard(props) {
             <div className="formRadioDiv__div">
               <div>
                 <label>Male</label>
-                <input type="radio" name="" id="" />
+                <input type="radio" name="gender" />
               </div>
               <div>
                 <label>Femail</label>
-                <input type="radio" name="" id="" />
+                <input type="radio" name="gender" />
               </div>
               <div>
                 <label>Custom</label>
-                <input type="radio" name="" id="" />
+                <input type="radio" name="gender" />
               </div>
             </div>
           </div>

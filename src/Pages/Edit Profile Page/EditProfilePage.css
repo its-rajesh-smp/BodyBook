@@ -28,7 +28,8 @@
 }
 .EditProfilePage-div__imgContainer img {
   border-radius: 0.625rem;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   width: 18.75rem;
 }
 .EditProfilePage-div__imgContainer .chooseProfileImg {

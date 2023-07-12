@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["LoadingPage.scss","../../Styles/_color.scss"],"names":[],"mappings":"AACA;EACE;EACA;EACA;EACA;EACA;EAKA;;AAJA;EACE,OCRK;EDSL","file":"LoadingPage.css"}
+{"version":3,"sources":["LoadingPage.scss","LoadingPage.css","../../Styles/_color.scss"],"names":[],"mappings":"AACA;EACE,YAAA;EACA,aAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EAKA,uBAAA;ACJF;ADAE;EACE,cERK;EFSL,eAAA;ACEJ","file":"LoadingPage.css"}

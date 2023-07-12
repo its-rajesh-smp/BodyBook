@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["MyFriendsPage.scss"],"names":[],"mappings":"AAEE;EACE;EACA;EACA;EACA;;AACA;EACE;;;AAKN;EACE;EACA;EACA;EACA;EACA;EACA;;AACA;EACE","file":"MyFriendsPage.css"}
+{"version":3,"sources":["MyFriendsPage.scss","MyFriendsPage.css"],"names":[],"mappings":"AAEE;EACE,gBAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;ACDJ;ADEI;EACE,mBAAA;ACAN;;ADKA;EACE,mBAAA;EACA,kBAAA;EACA,aAAA;EACA,0BAAA;EACA,mBAAA;EACA,uBAAA;ACFF;ADGE;EACE,WAAA;ACDJ","file":"MyFriendsPage.css"}

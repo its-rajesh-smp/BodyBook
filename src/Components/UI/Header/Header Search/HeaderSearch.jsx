@@ -1,12 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./HeaderSearch.css";
 import HeaderHambargar from "../Header Hambargar/HeaderHambargar";
 import { ShowOnDesktop, ShowOnMobile } from "../../../../Styles/media";
+import { useDispatch, useSelector } from "react-redux";
+import { searchPost } from "../../../../Store/Reducer/postSearchReducer";
 
 function HeaderSearch(props) {
   const [visibleHambargar, setVisibleHambargar] = useState(false);
+
+  const dispatch = useDispatch();
   const onClickShowHambargar = () => {
     setVisibleHambargar((p) => !p);
+  };
+
+  // On Type In Search
+  const onChangeSearchHandeler = (e) => {
+    dispatch(searchPost(e.target.value));
   };
 
   return (
@@ -14,6 +23,7 @@ function HeaderSearch(props) {
       <ShowOnMobile>
         {visibleHambargar && (
           <HeaderHambargar
+            totalNewMessage={props.totalNewMessage}
             onClickShowHambargar={onClickShowHambargar}
             totalNotification={props.totalNotification}
           />
@@ -28,7 +38,11 @@ function HeaderSearch(props) {
         />
       </ShowOnDesktop>
 
-      <input type="text" placeholder="Search post" />
+      <input
+        onChange={onChangeSearchHandeler}
+        type="text"
+        placeholder="Search post"
+      />
     </div>
   );
 }

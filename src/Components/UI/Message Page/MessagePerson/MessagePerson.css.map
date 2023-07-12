@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["MessagePerson.scss"],"names":[],"mappings":"AACA;EACE;EACA;EACA;EACA;EACA;EACA;EACA;EAOA;;AANA;EACE;EACA;EACA;EACA","file":"MessagePerson.css"}
+{"version":3,"sources":["MessagePerson.scss","MessagePerson.css"],"names":[],"mappings":"AACA;EACE,2BAAA;EACA,aAAA;EACA,mBAAA;EACA,mBAAA;EACA,aAAA;EACA,wBAAA;EACA,oCAAA;EACA,eAAA;EACA,kBAAA;ACAF;ADCE;EACE,cAAA;EACA,eAAA;EACA,oBAAA;KAAA,iBAAA;EACA,kBAAA;ACCJ;;ADGA;EACE,kBAAA;EACA,QAAA;EACA,kBAAA;EACA,kBAAA;EACA,gBAAA;EACA,YAAA;EACA,eAAA;EACA,qBAAA;EACA,iBAAA;ACAF","file":"MessagePerson.css"}
